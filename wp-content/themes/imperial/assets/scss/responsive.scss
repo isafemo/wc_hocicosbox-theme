@@ -1,0 +1,109 @@
+@import "partial/variables";
+@media screen and (min-width: $screen-md-max) {
+    .md-mb-40 {
+        margin-bottom: 40px;
+    }
+    .md-mb-60 {
+        margin-bottom: 60px;
+    }
+}
+@media screen and (max-width: $screen-sm) {
+    .page-head {
+        padding: 40px 0;
+        text-align: center;
+        .breadcrumbs {
+            text-align: center;
+        }
+    }
+    
+    .comments-area {
+        ol {
+            margin-top: 5px;
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+}
+@media screen and ( max-width: 991px ) {
+    .sm-logo {
+        text-align: center;
+    }
+}
+@media screen and (max-width: $screen-sm-max) {
+    .zindex-top {
+        margin-top: 0;
+    }
+    .portfolio-nav li {
+        padding: 4px 6px;
+        margin: 5px 5px 5px 0;
+    }
+}
+@media screen and (max-width: $screen-xs-max) {
+    .xs-mb-20 {
+        margin-bottom: 20px;
+    }
+    .xs-mb-30 {
+        margin-bottom: 30px;
+    }
+    .pad80 {
+        padding: 40px 0 20px;
+    }
+    .promo-block {
+        margin-top: 0;
+    }
+    .service-grid-box {
+        padding: 0 15px;
+    }
+    .wpb_revslider_element{
+        &.wpb_content_element {
+            margin-bottom: 0 !important;
+        }
+    }
+    .xs-no-content-margin {
+        .wpb_content_element {}
+    }
+    .feature-number {
+        margin-bottom: 25px;
+    }
+    .count-box {
+        text-align: center;
+    }
+    .count-box,
+    .team-wrap {
+        margin-bottom: 35px;
+    }
+    .project-nav {
+        ul {
+            li {
+                color: $headings-color;
+                margin: 5px 0 15px 0;
+                display: inline-block;
+                padding: 4px 8px;
+                cursor: pointer;
+            }
+        }
+    }
+    .project-addon {
+        .project-item {
+            &.col-2,
+            &.col-3,
+            &.col-4 {
+                width: 100%;
+            }
+        }
+    }
+    .clients {
+        .vc_figure {
+            float: left;
+            width: 50%;
+        }
+    }
+
+    .footer {
+        .col-xs-12 {
+            clear: both;
+            margin-bottom: 15px;
+        }
+    }
+
+}
