@@ -2090,6 +2090,48 @@ you can use the generic selector below, but it's slower:
 .home-section{
     padding-top: 3.75rem;
 }
+.carousel-home{
+    width: 100%;
+}
+.home-caption-carousel h4 {
+    text-align: left;
+    padding-bottom: 20px;
+    font-family: HelveticaNeue;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.78px;
+    color: #ffffff;
+}
+.home-caption-carousel h5 {
+    text-align: left;
+    font-family: Vintage;
+    font-size: 46px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+.carousel-shop-button{
+    margin-top: 82px;
+    margin-bottom: 50px;
+    padding: 22px 78px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    color: #08c0bc;
+    border: 0;
+}
 .title-box{
     font-family: Vintage;
     font-size: 34px;
