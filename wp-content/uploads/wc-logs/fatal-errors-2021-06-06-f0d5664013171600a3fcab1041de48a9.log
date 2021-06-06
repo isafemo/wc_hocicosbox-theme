@@ -1,0 +1,44 @@
+2021-06-06T11:00:15+00:00 CRITICAL Uncaught Error: Call to undefined function WP_Customize_Section() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\functions.php:72
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(292): hocicosbox_config('')
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-settings.php(538): do_action('after_setup_the...')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-config.php(90): require_once('C:\\Users\\Isabel...')
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-load.php(37): require_once('C:\\Users\\Isabel...')
+#6 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-blog-header.php(13): require_once('C:\\Users\\Isabel...')
+#7 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\index.php(17): require('C:\\Users\\Isabel en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\functions.php en la línea 72
+
+2021-06-06T11:00:15+00:00 CRITICAL Uncaught Error: Call to undefined function WP_Customize_Section() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\functions.php:72
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(292): hocicosbox_config('')
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-settings.php(538): do_action('after_setup_the...')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-config.php(90): require_once('C:\\Users\\Isabel...')
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-load.php(37): require_once('C:\\Users\\Isabel...')
+#6 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-blog-header.php(13): require_once('C:\\Users\\Isabel...')
+#7 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\index.php(17): require('C:\\Users\\Isabel en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\functions.php en la línea 72
+
+2021-06-06T11:00:59+00:00 CRITICAL Uncaught Error: Call to undefined function WP_Customize_Manager() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\functions.php:72
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(292): hocicosbox_config('')
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-settings.php(538): do_action('after_setup_the...')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-config.php(90): require_once('C:\\Users\\Isabel...')
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-load.php(37): require_once('C:\\Users\\Isabel...')
+#6 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-blog-header.php(13): require_once('C:\\Users\\Isabel...')
+#7 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\index.php(17): require('C:\\Users\\Isabel en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\functions.php en la línea 72
+
+2021-06-06T11:01:00+00:00 CRITICAL Uncaught Error: Call to undefined function WP_Customize_Manager() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\functions.php:72
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(292): hocicosbox_config('')
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-settings.php(538): do_action('after_setup_the...')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-config.php(90): require_once('C:\\Users\\Isabel...')
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-load.php(37): require_once('C:\\Users\\Isabel...')
+#6 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-blog-header.php(13): require_once('C:\\Users\\Isabel...')
+#7 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\index.php(17): require('C:\\Users\\Isabel en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\functions.php en la línea 72
+
