@@ -2180,7 +2180,65 @@ you can use the generic selector below, but it's slower:
 }
 
 /* home-box section */
+.home-box{
+    text-align: center;
+}
+.home-box-text{
+    font-family: Vintage;
+    font-size: 46px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #ffffff;
+    position: absolute;
+    top: 40px;
+    left: 60px;
+}
 .home-box-img{
     border: none!important;
     border-radius: 50px;
+}
+.img-home-box-dog{
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+}
+.img-home-box-cat{
+    position: absolute;
+    right: -20px;
+    top: -60px;
+}
+.home-box-button{
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    color: #ffffff;
+    border-radius: 10px;
+    background-color: #8064bc;
+    padding: 18px 38px 19px 41px;
+    position: absolute;
+    bottom: -20px;
+    right: 140px;
+    z-index: 999;
+}
+/*our shop section*/
+.home-ourshop-button{
+    width: 100%;
+    border-radius: 12px;
+    background-color: #08c0bc;
+    font-family: Vintage;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #ffffff;
 }
