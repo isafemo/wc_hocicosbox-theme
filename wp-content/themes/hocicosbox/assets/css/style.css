@@ -2090,8 +2090,15 @@ you can use the generic selector below, but it's slower:
 .home-section{
     padding-top: 3.75rem;
 }
-.carousel-home{
-    width: 100%;
+.carousel-home-container{
+    /*width: 100%!important;*/
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+    /*margin-right: 0px!important;*/
+    /*margin-left: 0px!important;*/
+}
+.img-fluid{
+    max-width: none !important;
 }
 .home-caption-carousel h4 {
     text-align: left;
@@ -2170,4 +2177,10 @@ you can use the generic selector below, but it's slower:
     line-height: normal;
     letter-spacing: 0.6px;
     color:#00a4a0;
+}
+
+/* home-box section */
+.home-box-img{
+    border: none!important;
+    border-radius: 50px;
 }

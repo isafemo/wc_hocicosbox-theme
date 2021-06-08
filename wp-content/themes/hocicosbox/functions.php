@@ -11,11 +11,12 @@
  * Register Custom Navigation Walker
  */
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
-require 'wp-includes/class-wp-customize-section.php';
+require_once get_template_directory() . '/inc/customizer/customizer.php';
+require get_template_directory() . '/inc/customizer/customizer-repeater/inc/customizer.php';
 /**
  * Enqueue Custom Navigation Walker
  */
-function hocicosbox_scripst()
+function hocicosbox_scripts()
 {
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array('jquery'), '4.6.0', true);
     wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), '4.6.0', 'all');
@@ -29,7 +30,7 @@ function hocicosbox_scripst()
     wp_enqueue_style('flexslider-css', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/inc/plugins/flexslider/flexslider-rtl.css'), 'all');
 }
 
-add_action('wp_enqueue_scripts', 'hocicosbox_scripst');
+add_action('wp_enqueue_scripts', 'hocicosbox_scripts');
 
 /**
  * Wordpress features
@@ -69,11 +70,6 @@ function hocicosbox_config()
         $content_width = 600;
     }
 
-//    $wp_customize = WP_Customize_Manager();
-    //Slider section
-//    $wp_customize->add_section(
-//
-//    );
 }
 
 add_action('after_setup_theme', 'hocicosbox_config', 0);
