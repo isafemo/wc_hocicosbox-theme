@@ -1,27 +1,55 @@
 /*
-FONT FACES
+#########################################################################
+#############################----------------------------------FONT FACES
+#########################################################################
 */
 @font-face {
-    font-family: VIntage;
-    src: url(http://wc_hocicosbox.test/wp-content/themes/hocicosbox/assets/fonts/VIntage.ttf);
+    font-family: "VIntage";
+    src: url("../fonts/VIntage.ttf");
+    src: url("../fonts/VIntage.otf");
+    src: url("../fonts/VIntage.woff");
     font-weight: normal;
 }
 
 @font-face {
-    font-family: Helvetica Neue;
-    src: url(http://wc_hocicosbox.test/wp-content/themes/hocicosbox/assets/fonts/HelveticaNeueLTStdRoman.otf);
+    font-family: "HelveticaNeue";
+    src: url("../fonts/HelveticaNeueLTStdRoman.otf");
     font-weight: normal;
+    font-style: normal;
 }
 
+/*
+#########################################################################
+#############################-------------------------------------GENERAL
+#########################################################################
+*/
 body {
-    font-family: Helvetica Neue, Helvetica, Arial;
+    font-family: "HelveticaNeue", Helvetica, Arial, serif;
 }
 
-/*SITE POSITION*/
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+#########################################################################
+#############################-------------------------------SITE POSITION
+#########################################################################
+*/
 .site {
     padding-top: 1.625rem;
 }
 
+/*
+#########################################################################
+#############################----------------------------NOTICIA TOP PAGE
+#########################################################################
+*/
 .woocommerce-store-notice {
     background: #8fd3d0 !important;
     height: 2.5rem !important;
@@ -34,7 +62,11 @@ body {
     letter-spacing: 0.02rem;
 }
 
-/*HEADER*/
+/*
+#########################################################################
+#############################--------------------------------------HEADER
+#########################################################################
+*/
 .logo {
     height: 4.938rem;
 }
@@ -86,56 +118,6 @@ input:focus {
     -webkit-box-shadow: none;
 }
 
-.footer-up{
-    padding: 2.7rem;
-}
-.title-footer{
-    font-family: Helvetica Neue, Helvetica, Arial;
-    font-size: 22px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.36;
-    letter-spacing: 0.28px;
-    color: black;
-}
-.menues-footer{
-    font-family: Helvetica Neue, Helvetica, Arial;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.25;
-    letter-spacing: 0.2px;
-    color: black;
-}
-.footer-menus{
-    padding: 0px;
-}
-
-.footer-down{
-    background-color: #f0edfa;
-}
-.madewithlove{
-    font-family: Helvetica Neue, Helvetica, Arial;
-    font-size: 16px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.32px;
-    color: #6c3fc3;
-    margin-top: 15px;
-}
-
-.cuenta-icon a {
-    content: url('../../assets/images/icons/user.svg');
-}
-
-.carrito-icon a {
-    content: url('../../assets/images/icons/Cokie.svg');
-}
-
 .menu-icons-container ul {
     list-style: none;
 }
@@ -152,13 +134,12 @@ input:focus {
     color: #f18e15!important;
 }
 
-/*MENU-MOBILE*/
-.line-mobile {
-    margin: 45px 0 0px 0px!important;
-    border: solid 1px #ffffff!important;
-}
+/*
+#########################################################################
+#############################--------------------------------------FOOTER
+#########################################################################
+*/
 
-/*FOOTER*/
 footer ul li {
     display: inline;
     margin: 0 5px 0 0;
@@ -166,40 +147,65 @@ footer ul li {
 
 footer a {
     color: black;
-    font-family: Helvetica Neue, Helvetica, Arial;
+    font-family: "HelveticaNeue", Helvetica, Arial;
     font-size: 16px;
 }
 
-/*GENERAL*/
-
-.size-auto,
-.size-full,
-.size-large,
-.size-medium,
-.size-thumbnail {
-    max-width: 100%;
-    height: auto;
+.footer-up{
+    padding: 2.7rem;
 }
-
-/*SHOP*/
-.shop-title {
-    height: 99px;
-    padding: 20px 0px 19px 0px;
-    background-color: #f0edfa;
-    /*font-family: HelveticaNeue;*/
-    font-family: VIntage, Arial;
-    font-size: 46px;
+.title-footer{
+    font-family: "HelveticaNeue", Helvetica, Arial;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    color: black;
+}
+.menues-footer{
+    font-family: "HelveticaNeue", Helvetica, Arial;
+    font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: normal;
-    letter-spacing: 1px;
-    color: #492f82;
-    text-align: center !important;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: black;
+}
+.footer-menus{
+    padding: 0px;
 }
 
-/*ICONS*/
-/* FONTS */
+.footer-down{
+    background-color: #f0edfa;
+}
+.madewithlove{
+    font-family: "HelveticaNeue", Helvetica, Arial;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.32px;
+    color: #6c3fc3;
+    margin-top: 15px;
+}
+
+/*
+#########################################################################
+#############################---------------------------------------ICONS
+#########################################################################
+*/
+.cuenta-icon a {
+    content: url('../../assets/images/icons/user.svg');
+}
+
+.carrito-icon a {
+    content: url('../../assets/images/icons/Cokie.svg');
+}
+
 @font-face {
     font-family: "ElegantIcons";
     src: url("../fonts/ElegantIcons.eot");
@@ -2083,19 +2089,58 @@ you can use the generic selector below, but it's slower:
     font-size: 2em;
 }
 
-/**HOME**/
+/*
+#########################################################################
+#############################---------------------------------MENU MOBILE
+#########################################################################
+*/
+.line-mobile {
+    margin: 45px 0 0px 0px!important;
+    border: solid 1px #ffffff!important;
+}
+
+/*
+#########################################################################
+#############################----------------------------------------SHOP
+#########################################################################
+*/
+.shop-title {
+    height: 99px;
+    padding: 20px 0px 19px 0px;
+    background-color: #f0edfa;
+    /*font-family: HelveticaNeue;*/
+    font-family: "VIntage", Arial;
+    font-size: 46px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #492f82;
+    text-align: center !important;
+}
+
+
+
+/*
+#########################################################################
+#############################----------------------------------------HOME
+#########################################################################
+*/
 .test{
     background-color: #0a5b88;
 }
 .home-section{
     padding-top: 3.75rem;
 }
+/*
+#########################################################################
+#############################-------------------------------HOME/CAROUSEL
+#########################################################################
+*/
 .carousel-home-container{
-    /*width: 100%!important;*/
     padding-right: 0px!important;
     padding-left: 0px!important;
-    /*margin-right: 0px!important;*/
-    /*margin-left: 0px!important;*/
 }
 .img-fluid{
     max-width: none !important;
@@ -2103,7 +2148,7 @@ you can use the generic selector below, but it's slower:
 .home-caption-carousel h4 {
     text-align: left;
     padding-bottom: 20px;
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
@@ -2114,7 +2159,7 @@ you can use the generic selector below, but it's slower:
 }
 .home-caption-carousel h5 {
     text-align: left;
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 46px;
     font-weight: normal;
     font-stretch: normal;
@@ -2123,24 +2168,32 @@ you can use the generic selector below, but it's slower:
     letter-spacing: 1px;
     color: #ffffff;
 }
+.carousel-img {
+    width: 100%;
+    height: 600px;
+    background-color: #0a5b88;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 .carousel-shop-button{
-    margin-top: 82px;
-    margin-bottom: 50px;
-    padding: 22px 78px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    font-family: HelveticaNeue;
-    font-size: 18px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 1.83px;
-    color: #08c0bc;
-    border: 0;
+    margin-top: 82px !important;
+    margin-bottom: 50px !important;
+    padding: 22px 78px !important;
+    border-radius: 10px !important;
+    background-color: #ffffff !important;
+    font-family: "HelveticaNeue" !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    font-stretch: normal !important;
+    font-style: normal !important;
+    line-height: normal !important;
+    letter-spacing: 1.83px !important;
+    color: #08c0bc !important;
+    border: 0 !important;
 }
 .title-box{
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 34px;
     font-weight: normal;
     font-stretch: normal;
@@ -2158,7 +2211,7 @@ you can use the generic selector below, but it's slower:
     border-radius: 50px;
 }
 .title-trades{
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 34px;
     font-weight: normal;
     font-stretch: normal;
@@ -2168,8 +2221,14 @@ you can use the generic selector below, but it's slower:
     text-align: center;
     color: #08c0bc;
 }
+
+/*
+#########################################################################
+#############################-----------------------------------HOME/NEWS
+#########################################################################
+*/
 .title-news{
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 30px;
     font-weight: normal;
     font-stretch: normal;
@@ -2179,12 +2238,48 @@ you can use the generic selector below, but it's slower:
     color:#00a4a0;
 }
 
+.link-news{
+    font-family: "HelveticaNeue" !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    font-stretch: normal !important;
+    font-style: normal !important;
+    line-height: normal !important;
+    letter-spacing: 0.36px !important;
+    color: #8fd3d0 !important;
+}
+
+.new-product-title a{
+    font-family: "HelveticaNeue" !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    font-stretch: normal !important;
+    font-style: normal !important;
+    line-height: 1.11 !important;
+    letter-spacing: 0.23px !important;
+    text-align: center !important;
+    color: #2c2c2c !important;
+}
+
+
+.new-product-price{
+    font-family: "HelveticaNeue" !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    font-stretch: normal !important;
+    font-style: normal !important;
+    line-height: normal !important;
+    letter-spacing: 0.2px !important;
+    text-align: center !important;
+    color: #08c0bc !important;
+}
+
 /* home-box section */
 .home-box{
     text-align: center;
 }
 .home-box-text{
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 46px;
     font-weight: normal;
     font-stretch: normal;
@@ -2211,7 +2306,7 @@ you can use the generic selector below, but it's slower:
     top: -60px;
 }
 .home-box-button{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
@@ -2232,7 +2327,7 @@ you can use the generic selector below, but it's slower:
     width: 100%;
     border-radius: 12px;
     background-color: #08c0bc;
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 20px;
     font-weight: normal;
     font-stretch: normal;
@@ -2242,3 +2337,41 @@ you can use the generic selector below, but it's slower:
     text-align: center;
     color: #ffffff;
 }
+
+/*Home News Section*/
+.hr-home-title{
+    background-color: #8fd3d0;
+}
+
+.new-product-box{
+    width: 100%;
+    /*height: 50%;*/
+    /*max-height: 600px;*/
+}
+
+.shop-item-image{
+    width: 244px;
+    height: 244px;
+    background-color: #0a5b88;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/*TRADES*/
+.img-home-trades{
+    max-height: 78px;
+}
+
+/*SOLIDARY*/
+.home-solidary-section{
+    /*height: 565px;*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.solidary-side{
+    padding: 120px;
+}
+

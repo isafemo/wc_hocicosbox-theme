@@ -12,7 +12,6 @@
  */
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 require_once get_template_directory() . '/inc/customizer/customizer.php';
-require get_template_directory() . '/inc/customizer/customizer-repeater/inc/customizer.php';
 /**
  * Enqueue Custom Navigation Walker
  */
@@ -28,6 +27,7 @@ function hocicosbox_scripts()
     wp_enqueue_script('flexslider-min-js', get_template_directory_uri() . '/inc/plugins/flexslider/jquery.flexslider-min.js', array('jquery'), '', true);
     wp_enqueue_script('flexslider-js', get_template_directory_uri() . '/inc/plugins/flexslider/flexslider.js', array('jquery'), '', true);
     wp_enqueue_style('flexslider-css', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/inc/plugins/flexslider/flexslider-rtl.css'), 'all');
+    wp_enqueue_script('slider-scale-js', get_template_directory_uri() . '/assets/js/imageScale/image-scale.js', array('jquery'), '', true);
 }
 
 add_action('wp_enqueue_scripts', 'hocicosbox_scripts');

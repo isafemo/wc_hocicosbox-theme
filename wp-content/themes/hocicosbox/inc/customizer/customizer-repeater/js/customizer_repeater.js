@@ -61,7 +61,7 @@ function customizer_repeater_uniqid(prefix, more_entropy) {
         }
         if (reqWidth > seed.length) { // so short we pad
             return new Array(1 + (reqWidth - seed.length))
-                    .join('0') + seed;
+                .join('0') + seed;
         }
         return seed;
     };
@@ -78,7 +78,7 @@ function customizer_repeater_uniqid(prefix, more_entropy) {
 
     retId = prefix; // start with prefix, add current milliseconds hex string
     retId += formatSeed(parseInt(new Date()
-            .getTime() / 1000, 10), 8);
+        .getTime() / 1000, 10), 8);
     retId += formatSeed(php_js.uniqidSeed, 5); // add seed hex string
     if (more_entropy) {
         // for more entropy we add a float lower to 10
@@ -131,11 +131,14 @@ function customizer_repeater_refresh_general_control_values() {
             var icon_value = jQuery(this).find('.icp').val();
             var text = jQuery(this).find('.customizer-repeater-text-control').val();
             var link = jQuery(this).find('.customizer-repeater-link-control').val();
-            var label = jQuery(this).find('.customizer-repeater-label-control').val();
+            var text2 = jQuery(this).find('.customizer-repeater-text2-control').val();
+            var link2 = jQuery(this).find('.customizer-repeater-link2-control').val();
+            var color = jQuery(this).find('input.customizer-repeater-color-control').val();
+            var color2 = jQuery(this).find('input.customizer-repeater-color2-control').val();
             var image_url = jQuery(this).find('.custom-media-url').val();
             var choice = jQuery(this).find('.customizer-repeater-image-choice').val();
             var title = jQuery(this).find('.customizer-repeater-title-control').val();
-            var subtext = jQuery(this).find('.customizer-repeater-subtext-control').val();
+            var subtitle = jQuery(this).find('.customizer-repeater-subtitle-control').val();
             var id = jQuery(this).find('.social-repeater-box-id').val();
             if (!id) {
                 id = 'social-repeater-' + customizer_repeater_uniqid();
@@ -143,22 +146,23 @@ function customizer_repeater_refresh_general_control_values() {
             }
             var social_repeater = jQuery(this).find('.social-repeater-socials-repeater-colector').val();
             var shortcode = jQuery(this).find('.customizer-repeater-shortcode-control').val();
-            var description = jQuery(this).find('.customizer-repeater-description-control').val();
 
-            if (text !== '' || image_url !== '' || title !== '' || subtext !== '' || icon_value !== '' || link !== '' || label !== '' || choice !== '' || social_repeater !== '' || shortcode !== '' || description !== '') {
+            if (text !== '' || image_url !== '' || title !== '' || subtitle !== '' || icon_value !== '' || link !== '' || choice !== '' || social_repeater !== '' || shortcode !== '' || color !== '') {
                 values.push({
                     'icon_value': (choice === 'customizer_repeater_none' ? '' : icon_value),
+                    'color': color,
+                    'color2': color2,
                     'text': escapeHtml(text),
                     'link': link,
-                    'label': escapeHtml(label),
+                    'text2': escapeHtml(text2),
+                    'link2': link2,
                     'image_url': (choice === 'customizer_repeater_none' ? '' : image_url),
                     'choice': choice,
                     'title': escapeHtml(title),
-                    'subtext': escapeHtml(subtext),
+                    'subtitle': escapeHtml(subtitle),
                     'social_repeater': escapeHtml(social_repeater),
                     'id': id,
-                    'shortcode': escapeHtml(shortcode),
-                    'description': escapeHtml(description)
+                    'shortcode': escapeHtml(shortcode)
                 });
             }
 
@@ -175,7 +179,10 @@ jQuery(document).ready(function () {
     theme_conrols.on('click', '.customizer-repeater-customize-control-title', function () {
         jQuery(this).next().slideToggle('medium', function () {
             if (jQuery(this).is(':visible')){
+                jQuery(this).prev().addClass('repeater-expanded');
                 jQuery(this).css('display', 'block');
+            } else {
+                jQuery(this).prev().removeClass('repeater-expanded');
             }
         });
     });
@@ -189,25 +196,37 @@ jQuery(document).ready(function () {
         if (jQuery(this).val() === 'customizer_repeater_image') {
             jQuery(this).parent().parent().find('.social-repeater-general-control-icon').hide();
             jQuery(this).parent().parent().find('.customizer-repeater-image-control').show();
+            jQuery(this).parent().parent().find('.customizer-repeater-color-control').prev().prev().hide();
+            jQuery(this).parent().parent().find('.customizer-repeater-color-control').hide();
+
         }
         if (jQuery(this).val() === 'customizer_repeater_icon') {
             jQuery(this).parent().parent().find('.social-repeater-general-control-icon').show();
             jQuery(this).parent().parent().find('.customizer-repeater-image-control').hide();
+            jQuery(this).parent().parent().find('.customizer-repeater-color-control').prev().prev().show();
+            jQuery(this).parent().parent().find('.customizer-repeater-color-control').show();
         }
         if (jQuery(this).val() === 'customizer_repeater_none') {
             jQuery(this).parent().parent().find('.social-repeater-general-control-icon').hide();
             jQuery(this).parent().parent().find('.customizer-repeater-image-control').hide();
+            jQuery(this).parent().parent().find('.customizer-repeater-color-control').prev().prev().hide();
+            jQuery(this).parent().parent().find('.customizer-repeater-color-control').hide();
         }
 
         customizer_repeater_refresh_general_control_values();
         return false;
     });
     media_upload('.customizer-repeater-custom-media-button');
-    jQuery('.custom-media-url').bind('change', function () {
+    jQuery('.custom-media-url').on('change', function () {
         customizer_repeater_refresh_general_control_values();
         return false;
     });
 
+    var color_options = {
+        change: function(event, ui){
+            customizer_repeater_refresh_general_control_values();
+        }
+    };
 
     /**
      * This adds a new box to repeater
@@ -218,10 +237,9 @@ jQuery(document).ready(function () {
         var id = 'customizer-repeater-' + customizer_repeater_uniqid();
         if (typeof th !== 'undefined') {
             /* Clone the first box*/
-            var field = th.find('.customizer-repeater-general-control-repeater-container:first').clone();
+            var field = th.find('.customizer-repeater-general-control-repeater-container:first').clone( true, true );
 
             if (typeof field !== 'undefined') {
-
                 /*Set the default value for choice between image and icon to icon*/
                 field.find('.customizer-repeater-image-choice').val('customizer_repeater_icon');
 
@@ -237,7 +255,7 @@ jQuery(document).ready(function () {
                 field.find('.social-repeater-general-control-remove-field').show();
 
                 /* Empty control for icon */
-                field.find( '.input-group-addon' ).find('i').attr('class','');
+                field.find('.input-group-addon').find('.fa').attr('class', 'fa');
 
 
                 /*Remove all repeater fields except first one*/
@@ -248,7 +266,6 @@ jQuery(document).ready(function () {
 
                 /*Remove value from icon field*/
                 field.find('.icp').val('');
-                field.find('.icp').attr('value', '');
 
                 /*Remove value from text field*/
                 field.find('.customizer-repeater-text-control').val('');
@@ -256,8 +273,11 @@ jQuery(document).ready(function () {
                 /*Remove value from link field*/
                 field.find('.customizer-repeater-link-control').val('');
 
-                /*Remove value from label field*/
-                field.find('.customizer-repeater-label-control').val('');
+                /*Remove value from text field*/
+                field.find('.customizer-repeater-text2-control').val('');
+
+                /*Remove value from link field*/
+                field.find('.customizer-repeater-link2-control').val('');
 
                 /*Set box id*/
                 field.find('.social-repeater-box-id').val(id);
@@ -268,32 +288,43 @@ jQuery(document).ready(function () {
                 /*Remove value from title field*/
                 field.find('.customizer-repeater-title-control').val('');
 
-                /*Remove value from subtext field*/
-                field.find('.customizer-repeater-subtext-control').val('');
+
+                /*Remove value from color field*/
+                field.find('div.customizer-repeater-color-control .wp-picker-container').replaceWith('<input type="text" class="customizer-repeater-color-control ' + id + '">');
+                field.find('input.customizer-repeater-color-control').wpColorPicker(color_options);
+
+
+                field.find('div.customizer-repeater-color2-control .wp-picker-container').replaceWith('<input type="text" class="customizer-repeater-color2-control ' + id + '">');
+                field.find('input.customizer-repeater-color2-control').wpColorPicker(color_options);
+
+                // field.find('.customize-control-notifications-container').remove();
+
+
+                /*Remove value from subtitle field*/
+                field.find('.customizer-repeater-subtitle-control').val('');
 
                 /*Remove value from shortcode field*/
                 field.find('.customizer-repeater-shortcode-control').val('');
 
-                /*Remove value from description field*/
-                field.find('.customizer-repeater-description-control').val('');
-
                 /*Append new box*/
                 th.find('.customizer-repeater-general-control-repeater-container:first').parent().append(field);
 
-                wp.customizerRepeater.init();
                 /*Refresh values*/
                 customizer_repeater_refresh_general_control_values();
             }
 
         }
-        // return false;
+        return false;
     });
 
 
     theme_conrols.on('click', '.social-repeater-general-control-remove-field', function () {
         if (typeof    jQuery(this).parent() !== 'undefined') {
-            jQuery(this).parent().parent().remove();
-            customizer_repeater_refresh_general_control_values();
+            jQuery(this).parent().hide(500, function(){
+                jQuery(this).parent().remove();
+                customizer_repeater_refresh_general_control_values();
+
+            });
         }
         return false;
     });
@@ -303,15 +334,14 @@ jQuery(document).ready(function () {
         customizer_repeater_refresh_general_control_values();
     });
 
-    theme_conrols.on('keyup', '.customizer-repeater-subtext-control', function () {
+    jQuery('input.customizer-repeater-color-control').wpColorPicker(color_options);
+    jQuery('input.customizer-repeater-color2-control').wpColorPicker(color_options);
+
+    theme_conrols.on('keyup', '.customizer-repeater-subtitle-control', function () {
         customizer_repeater_refresh_general_control_values();
     });
 
     theme_conrols.on('keyup', '.customizer-repeater-shortcode-control', function () {
-        customizer_repeater_refresh_general_control_values();
-    });
-
-    theme_conrols.on('keyup', '.customizer-repeater-description-control', function () {
         customizer_repeater_refresh_general_control_values();
     });
 
@@ -323,13 +353,18 @@ jQuery(document).ready(function () {
         customizer_repeater_refresh_general_control_values();
     });
 
-    theme_conrols.on('keyup', '.customizer-repeater-label-control', function () {
+    theme_conrols.on('keyup', '.customizer-repeater-text2-control', function () {
+        customizer_repeater_refresh_general_control_values();
+    });
+
+    theme_conrols.on('keyup', '.customizer-repeater-link2-control', function () {
         customizer_repeater_refresh_general_control_values();
     });
 
     /*Drag and drop to change icons order*/
 
     jQuery('.customizer-repeater-general-control-droppable').sortable({
+        axis: 'y',
         update: function () {
             customizer_repeater_refresh_general_control_values();
         }
@@ -342,15 +377,25 @@ jQuery(document).ready(function () {
         var th = jQuery(this).parent();
         var id = 'customizer-repeater-social-repeater-' + customizer_repeater_uniqid();
         if (typeof th !== 'undefined') {
-            var field = th.find('.customizer-repeater-social-repeater-container:first').clone();
+            var field = th.find('.customizer-repeater-social-repeater-container:first').clone( true, true );
             if (typeof field !== 'undefined') {
                 field.find( '.icp' ).val('');
                 field.find( '.input-group-addon' ).find('.fa').attr('class','fa');
+                field.find('.social-repeater-remove-social-item').show();
                 field.find('.customizer-repeater-social-repeater-link').val('');
                 field.find('.customizer-repeater-social-repeater-id').val(id);
                 th.find('.customizer-repeater-social-repeater-container:first').parent().append(field);
             }
         }
+        return false;
+    });
+
+    theme_conrols.on('click', '.social-repeater-remove-social-item', function (event) {
+        event.preventDefault();
+        var th = jQuery(this).parent();
+        var repeater = jQuery(this).parent().parent();
+        th.remove();
+        customizer_repeater_refresh_social_icons(repeater);
         return false;
     });
 
@@ -361,12 +406,12 @@ jQuery(document).ready(function () {
         return false;
     });
 
-    theme_conrols.on( 'iconpickerUpdated','.icp', function(event) {
+    theme_conrols.on('change', '.customizer-repeater-social-repeater-container .icp', function (event) {
         event.preventDefault();
-        var th = jQuery(this).parent().parent().parent();
-        customizer_repeater_refresh_social_icons(th);
+        var repeater = jQuery(this).parent().parent().parent();
+        customizer_repeater_refresh_social_icons(repeater);
         return false;
-    } );
+    });
 
 });
 
