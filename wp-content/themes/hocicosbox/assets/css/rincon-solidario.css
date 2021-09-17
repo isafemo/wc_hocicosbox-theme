@@ -1,0 +1,65 @@
+.rs-title{
+    text-align: center;
+    font-family: "VIntage", Arial;
+    padding: 21px;
+    background-color: #f0edfa;
+    /*box-shadow: -2px -2px 10px -1px rgba(0, 0, 0, 0.2);*/
+    box-shadow: inset 0px 8px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.rs-title h2{
+    color: #492f82 !important;
+    font-size: 46px;
+}
+
+.rs-desc{
+    padding-top: 36px;
+    font-family: "HelveticaNeue";
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    text-align: center;
+    color: black;
+}
+
+.rs-tarjeta{
+    padding: 100px;
+    margin: 25px;
+}
+
+.rs-tarjeta h2{
+    font-family: "VIntage", Arial;
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    color: #fff;
+}
+
+.rs-tarjeta p{
+    font-family: "HelveticaNeue";
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.25px;
+    color: #fff;
+}
+
+.btn-rs{
+    font-family: "HelveticaNeue";
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    color: #fff;
+
+}

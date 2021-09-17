@@ -179,10 +179,10 @@ class Customizer_Repeater extends WP_Customize_Control {
 		/*Counter that helps checking if the box is first and should have the delete button disabled*/
 		$it = 0;
 		if(!empty($array)){
-			foreach($array as $icon){ ?>
+			foreach($array as $key => $icon){ ?>
                 <div class="customizer-repeater-general-control-repeater-container customizer-repeater-draggable">
                     <div class="customizer-repeater-customize-control-title">
-						<?php echo esc_html( $this->boxtitle ) ?>
+						<?php echo esc_html( $this->boxtitle ) . ' ' . ($key+1) ?>
                     </div>
                     <div class="customizer-repeater-box-content-hidden">
 						<?php
@@ -476,11 +476,14 @@ class Customizer_Repeater extends WP_Customize_Control {
 		<?php
 	}
 
-	private function image_control($value = ''){ ?>
+	private function image_control($value = ''){?>
         <div class="customizer-repeater-image-control" >
             <span class="customize-control-title">
                 <?php esc_html_e('Image','your-textdomain')?>
             </span>
+            <div class="thumbnail thumbnail-image">
+                <img class="attachment-thumb" src="<?php echo esc_attr( $value ); ?>" draggable="false" alt="">
+            </div>
             <input type="text" class="widefat custom-media-url" value="<?php echo esc_attr( $value ); ?>">
             <input type="button" class="button button-secondary customizer-repeater-custom-media-button" value="<?php esc_attr_e( 'Upload Image','your-textdomain' ); ?>" />
         </div>

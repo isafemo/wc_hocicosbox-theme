@@ -23,6 +23,7 @@ function hocicosbox_scripts()
     wp_enqueue_script('header-js', get_template_directory_uri() . '/assets/js/header.js', array('jquery'), '1.0', true);
     wp_enqueue_style('hocicosbox-style-css', get_template_directory_uri() . '/assets/css/style.css', array(), '1.1', 'all');
     wp_enqueue_style('hocicosbox-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/style.css'), 'all');
+    wp_enqueue_style('hocicosbox-style-rs-css', get_template_directory_uri() . '/assets/css/rincon-solidario.css', array(), '1.1', 'all');
     // Flexible JS and CSS files
     wp_enqueue_script('flexslider-min-js', get_template_directory_uri() . '/inc/plugins/flexslider/jquery.flexslider-min.js', array('jquery'), '', true);
     wp_enqueue_script('flexslider-js', get_template_directory_uri() . '/inc/plugins/flexslider/flexslider.js', array('jquery'), '', true);
@@ -61,6 +62,7 @@ function hocicosbox_config()
     );
 
     add_image_size('hocicosbox-slider',1920,800,array('center','center'));
+    add_image_size('hocicosbox-home-blog',305,306,array('center','center'));
 
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
