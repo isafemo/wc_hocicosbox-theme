@@ -3,7 +3,7 @@
 * Plugin Name: Correos Express Plugin
 * Plugin URI:
 * Description: Module for the management of shipments and synchronization with CorreosExpress
-* Version: 2.5.10
+* Version: 2.5.20
 * Author: Correos Express
 * Author URI:
 * License: GPL2
@@ -32,7 +32,9 @@
  * @since  2.0
  * @return CorreosExpress
  */
+
 defined('ABSPATH') || exit;
+
 class CorreosExpress
 {
     public function __construct()
@@ -57,6 +59,8 @@ class CorreosExpress
         register_activation_hook(__FILE__, array('CorreosExpress','cex_install'));
         register_deactivation_hook(__FILE__, array('CorreosExpress','cex_deactivation'));
         register_uninstall_hook(__FILE__, array('CorreosExpress','cex_unistall'));
+
+
         add_action('plugins_loaded', array($this,'cex_load_plugin_textdomain'));
         if (is_admin()) {
             if (isset($_GET['post']) && intval($_GET['post'])) {
@@ -159,18 +163,13 @@ class CorreosExpress
         add_action('wp_ajax_cex_soft_delete_savedShip', array($this, 'cex_soft_delete_savedShip'));
         add_action('wp_ajax_nopriv_cex_soft_delete_savedShip', array($this, 'cex_soft_delete_savedShip'));
         add_action('wp_ajax_cex_form_pedido_borrar', array($this, 'cex_form_pedido_borrar'));
-        add_action('wp_ajax_nopriv_cex_form_pedido_borrar', array($this, 'cex_form_pedido_borrar'));
         add_action('wp_ajax_cex_retornar_destinatario', array($this, 'cex_retornar_destinatario'));
         add_action('wp_ajax_nopriv_cex_retornar_destinatario', array($this, 'cex_retornar_destinatario'));
         add_action('wp_ajax_cex_validar_credenciales', array($this, 'cex_validar_credenciales'));
         add_action('wp_ajax_nopriv_cex_validar_credenciales', array($this, 'cex_validar_credenciales'));
-        add_action('wp_ajax_process_complete', array($this,'cex_ejecutarUpdateDB'));
-        add_action('wp_ajax_nopriv_process_complete', array($this,'cex_ejecutarUpdateDB'));
 
+        add_action( 'upgrader_process_complete', array($this,'cex_ejecutarUpdateDB') );
 
-        add_action('wp_ajax_cex_ejecutarUpdateDB', array($this,'cex_ejecutarUpdateDB'));
-        add_action('wp_ajax_nopriv_cex_ejecutarUpdateDB', array($this,'cex_ejecutarUpdateDB'));
-		add_action('upgrader_process_complete', 'cex_ejecutarUpdate', 10, 2 );
     }
 
     public function cex_notice()
@@ -850,11 +849,11 @@ class CorreosExpress
     {
         install_db();
 
-        global $wpdb;
+        /*global $wpdb;
         $table = $wpdb->prefix.'cex_migrations';
         $resultados = $wpdb->get_results("SELECT * FROM $table");
 
-        die(var_export($resultados));
+        die(var_export($resultados));*/
     }
     
     //FORMULARIO AJUSTES
@@ -2449,7 +2448,7 @@ public function cex_soap()
                 //iniciarCreacionEtiquetas($numcollect);
                 //notiticar al de la tienda.
                 //$order->add_order_note("Ya tiene asignado numero de envio y sus etiquetas ", 0, "Correos Express");
-                if ($opciones['MXPS_ENABLESHIPPINGTRACK'] == true) {
+                if (strcmp($opciones['MXPS_ENABLESHIPPINGTRACK'],'true') == 0) {
                     //a?adir un mensaje al cliente
                     $nota = esc_html(__("Ya puede hacer seguimiento de su pedido con referencia ", "cex_pluggin"));
                     $order->add_order_note($nota.$respuesta_envio['numShip']." <a   href='https://s.correosexpress.com/c?n=".$respuesta_envio['numShip']."' target='blank'>".esc_html(__('aqui', 'cex_pluggin'))."</a>", 1, "Correos Express");
@@ -2544,7 +2543,7 @@ public function cex_soap()
                 //iniciarCreacionEtiquetas($numcollect);
                 //notiticar al de la tienda.
                 //$order->add_order_note("Ya tiene asignado numero de envio y sus etiquetas ", 0, "Correos Express");
-                if ($opciones['MXPS_ENABLESHIPPINGTRACK'] == true) {
+                if (strcmp($opciones['MXPS_ENABLESHIPPINGTRACK'],'true') == 0) {
                     //a?adir un mensaje al cliente
                     $nota = esc_html(__("Ya puede hacer seguimiento de su pedido con referencia ", "cex_pluggin"));
                     $order->add_order_note($nota.$respuesta_envio['numShip']." <a   href='https://s.correosexpress.com/c?n=".$respuesta_envio['numShip']."' target='blank'>".esc_html(__('aqui', 'cex_pluggin'))."</a>", 1, "Correos Express");
@@ -2636,7 +2635,7 @@ public function cex_soap()
                 $this->cex_guardar_savedships($datosOrden, $respuesta_envio['numShip'], $type);
 
                 if ($this->cex_comprobar_idpedido_numShip($numcollect, 'Envio')==false) {
-                    if ($opciones['MXPS_ENABLESHIPPINGTRACK'] == true) {
+                    if (strcmp($opciones['MXPS_ENABLESHIPPINGTRACK'],'true') == 0) {
                         //a?adir un mensaje al cliente
                         $order = new WC_Order(intval($orden['id']));
                         $nota = esc_html(__("Ya puede hacer seguimiento de su pedido con referencia ", "cex_pluggin"));
@@ -2729,7 +2728,7 @@ public function cex_soap()
                 $this->cex_guardar_savedships($datosOrden, $respuesta_envio['numShip'], $type);
 
                 if ($this->cex_comprobar_idpedido_numShip($numcollect, 'Envio')==false) {
-                    if ($opciones['MXPS_ENABLESHIPPINGTRACK'] == true) {
+                    if (strcmp($opciones['MXPS_ENABLESHIPPINGTRACK'],'true') == 0) {
                         //a?adir un mensaje al cliente
                         $order = new WC_Order(intval($orden['id']));
                         $nota = esc_html(__("Ya puede hacer seguimiento de su pedido con referencia ", "cex_pluggin"));
@@ -2848,7 +2847,7 @@ public function cex_soap()
             }
 
             if (strstr($iso_code, 'PT')) {
-                if (strstr($metodo->id_bc, '63')) {
+                if (strstr($metodo->id_bc, '63') || strstr($metodo->id_bc, '26') || strstr($metodo->id_bc, '46') || strstr($metodo->id_bc, '79')) {
                     $modificacionAutomatica = 0;
                     $id_bc = $metodo->id_bc;
                     $nombreMetodo = $metodo->name;

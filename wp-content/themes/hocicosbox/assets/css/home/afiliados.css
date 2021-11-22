@@ -1,0 +1,104 @@
+.hazte-de-la-familia {
+    font-family: Vintage;
+    font-size: 46px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #08c0bc;
+}
+
+.registrndote-en-Hoc {
+    margin-left: 50px;
+    font-family: HelveticaNeue;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    color: black;
+}
+
+.queremos-celebrar-co {
+    margin-left: 50px;
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: 0.23px;
+    color: #9b9b9b;
+}
+.bigSquare{
+    width: 692px;
+    height: 442px;
+    border-radius: 89px;
+    background-color: #0a4b78;
+}
+
+.smallSquare{
+    width: 240px;
+    height: 172.7px;
+    background-color: #0a5b88;
+    border-radius: 46px;
+    position: relative;
+    margin-top: -80px;
+    margin-left: 500px;
+}
+
+.btn-afiliados{
+    margin-left: 50px;
+}
+
+.purple-line{
+    width: 3px;
+    height: 41px;
+    margin: 71.7px 134px 14px 13px;
+    background-color: #492f82;
+}
+
+.regstrate-en-Hocico {
+    font-family: Vintage;
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    text-align: center;
+    color: #8064bc;
+}
+
+.img-resgistro-afiliados{
+    width: 100%;
+    height: 306px;
+    background-color: #0a4b78;
+    border-radius: 64px;
+}
+
+.title-registro-afiliados{
+    font-family: HelveticaNeue;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    text-align: center;
+    color: black;
+}
+
+.Solo-por-registrarte {
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: 0.23px;
+    color: #9b9b9b;
+}

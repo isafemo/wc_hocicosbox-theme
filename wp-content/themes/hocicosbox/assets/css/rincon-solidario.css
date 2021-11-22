@@ -28,6 +28,9 @@
 .rs-tarjeta{
     padding: 100px;
     margin: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .rs-tarjeta h2{

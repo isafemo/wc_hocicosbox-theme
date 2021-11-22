@@ -24,7 +24,7 @@ get_header() ?>
             </div>
         </div>
         <div class="container">
-            <div class="row rs-tarjeta" style="background-color: #0a4b78">
+            <div class="row rs-tarjeta" style="background-color: #0a4b78; background-image: url('assets/images/imagenes-test/imagen-1-solidary.png') ">
                 <div class="col">
                     <div class="row">
                         <div class="col-6">
@@ -44,7 +44,7 @@ get_header() ?>
                     </div>
                 </div>
             </div>
-            <div class="row rs-tarjeta" style="background-color: #0a4b78">
+            <div class="row rs-tarjeta" style="background-color: #0a4b78; background-image: url('assets/images/imagenes-test/imagen-2-solidary.png')">
                 <div class="col">
                     <div class="row">
                         <div class="col-6">

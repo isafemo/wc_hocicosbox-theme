@@ -2,6 +2,7 @@
 
 require_once('helpers.php');
 
+require_once(ABSPATH.'wp-content/plugins/correos-express/constants.php');
 
 function enviar_peticion_recogida_rest_cex($datos)
 {
@@ -147,12 +148,16 @@ function cex_enviar_peticion_envio_rest($datos)
     $longitud = 5;
     $cprem = $datos['postcode_sender'];
     $cpdest = $datos['postcode_receiver'];   
-    $postcode_sender = cex_rellenar_ceros($cprem, $longitud);    
+    $postcode_sender = cex_rellenar_ceros($cprem, $longitud);
+
+    $codigo_cliente= substr($datos["codigo_cliente"], 0, 5);
+    $codigo_solicitante = obtenerCodigoSolicitante().$codigo_cliente;
+
     $data = array(
-            "solicitante"   => $datos['codigo_solicitante'],
+            "solicitante"   => $codigo_solicitante,
             "canalEntrada"  => "",
             "numEnvio"      => "",
-            "ref"           => $datos['id'],
+            "ref"           => $datos['ref_ship'],
             "refCliente"    => $datos['ref_ship'],
             "fecha"         => $fechaformat[2].$fechaformat[1].$fechaformat[0],
             "codRte"        => $datos['codigo_cliente'],
@@ -292,12 +297,16 @@ function enviar_peticion_masivas_rest($datos){
     $longitud = 5;
     $cprem = $datos['postcode_sender'];
     $cpdest = $datos['postcode_receiver'];
-    $postcode_sender = cex_rellenar_ceros($cprem, $longitud);    
+    $postcode_sender = cex_rellenar_ceros($cprem, $longitud);  
+    
+    $codigo_cliente= substr($datos["codigo_cliente"], 0, 5);
+    $codigo_solicitante = obtenerCodigoSolicitante().$codigo_cliente;
+
     $data = array(
-            "solicitante"   => $datos['codigo_solicitante'],
+            "solicitante"   => $codigo_solicitante,
             "canalEntrada"  => "",
             "numEnvio"      => "",
-            "ref"           => $datos['id'],
+            "ref"           => $datos['ref_ship'],
             "refCliente"    => $datos['ref_ship'],
             "fecha"         => $fechaformat[2].$fechaformat[1].$fechaformat[0],
             "codRte"        => $datos['codigo_cliente'],
@@ -722,6 +731,7 @@ function cex_procesar_peticion_envio_rest($rest, $retorno, $id_orden, $type, $nu
 
         //si retorno vacio el WS no funciono
         // SI DA ERROR 500
+
     if (empty($retorno)) {
         $historyEnv = array(
             'type'                  =>$type ,
@@ -832,7 +842,6 @@ function cex_procesar_peticion_envio_rest($rest, $retorno, $id_orden, $type, $nu
                 'hora_recogida_desde'   =>null,
                 'hora_recogida_hasta'   =>null,
             );
-            
             $wpdb->insert($nombreTabla, $historyEnv);
 
             foreach ($listaBultos as $bulto) {
@@ -1356,5 +1365,19 @@ function cex_procesar_curl_validacion($peticion, $usuario=false, $password=false
         return $ret;
     }
 
+    function obtenerCodigoSolicitante(){
+
+        global $wp_version;
+        
+        
+        $version = CORREOSEXPRESS_VERSION_SOLICITANTE;
+
+        $versionCms = str_replace('.', '',$wp_version);
+        $versionCms = substr($versionCms, 0, 3);
+
+        $codigo="W".$versionCms."_".$version."_";
+
+        return $codigo;
+    }
 
 

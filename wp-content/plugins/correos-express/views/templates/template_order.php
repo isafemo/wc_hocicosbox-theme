@@ -1078,7 +1078,7 @@ function validarDestinoEnvio(){
                     'nonce'                     : (jQuery)('#cex-nonce').val(),
                 },
                 success: function(msg){
-                    if(contenidoVal != '63'){
+                    if(contenidoVal != '63' && contenidoVal != '26' && contenidoVal != '46' && contenidoVal != '79'){
                         PNotify.prototype.options.styling = "bootstrap3";
                             new PNotify({
                                 title: "<?php esc_html_e('Cambio de modalidad', 'cex_pluggin');?>",

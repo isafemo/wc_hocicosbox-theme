@@ -65,6 +65,7 @@ function install_db()
     $tabla19 = cex_migracion36($wpdb);
     $tabla20 = cex_migracion37($wpdb);
     $tabla21 = cex_migracion38($wpdb);
+    $pobladoIslas = cex_seeding_saved_modeships_3($wpdb);
 
 }
 

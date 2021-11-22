@@ -1,0 +1,257 @@
+@media (min-width: 1200px) {
+    .contact-background h1{
+        font-size: 46px;
+    }
+    .contact-background .purple-layer{
+        font-size: 20px;
+        margin-bottom: 25px;
+        margin-top: 25px;
+    }
+    .contact-background .white-layer{
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+    .contact-background .white-layer-icon{
+        font-size: 36px;
+    }
+    .float-container input {
+        font-size: 18px;
+        margin: 16px 0 10px;
+    }
+    .float-container label {
+        font-size: 14px;
+    }
+    .ig-time h1{
+        margin-top: 58px;
+        font-size: 34px;
+    }
+    .ig-time h2{
+        font-size: 24px;
+    }
+    .contact-paw{
+        margin-top: -38px;
+        margin-left: 665px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+}
+@media (min-width: 768px) {
+    .contact-paw{
+        margin-top: -38px;
+        margin-left: 465px;
+    }
+}
+@media (min-width: 576px) {
+    .contact-paw{
+        margin-top: -38px;
+        margin-left: 80%;
+    }
+}
+.contact-background {
+    /*background: rgb(34,193,195);*/
+    /*background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);*/
+    padding-top: 38px;
+    background-image: linear-gradient(to bottom, #a89dd4, #a99eda 32%, #958acb 87%, #8a7ec0);
+}
+.contact-background h1{
+    font-family: VIntage;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.contact-background .purple-layer{
+    font-family: HelveticaNeue;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 2.04px;
+    color: #492f82;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+.contact-background .white-layer{
+    font-family: HelveticaNeue;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.contact-background .white-layer-icon{
+    font-family: HelveticaNeue;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    color: #fff;
+}
+
+.contact-back{
+    background-image: url('../../../assets/images/contact-images/group-5.png');
+    background-position: right;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.float-container {
+    padding: 0 8px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.float-container input {
+    border: none;
+    font-family: HelveticaNeue;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.23px;
+    margin: 16px 0 10px;
+    outline: 0;
+}
+.float-container label {
+    font-family: HelveticaNeue;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.18px;
+    color: #000;
+    position: absolute;
+    transform-origin: top left;
+    transform: translate(0, 16px) scale(1);
+    transition: all .1s ease-in-out;
+}
+
+.texta-contact{
+    border: 0px;
+    width: 100%;
+    overflow-y: scroll;
+    resize: none;
+    padding: 15px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.ig-time h1{
+    margin-top: 58px;
+    font-family: VIntage;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    text-align: center;
+    color: #8064bc;
+}
+
+.ig-time h2{
+    font-family: HelveticaNeue;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 2.44px;
+    color: #fff;
+    z-index: 3 !important;
+}
+
+/*ME QUEDE AQUI*/
+.ig-box{
+    position: relative;
+    padding: 18px 66px;
+    border-radius: 10px;
+    background-color: #08c0bc;
+    margin-top: 20px;
+    margin-bottom: -35px;
+    text-align: center;
+    vertical-align: center;
+    z-index: 3 !important;
+}
+
+.ig-fo{
+    margin: 0px;
+    padding: 0px;
+    z-index: 2 !important;
+}
+
+#sb_instagram #sbi_images{
+    margin: 0px !important;
+    z-index: 2 !important;
+}
+
+.write-us{
+    margin-bottom: 4%;
+}
+
+.contact-paw{
+    width: 70px;
+    height: 124px;
+    position: absolute;
+    background-image:  url('../../../assets/images/contact-images/patita.svg');
+}
+
+.wpcf7-list-item-label{
+    color: black !important;
+}
+
+#contactSubmit{
+    padding: 22px 126px !important;
+    border-radius: 10px !important;
+    background-color: #08c0bc !important;
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    color: #fff;
+    border: 0px;
+}
+#contactSubmit:disabled{
+    color:lightgrey;
+}
+
+.accept{
+    font-family: HelveticaNeue;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: white;
+}
+
+.terms{
+    font-family: HelveticaNeue;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #492f82;
+    margin-right: 50px;
+}
+
+.contact-acceptance .wpcf7-form-control wpcf7-acceptance{
+    display: inline-block;
+    vertical-align: top;
+}

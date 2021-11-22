@@ -5,7 +5,6 @@ function cex_seeding_saved_modeships($wpdb)
 
     if (comprobar_ejecucion_migracion($wpdb, 'seeding - '.$nombreTabla)) {
         return false;
-        return "$nombreTabla -- YA HA SIDO EJECUTADA";
     }
 
     $wpdb->insert($nombreTabla, array( 'name' => "PAQ 10",                 'id_bc' => 61,      'id_carrier'=>''));
@@ -26,7 +25,6 @@ function cex_seeding_saved_modeships($wpdb)
     registrar_ejecucion_migracion($wpdb, 'seeding - '.$nombreTabla);
 
     return true;
-    return "SE HA POBLADO LA TABLA SAVEDMODESHIPS";
 }
 
 function cex_seeding_customer_options($wpdb)
@@ -35,7 +33,6 @@ function cex_seeding_customer_options($wpdb)
 
     if (comprobar_ejecucion_migracion($wpdb, 'seeding - '.$nombreTabla)) {
         return false;
-        return "$nombreTabla -- YA HA SIDO EJECUTADA";
     }
 
     $wpdb->insert($nombreTabla, array( 'clave' => "MXPS_ENABLEOFFICEDELIVERY", 'valor' => ''));
@@ -53,7 +50,7 @@ function cex_seeding_customer_options($wpdb)
     $wpdb->insert($nombreTabla, array( 'clave' => "MXPS_WSURLSEG",
         'valor' => 'https://www.correosexpress.com/wpsc/services/SeguimientoEnvio?wsdl'));
     $wpdb->insert($nombreTabla, array( 'clave' => "MXPS_APIRESTOFI",
-        'valor' => 'https://www.correosexpress.com/wpsc/apiRestOficina/v1/oficinas/listadoOficinas'));
+        'valor' => 'https://www.cexpr.es/wspsc/apiRestOficina/v1/oficinas/listadoOficinasCoordenadas'));
     $wpdb->insert($nombreTabla, array( 'clave' => "MXPS_DEFAULTKG",        'valor' => ''));
     $wpdb->insert($nombreTabla, array( 'clave' => "MXPS_ENABLEWEIGHT",     'valor' => ''));
     $wpdb->insert($nombreTabla, array( 'clave' => "MXPS_ENABLESHIPPINGTRACK", 'valor' => ''));
@@ -74,7 +71,6 @@ function cex_seeding_customer_options($wpdb)
     registrar_ejecucion_migracion($wpdb, 'seeding - '.$nombreTabla);
 
     return true;
-    return "SE HA POBLADO LA TABLA CUSTOMEROPTIONS";
 }
 
 
@@ -85,14 +81,12 @@ function cex_seeding_entrega_oficina($wpdb)
 
     if (comprobar_ejecucion_migracion($wpdb, 'seeding entrega en oficina - '.$nombreTabla)) {
         return false;
-        return "$nombreTabla -- YA HA SIDO EJECUTADA";
     }
 
     $wpdb->insert($nombreTabla, array( 'name' => "Entrega en Oficina",                 'id_bc' => 44,      'id_carrier'=>''));
     registrar_ejecucion_migracion($wpdb, 'seeding entrega en oficina - '.$nombreTabla);
 
     return true;
-    return "SE HA POBLADO LA TABLA SAVEDMODESHIPS";
 }
 
 
@@ -103,7 +97,6 @@ function cex_seeding_saved_modeships_2($wpdb)
 
     if (comprobar_ejecucion_migracion($wpdb, 'seeding - Multichrono')) {
         return false;
-        return "$nombreTabla -- YA HA SIDO EJECUTADA";
     }
 
     $wpdb->insert($nombreTabla, array( 'name' => "Entrega + Recogida Multichrono",                 'id_bc' => 54,      'id_carrier'=>''));
@@ -112,7 +105,6 @@ function cex_seeding_saved_modeships_2($wpdb)
     registrar_ejecucion_migracion($wpdb, 'seeding - Multichrono');
 
     return true;
-    return "SE HA POBLADO LA TABLA SAVEDMODESHIPS";
 }
 
 function cex_seeding_customer_deliver_option($wpdb)
@@ -121,7 +113,6 @@ function cex_seeding_customer_deliver_option($wpdb)
 
     if (comprobar_ejecucion_migracion($wpdb, 'seeding deliver - '.$nombreTabla)) {
         return false;
-        return "seeding deliver - $nombreTabla -- YA HA SIDO EJECUTADA";
     }
 
 
@@ -130,5 +121,26 @@ function cex_seeding_customer_deliver_option($wpdb)
     registrar_ejecucion_migracion($wpdb, 'seeding deliver - '.$nombreTabla);
 
     return true;
-    return "SE HA POBLADO LA TABLA CUSTOMER_OPTIONS";
 }
+
+
+
+function cex_seeding_saved_modeships_3($wpdb)
+{
+    $nombreTabla = $wpdb->prefix.'cex_savedmodeships';
+
+    if (comprobar_ejecucion_migracion($wpdb, 'seeding - Islas - '.$nombreTabla)) {
+        return false;
+    }
+
+    $wpdb->insert($nombreTabla, array( 'name' => "Islas Express",          'id_bc' => 26,      'id_carrier'=>''));
+    $wpdb->insert($nombreTabla, array( 'name' => "Islas Docs",             'id_bc' => 46,      'id_carrier'=>''));
+    $wpdb->insert($nombreTabla, array( 'name' => "Islas Marítimo",         'id_bc' => 79,      'id_carrier'=>''));
+
+    registrar_ejecucion_migracion($wpdb, 'seeding - Islas - '.$nombreTabla);
+
+    return true;
+}
+
+
+

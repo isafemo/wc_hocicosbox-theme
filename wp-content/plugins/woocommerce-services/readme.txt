@@ -3,8 +3,8 @@ Contributors: woocommerce, automattic, woothemes, allendav, kellychoffman, jkudi
 Tags: shipping, stamps, usps, woocommerce, taxes, payment, dhl, labels
 Requires at least: 4.6
 Requires PHP: 5.3
-Tested up to: 5.7
-Stable tag: 1.25.14
+Tested up to: 5.8
+Stable tag: 1.25.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,25 @@ The source code is freely available [in GitHub](https://github.com/Automattic/wo
 6. Checking and exporting the label purchase reports
 
 == Changelog ==
+
+= 1.25.18 - 2021-08-16 =
+* Add   - Added "Automated Taxes" health item on status page.
+* Fix   - Show error when missing required destination phone for international shipments.
+* Fix   - Prevent PHP notice when a label's `commercial_invoice_url` value is `null`.
+* Fix   - Prevent fatal error when viewing draft order.
+* Tweak - Bump WP tested version to 5.8.
+* Tweak	- Bump WC Tested version to 5.5.
+
+= 1.25.17 - 2021-07-13 =
+* Tweak - Replace Calypso FormCheckbox with CheckboxControl.
+
+= 1.25.16 - 2021-07-09 =
+* Tweak - Replace components with @wordpress/components.
+
+= 1.25.15 - 2021-06-30 =
+* Fix   - Ensure shipping label metabox is displayed to users with the correct capabilities.
+* Add   - Added `wcship_user_can_manage_labels` filter to check permissions to print shipping labels.
+* Add   - Added `wcship_manage_labels` capability to check permissions to print shipping labels.
 
 = 1.25.14 - 2021-06-15 =
 * Fix   - Issue with printing blank label in Safari.

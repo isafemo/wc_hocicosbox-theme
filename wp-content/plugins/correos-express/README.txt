@@ -29,6 +29,11 @@ No, above 3.3.5
 
 == Changelog ==
 
+=2.6.0=
+fix update
+new migrations for products
+upgrade action hook
+
 =2.5.10=
 fix update
 

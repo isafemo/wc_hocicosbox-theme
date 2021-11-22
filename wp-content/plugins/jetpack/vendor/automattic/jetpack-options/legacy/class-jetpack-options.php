@@ -81,6 +81,7 @@ class Jetpack_Options {
 					'blog_token',  // (string) The Client Secret/Blog Token of this site.
 					'user_token',  // (string) The User Token of this site. (deprecated)
 					'user_tokens',  // (array)  User Tokens for each user of this site who has connected to jetpack.wordpress.com.
+					'purchase_token', // (string) Token for logged out user purchases.
 				);
 
 			case 'network':
@@ -187,7 +188,7 @@ class Jetpack_Options {
 		 * Filter Jetpack Options.
 		 * Can be useful in environments when Jetpack is running with a different setup
 		 *
-		 * @since 8.8.0
+		 * @since 1.7.0
 		 *
 		 * @param string $value The value from the database.
 		 * @param string $name Option name, _without_ `jetpack_%` prefix.
@@ -285,7 +286,8 @@ class Jetpack_Options {
 		/**
 		 * Fires before Jetpack updates a specific option.
 		 *
-		 * @since 3.0.0
+		 * @since 1.1.2
+		 * @since-jetpack 3.0.0
 		 *
 		 * @param str $name The name of the option being updated.
 		 * @param mixed $value The new value of the option.
@@ -481,7 +483,8 @@ class Jetpack_Options {
 	/**
 	 * Gets an option via $wpdb query.
 	 *
-	 * @since 5.4.0
+	 * @since 1.1.2
+	 * @since-jetpack 5.4.0
 	 *
 	 * @param string $name Option name.
 	 * @param mixed  $default Default option value if option is not found.
@@ -525,7 +528,8 @@ class Jetpack_Options {
 		/**
 		 * Allows to disable particular raw options.
 		 *
-		 * @since 5.5.0
+		 * @since 1.1.2
+		 * @since-jetpack 5.5.0
 		 *
 		 * @param array $disabled_raw_options An array of option names that you can selectively blocklist from being managed via direct database queries.
 		 */
@@ -536,7 +540,8 @@ class Jetpack_Options {
 	/**
 	 * Gets all known options that are used by Jetpack and managed by Jetpack_Options.
 	 *
-	 * @since 5.4.0
+	 * @since 1.1.2
+	 * @since-jetpack 5.4.0
 	 *
 	 * @param boolean $strip_unsafe_options If true, and by default, will strip out options necessary for the connection to WordPress.com.
 	 * @return array An array of all options managed via the Jetpack_Options class.
@@ -580,7 +585,8 @@ class Jetpack_Options {
 	/**
 	 * Get all options that are not managed by the Jetpack_Options class that are used by Jetpack.
 	 *
-	 * @since 5.4.0
+	 * @since 1.1.2
+	 * @since-jetpack 5.4.0
 	 *
 	 * @return array
 	 */
@@ -634,7 +640,8 @@ class Jetpack_Options {
 	/**
 	 * Gets all options that can be safely reset by CLI.
 	 *
-	 * @since 5.4.0
+	 * @since 1.1.2
+	 * @since-jetpack 5.4.0
 	 *
 	 * @return array array Associative array containing jp_options which are managed by the Jetpack_Options class and wp_options which are not.
 	 */
@@ -654,7 +661,8 @@ class Jetpack_Options {
 	/**
 	 * Delete all known options
 	 *
-	 * @since 5.4.0
+	 * @since 1.1.2
+	 * @since-jetpack 5.4.0
 	 *
 	 * @return void
 	 */
