@@ -1,0 +1,159 @@
+.start-section-hocicosbox{
+    background-color: #7a4e7e;
+}
+
+.wis-start{
+    padding: 100px 0px 100px 0px;
+}
+
+.wis-title{
+    font-family: HelveticaNeue;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.78px;
+    color: #fff;
+}
+
+.wis-subtitle{
+    font-family: Vintage;
+    font-size: 46px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.wis-btn-start{
+    background-color: white;
+    border: 0px;
+    padding: 22px 78px 22px 78px;
+    margin-top: 20px;
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    color: #08c0bc;
+}
+
+.wis-what{
+    font-family: Vintage;
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    text-align: center;
+    color: #8064bc;
+}
+
+.wis-desc{
+    font-family: HelveticaNeue;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    text-align: center;
+    color: black;
+}
+
+.img-wis{
+    width: 410px;
+    height: 306px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+    background-image: url("../../images/afiliates/register1.png");
+}
+
+.hbox-sub-background{
+    background-color: #ebf9f8;
+    padding: 50px 0px 50px 0px;
+}
+
+.hbox-title{
+    font-family: Vintage;
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    text-align: center;
+    color: #00a4a0;
+}
+
+.hbox-subtitle{
+    font-family: HelveticaNeue;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    text-align: center;
+    color: black;
+}
+
+.hbox-image{
+    width: 100%;
+    height: 393px;
+    border-radius: 64px;
+    background-color: #0a5b88;
+}
+
+.hbox-btn-dca{
+    border-radius: 10px;
+    background-color: #f3f4f9;
+    font-family: HelveticaNeue;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 2.03px;
+    color: #8064bc;
+    padding: 11px 60px 11px 60px;
+    border: 0px;
+    margin-bottom: -50px;
+}
+
+.hbox-btn-sub{
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    text-align: center;
+    color: #fff;
+    background-color: #08c0bc;
+    padding: 14px 45px 14px 45px;
+    border-radius: 10px;
+    border: 0px;
+    margin-top: 50px;
+}
+
+.hbox-om-title{
+    font-family: Vintage;
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    text-align: center;
+    color: #8064bc;
+}

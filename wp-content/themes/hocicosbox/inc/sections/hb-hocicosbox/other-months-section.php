@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            Other-Months-Section
+            <p class="hbox-om-title">Hocicosbox de otros meses</p>
         </div>
     </div>
 </div>
