@@ -232,55 +232,6 @@ body::-webkit-scrollbar {
     max-height: 70px;
 }
 
-/*SOLIDARY*/
-.home-solidary-section{
-    /*height: 565px;*/
-    margin-top: 130px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.title-home-solidary{
-    font-family: "VIntage";
-    font-size: 36px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 1px;
-    color: #ffffff;
-}
-
-.description-home-solidary{
-    font-family: "HelveticaNeue";
-    font-size: 22px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.36;
-    letter-spacing: 0.28px;
-    color: #ffffff;
-}
-
-.btn-home-solidary{
-    padding: 22px 48px;
-    border-radius: 10px;
-    background-color: #08c0bc;
-    font-family: "HelveticaNeue";
-    font-size: 18px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 1.83px;
-    color: #ffffff;
-}
-
-.solidary-side{
-    padding: 120px;
-}
-
 /*BLOG-HOME*/
 .home-blog-section{
     margin-top: 100px;

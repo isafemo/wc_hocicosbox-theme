@@ -24,8 +24,8 @@ get_header() ?>
 //        require_once( $recomendations_section );
 //        $trades_section = get_template_directory() . '/inc/sections/hb-home/our-trades-section.php';
 //        require_once( $trades_section );
-//        $solidary_section = get_template_directory() . '/inc/sections/hb-home/solidary-section.php';
-//        require_once( $solidary_section );
+        $solidary_section = get_template_directory() . '/inc/sections/hb-home/solidary-section.php';
+        require_once( $solidary_section );
 //        $blog_section = get_template_directory() . '/inc/sections/hb-home/blog-section.php';
 //        require_once( $blog_section );
 //        $newsletter_section = get_template_directory() . '/inc/sections/hb-home/newsletter-section.php';

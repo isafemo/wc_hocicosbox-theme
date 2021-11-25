@@ -12,59 +12,44 @@
 get_header() ?>
     <div class="content-area">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row justify-content-center align-self-center">
                 <div class="col rs-title">
                     <h2>Rincón solidario</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-4 rs-desc">
+                <div class="col-12 col-md-4 rs-desc">
                     <p>Familia Hocicosbox, ¿y si unimos las patas por los peludos que nos necesitan? ¡Ayúdanos a colaborar!</p>
                 </div>
             </div>
         </div>
         <div class="container">
-            <div class="row rs-tarjeta" style="background-color: #0a4b78; background-image: url('assets/images/imagenes-test/imagen-1-solidary.png') ">
-                <div class="col">
-                    <div class="row">
-                        <div class="col-6">
-                            <h2>Donación a protectoras</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <button class="btn-rs">VER PRODUCTO</button>
-                        </div>
-                    </div>
+<?php
+$customizer_rincon_solidario_repeater = get_theme_mod('customizer_rincon_solidario_repeater', json_encode( array(
+    /*The content from your default parameter or delete this argument if you don't want a default*/)) );
+$customizer_rincon_solidario_repeater_decoded = json_decode($customizer_rincon_solidario_repeater);
+foreach($customizer_rincon_solidario_repeater_decoded as $key => $repeater_item){
+    ?>
+    <div class="row rs-tarjeta" style="background-color: #0a4b78; background-image: url(<?= $repeater_item->image_url ?>) ">
+        <div class="col">
+            <div class="row">
+                <div class="col-12 col-md-6 col-xs-8">
+                    <h2><?= $repeater_item->title ?></h2>
                 </div>
             </div>
-            <div class="row rs-tarjeta" style="background-color: #0a4b78; background-image: url('assets/images/imagenes-test/imagen-2-solidary.png')">
+            <div class="row">
+                <div class="col-12 col-md-7 col-xs-9">
+                    <p><?= $repeater_item->subtitle ?></p>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col">
-                    <div class="row">
-                        <div class="col-6">
-                            <h2>Tarjeta regalo solidaria</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <button class="btn-rs">VER PRODUCTO</button>
-                        </div>
-                    </div>
+                    <button type="button" class="btn btn-primary btn-rs"><?= strtoupper($repeater_item->shortcode) ?></button>
                 </div>
             </div>
         </div>
     </div>
-
+<?php } ?>
+        </div>
+    </div>
 <?php get_footer() ?>

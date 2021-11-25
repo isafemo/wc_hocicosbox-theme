@@ -1,6 +1,6 @@
 <?php 
 /**
- * Fany Lab Theme Customizer
+ * Hocicosbox Theme Customizer
  *
  * @package hocicosbox
  */
@@ -11,5 +11,5 @@ require_once get_template_directory() . '/inc/customizer/customizer-home/customi
 require_once get_template_directory() . '/inc/customizer/customizer-home/customizer-solidary.php';
 //require_once get_template_directory() . '/inc/customizer/customizer-repeater/functions.php';
 require_once get_template_directory() . '/inc/customizer/customizer-home/customizer-home-trades.php';
-
+require_once get_template_directory() . '/inc/customizer/customizer-pages/customizer-solidary-page.php';
 
