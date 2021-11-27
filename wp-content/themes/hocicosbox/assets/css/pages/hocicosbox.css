@@ -1,7 +1,9 @@
 .start-section-hocicosbox{
     background-color: #7a4e7e;
 }
-
+.hb-background{
+    padding: 50px 0px 50px 0px;
+}
 .wis-start{
     padding: 100px 0px 100px 0px;
 }
@@ -68,8 +70,9 @@
 }
 
 .img-wis{
-    width: 410px;
+    width: 100%;
     height: 306px;
+    border-radius: 64px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -110,7 +113,13 @@
     width: 100%;
     height: 393px;
     border-radius: 64px;
-    background-color: #0a5b88;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: blue;
+    /*background-image: url("../../images/afiliates/register1.png");*/
+    display: flex;
+    align-items: end;
 }
 
 .hbox-btn-dca{
@@ -126,7 +135,7 @@
     color: #8064bc;
     padding: 11px 60px 11px 60px;
     border: 0px;
-    margin-bottom: -50px;
+    margin-bottom: 33px;
 }
 
 .hbox-btn-sub{

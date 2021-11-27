@@ -29,6 +29,7 @@ $customizer_rincon_solidario_repeater = get_theme_mod('customizer_rincon_solidar
     /*The content from your default parameter or delete this argument if you don't want a default*/)) );
 $customizer_rincon_solidario_repeater_decoded = json_decode($customizer_rincon_solidario_repeater);
 foreach($customizer_rincon_solidario_repeater_decoded as $key => $repeater_item){
+    if($repeater_item->title != '' && $repeater_item->subtitle != '' && $repeater_item->image_url != '' && $repeater_item->shortcode != ''){
     ?>
     <div class="row rs-tarjeta" style="background-color: #0a4b78; background-image: url(<?= $repeater_item->image_url ?>) ">
         <div class="col">
@@ -44,12 +45,12 @@ foreach($customizer_rincon_solidario_repeater_decoded as $key => $repeater_item)
             </div>
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-primary btn-rs"><?= strtoupper($repeater_item->shortcode) ?></button>
+                    <a type="button" class="btn btn-primary btn-rs" href="<?= $repeater_item->link ?>"><?= strtoupper($repeater_item->shortcode) ?></a>
                 </div>
             </div>
         </div>
     </div>
-<?php } ?>
+<?php } } ?>
         </div>
     </div>
 <?php get_footer() ?>

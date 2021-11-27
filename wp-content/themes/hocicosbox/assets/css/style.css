@@ -5,6 +5,10 @@
 @import "home/contact.css";
 @import "home/afiliados.css";
 @import "pages/hocicosbox.css";
+@import "pages/blog.css";
+@import "shop/single-product.css";
+@import "shop/archive-product.css";
+@import "shop/cart.css";
 /*
 #########################################################################
 #############################----------------------------------FONT FACES
