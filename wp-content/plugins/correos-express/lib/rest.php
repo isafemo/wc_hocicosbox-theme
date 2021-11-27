@@ -395,7 +395,7 @@ function enviar_peticion_masivas_rest($datos){
         }
 
          //if recogida en oficina
-        if ($datos['entrega_oficina']=='true') {
+        if ($datos['entrega_oficina']=='true' || $datos['entrega_oficina']==true) {
             $data['codDirecDestino'] = $datos['codigo_oficina'];
         }
 
@@ -485,9 +485,28 @@ function obtener_lista_adicional($datos, $esMasiva=false){
 
 function obtener_idioma($datos){
     $idioma=$datos['idioma'];
-    if(strcmp($idioma, "pt_PT")==0)
-        return 'PT';
-    return 'ES';
+    switch($idioma){
+        case'en_GB':
+            $res= "GB"; 
+            break;
+        case 'en_US':
+            $res="US";
+            break;
+        case 'ca_ES':
+            $res="CA";
+            break;
+        case 'es_ES':
+            $res="ES";
+        break;
+        case 'pt_PT':
+            $res="PT";
+            break;
+        default:
+            $res="ES";
+            break;
+    }
+
+    return $res;
 }
 
 
@@ -826,6 +845,8 @@ function cex_procesar_peticion_envio_rest($rest, $retorno, $id_orden, $type, $nu
 
             $retornoAux = json_encode($retornoObj);        
 
+            $producto_ws = (int)$retornoObj["producto"];
+
             //insert en tabla historico
             $historyEnv = array(
                 'type'                  =>$type,
@@ -840,8 +861,11 @@ function cex_procesar_peticion_envio_rest($rest, $retorno, $id_orden, $type, $nu
                 'fecha'                 =>$fecha,
                 'fecha_recogida'        =>null,
                 'hora_recogida_desde'   =>null,
-                'hora_recogida_hasta'   =>null,
+                'hora_recogida_hasta'   =>null,                
+                'id_bc_ws'              =>$producto_ws,
+                'mode_ship_name_ws'     =>modeShipNameByIdBc($producto_ws)
             );
+
             $wpdb->insert($nombreTabla, $historyEnv);
 
             foreach ($listaBultos as $bulto) {
@@ -904,6 +928,15 @@ function cex_procesar_peticion_envio_rest($rest, $retorno, $id_orden, $type, $nu
         }
     }
 }
+
+function modeShipNameByIdBc($id_bc){
+    global $wpdb;    
+    $table        = $wpdb->prefix.'cex_savedmodeships';
+    $sql          = "SELECT name FROM $table WHERE id_bc = '".$id_bc."'";
+    $result       =  $wpdb->get_results($wpdb->prepare($sql)); 
+    return $result[0]->name;   
+        
+}   
 
 
 function devolverFechaRecogida($fecha){

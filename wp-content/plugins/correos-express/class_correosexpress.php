@@ -3,7 +3,7 @@
 * Plugin Name: Correos Express Plugin
 * Plugin URI:
 * Description: Module for the management of shipments and synchronization with CorreosExpress
-* Version: 2.5.20
+* Version: 2.6.0
 * Author: Correos Express
 * Author URI:
 * License: GPL2
@@ -2715,7 +2715,8 @@ public function cex_soap()
 
             $datosOrden = $this->cex_obtenerDatosRequestSavedShips(intval($orden['id']), $numcollect, intval($orden['bultos']),$orden['productosCEX'], $oficina);       
 
-            $datosOrden = str_replace("\'", "'", $datosOrden);            
+            $datosOrden = str_replace("\'", "'", $datosOrden);   
+       
             if ($this->cex_comprobar_idpedido_numShip($numcollect, 'Envio')) {
                 $type = 'Envio';
                 $this->cex_guardar_savedships($datosOrden, $numShip, $type);
@@ -2740,6 +2741,16 @@ public function cex_soap()
                 } else {
                     // si no recibimos para generar las etiquetas, notificamos el error y borramos la peticion de cex_savedships para que no salga en el historico.
                     $this->cex_deleteSavedShip($numcollect);
+
+                    if(empty($datosOrden["iso_code_remitente"])){
+                        $respuesta_envio = array(
+                            'mensajeRetorno'          => esc_html(__('Error no hay guardado ningún remitente por defecto', 'cex_pluggin')),
+                            'numShip'                 => '',
+                            'resultado'               => '99',
+                            'numCollect'              => $numcollect,
+                            'id_order'                => intval($orden['id'])
+                        );
+                    }
                 }
 
                 /*
@@ -2809,11 +2820,11 @@ public function cex_soap()
             $remitente      = $this->cex_get_saved_sender($opciones['MXPS_DEFAULTSEND']);
 
             $metodo         = $this->cex_retornar_metodo_envio_y_texto($idOrder,$productoCEX);
-        //$metodo         = $envio_idbc;
+            //$metodo         = $envio_idbc;
             $iso_code       = $order->get_billing_country();
 
 
-        //$bultos         = sacarBultos($idOrder);
+            //$bultos         = sacarBultos($idOrder);
             $datosEnvio =   ($opciones['MXPS_DEFAULTDELIVER'] == 'FACTURACION') ? $this->cex_datos_facturacion($idOrder) : $this->cex_datos_envio($idOrder);
             $postcode_rec = $datosEnvio['postcode'];
             $peso = $this->cex_retornar_peso_orden($idOrder);
@@ -2846,40 +2857,23 @@ public function cex_soap()
                 $codigo_postal_destino = $postcode_rec;
             }
 
-            if (strstr($iso_code, 'PT')) {
-                if (strstr($metodo->id_bc, '63') || strstr($metodo->id_bc, '26') || strstr($metodo->id_bc, '46') || strstr($metodo->id_bc, '79')) {
-                    $modificacionAutomatica = 0;
-                    $id_bc = $metodo->id_bc;
-                    $nombreMetodo = $metodo->name;
-                } else {
-                    $modificacion = $this->cex_obtener_Productos_Cex($idOrder);
-                    if ($modificacion['update'] == true) {
-                        $modificacionAutomatica = 2;
-                        $id_bc = '63';
-                        $nombreMetodo = 'PAQ 24';
-                    } else {
-                        $modificacionAutomatica = 1;
-                        $id_bc = '63';
-                        $nombreMetodo = 'PAQ 24';
-                    }
-                }
-            } else {
-                $modificacionAutomatica = 0;
-                $id_bc              = $metodo->id_bc;
-                $nombreMetodo       = $metodo->name;
-            }
-
-        //coger el savedsender  ==> remitente por defecto
+            $modificacionAutomatica = 0;
+            $id_bc              = $metodo->id_bc;
+            $nombreMetodo       = $metodo->name;
+            
+            //coger el savedsender  ==> remitente por defecto
             $contact='';
             $company=$order->get_shipping_company();
-            if ($company =='' || $company==null) {
+            if ($company =='' || $company==null || $company ==' ') {
                 $contact = $order->get_shipping_first_name().' '.$order->get_shipping_last_name();
-                if( $contact == '' || $contact==null ) {
+                if( $contact == '' || $contact==null || $contact ==' ') {
                     $contact = $order->get_shipping_first_name().' '.$order->get_shipping_last_name();
                 }
             } else {
                 $contact = $company;
             }
+
+            $datosEnvio['contact'] = $contact;
 
             if ($order->get_payment_method() == $opciones['MXPS_DEFAULTPAYBACK']) {
                 $contrareembolso = $order->total;
@@ -2955,9 +2949,7 @@ public function cex_soap()
         //inicializamos la orden
             $order = new WC_Order($id);           
             $shipping_item_data = $this->cex_get_shipping_data_by_order($id);
-            file_put_contents(dirname(__FILE__)."/log/GO - 01 -shipping_item_data.txt", print_r($shipping_item_data,true),FILE_APPEND);
             $id_shiping = $shipping_item_data['instance_id'];
-            file_put_contents(dirname(__FILE__)."/log/GO - 02 -id_shiping.txt", print_r($id_shiping,true),FILE_APPEND);
 
             global $wpdb;
             $table = $wpdb->prefix.'cex_savedmodeships';
@@ -2970,7 +2962,6 @@ public function cex_soap()
                     FROM $table 
                     WHERE id_bc = $envio_idbc ", null));
             }
-            file_put_contents(dirname(__FILE__)."/log/GO - 03 -metodo_envio.txt", print_r($metodo_envio,true),FILE_APPEND);
             return $metodo_envio;
         }
 
@@ -3826,7 +3817,7 @@ public function cex_soap()
 
             $etiqueta = new EtiquetasVuelo();
         //depurar("INSTANCIAMOS");
-
+            
             $pdf = $etiqueta->cex_generarEtiquetas($numCollect, $tipoEtiqueta, $posicion);
 
             echo $pdf;
@@ -4042,8 +4033,6 @@ public function cex_soap()
             $shipping_data_id   = '';
             
             $transportistaOrden     = $this->cex_get_shipping_data_by_order($id);
-            file_put_contents(dirname(__FILE__)."/log/BP - 01 -transportistaOrden.txt", print_r($transportistaOrden,true),FILE_APPEND);
-
             $productoSeleccionado   = $this->cex_get_delivery_method_by_carrier( $transportistaOrden["instance_id"]);
             if($transportistaOrden["instance_id"]!=99 ||$transportistaOrden["method_id"] !=99){
                  $metodoEnvio = $transportistaOrden["name"].' - '.$productoSeleccionado->name;
@@ -4201,7 +4190,7 @@ public function cex_soap()
         $order= new WC_Order($idOrden);
         $company=$order->get_shipping_company();
         $contact = '';
-        if ($company =='' || $company==null) {
+        if ($company =='' || $company==null || $company==' ') {
             $contact = $order->get_billing_first_name().' '.$order->get_billing_last_name();
         } else {
             $contact = $company;
@@ -4231,7 +4220,7 @@ public function cex_soap()
         $order= new WC_Order($idOrden);
         $company=$order->get_shipping_company();
         $contact = '';
-        if ($company =='' || $company==null) {
+        if ($company =='' || $company==null || $company==' ') {
             $contact = $order->get_shipping_first_name().' '.$order->get_shipping_last_name();
         } else {
             $contact = $company;
@@ -4299,14 +4288,12 @@ public function cex_soap()
             WHERE items.order_id = %d
             AND items.order_item_type='shipping'", $id_orden));
 
-        file_put_contents(dirname(__FILE__)."/log/BP - 02 -shipping_item_data.txt", print_r($shipping_item_data,true),FILE_APPEND);
 
         $respuesta = array();
 
         $respuesta['name']=$shipping_item_data[0]->order_item_name;
         $respuesta['method_title']=$shipping_item_data[0]->order_item_name;
         foreach ($shipping_item_data as $key) {
-         file_put_contents(dirname(__FILE__)."/log/BP - 03 -foreach.txt", print_r($key,true),FILE_APPEND);
 
             if(strcmp("instance_id", $key->meta_key)==0){
                 $respuesta['instance_id']=$key->meta_value;
@@ -4325,7 +4312,6 @@ public function cex_soap()
         }
         $respuesta['order_id']=$id_orden;       
 
-    file_put_contents(dirname(__FILE__)."/log/BP - 04 -ArrayRespuesta.txt", print_r($respuesta,true),FILE_APPEND);
 
     return $respuesta;
 }
@@ -4338,7 +4324,6 @@ public function cex_get_delivery_method_by_carrier($id_carrier){
         FROM $nombreTabla 
         WHERE id_carrier LIKE '%;$id_carrier;%'"));    
 
-    file_put_contents(dirname(__FILE__)."/log/BP - 05 -results.txt", print_r($results,true),FILE_APPEND);
     return $results;
 }
 

@@ -4,7 +4,7 @@
  *
  * Copyright (C) 2017 Afshin Mehrabani (@afshinmeh)
  */
-
+var historico = jQuery("#woocommerce-history-cex").length;
 (function(f) {
     if (typeof exports === "object" && typeof module !== "undefined") {
         module.exports = f();
@@ -511,6 +511,10 @@
       if ((jQuery)("#select_etiqueta").val()=='3') {
         (jQuery)("#introjsPosicionEtiquetas").addClass('d-none');
       }
+    }
+
+    if(historico == 0){
+      (jQuery)('#woocommerce-history-cex').remove();
     }
     var continueExit = true;
 

@@ -75,7 +75,7 @@ function pintarTablaHistorico(msg) {
     if (retorno != 'undefined' && retorno != null){
         (jQuery)('#tabla_historico').html(retorno);
         //declareDataTablePedido('tabla_historico');
-    }  
+    }
 }
 
 function modificarPeticionCex(numship, numcollect){

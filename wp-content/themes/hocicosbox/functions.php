@@ -17,7 +17,8 @@ require_once get_template_directory() . '/inc/customizer/customizer.php';
  */
 function hocicosbox_scripts()
 {
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array('jquery'), '4.6.0', true);
+    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.js', array('jquery'), '4.6.0', true);
+    wp_enqueue_script('popper-js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.bundle.js', array('jquery'), '4.6.0', true);
     wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), '4.6.0', 'all');
     wp_enqueue_script('jQuery-js', get_template_directory_uri() . '/assets/js/jquery-3.6.0.min.js', array('jquery'), '3.6.0', true);
     wp_enqueue_script('header-js', get_template_directory_uri() . '/assets/js/header.js', array('jquery'), '1.0', true);

@@ -117,12 +117,12 @@ function introConfiguracionUsuario(){
             intro: stepUser6
         },
         {
-            element: document.querySelector('#stepUser7'),
-            intro: stepUser7
-        },
-        {
             element: document.querySelector('#stepUser8'),
             intro: stepUser8
+        },
+        {
+            element: document.querySelector('#stepUser7'),
+            intro: stepUser7
         },
         {
             element: document.querySelector('#stepUser9'),
@@ -139,6 +139,18 @@ function introConfiguracionUsuario(){
         {
             element: document.querySelector('#stepUser12'),
             intro: stepUser12
+        },
+        {
+            element: document.querySelector('#stepUser14'),
+            intro: stepUser14
+        },
+        {
+            element: document.querySelector('#wpsn'),
+            intro: wpsn
+        },
+        {
+            element: document.querySelector('#cex_logo'),
+            intro: cex_logo
         },
         {
             element: document.querySelector('#guardarDatosCliente'),
@@ -190,30 +202,30 @@ function introRemitente(){
     changeCustomOptions(intro);
     intro.setOptions({
         steps: [
-        { 
-            element: document.querySelector('#MXPS_DEFAULTSEND'),
-            intro: MXPS_DEFAULTSEND
-        },
-        {
-            element: document.querySelector('#guardarRemitenteDefecto'),
-            intro: literalGuardarRemitenteDefecto
-        },
         {
             element: document.querySelector('#div_codigo_cliente'),
             intro: div_codigo_cliente
         },
         {
-            element: document.querySelector('#introHoraDesde'),
-            intro: introHoraDesde
-        },
-        {
-            element: document.querySelector('#introHoraHasta'),
-            intro: introHoraHasta
+            element: document.querySelector('#div_datos_cliente'),
+            intro: div_datos_cliente
         },
         {
             element: document.querySelector('#bloqueHoraDesdeHasta'),
-            intro: bloqueHoraDesdeHasta
+            intro: div_bloqueHoraDesdeHasta
         },
+        //{
+        //    element: document.querySelector('#introHoraDesde'),
+        //    intro: introHoraDesde
+        //},
+        //{
+        //    element: document.querySelector('#introHoraHasta'),
+        //    intro: introHoraHasta
+        //},
+        //{
+        //    element: document.querySelector('#bloqueHoraDesdeHasta'),
+        //    intro: bloqueHoraDesdeHasta
+        //},
         {
             element: document.querySelector('#guardarRemitente'),
             intro: guardarRemitente
@@ -225,6 +237,14 @@ function introRemitente(){
         {
             element: document.querySelector('#savedsenders'),
             intro: savedsenders
+        },
+        { 
+            element: document.querySelector('#MXPS_DEFAULTSEND'),
+            intro: MXPS_DEFAULTSEND
+        },
+        {
+            element: document.querySelector('#guardarRemitenteDefecto'),
+            intro: literalGuardarRemitenteDefecto
         }
         ]
     });
@@ -316,16 +336,28 @@ function introOpcionesCron(){
             intro: introPanelCron
         },
         {
-            element: document.querySelector('#MXPS_SAVEDSTATUS'),
+            element: document.querySelector('#IntroJS_MXPS_SAVEDSTATUS'),
             intro: MXPS_SAVEDSTATUS
         },
         {
-            element: document.querySelector('#MXPS_TRACKINGCEX'),
+            element: document.querySelector('#IntroJS_MXPS_TRACKINGCEX'),
             intro: MXPS_TRACKINGCEX
         },
         {
-            element: document.querySelector('#MXPS_CHANGESTATUS_SPAN'),
+            element: document.querySelector('#IntroJS_MXPS_CHANGESTATUS_SPAN'),
             intro: MXPS_CHANGESTATUS_SPAN
+        },
+        {
+            element: document.querySelector('#descargarArchivoCron'),
+            intro: descargarArchivoCron
+        },
+        {
+            element: document.querySelector('#descargarArchivoPeticion'),
+            intro: descargarArchivoPeticion
+        },
+        {
+            element: document.querySelector('#descargarArchivoRespuesta'),
+            intro: descargarArchivoRespuesta
         },
         {
             element: document.querySelector('#guardarDatosCron'),

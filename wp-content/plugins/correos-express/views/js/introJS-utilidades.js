@@ -132,6 +132,12 @@ function checkGrabacionIntroJS(){
  */
 function introjsTourReimpresion(){  
 
+    (jQuery)('#contenedor_pedidos').removeClass('d-none');
+    (jQuery)("#contenedor_pedidos_reimpresion").removeClass('d-none');
+    (jQuery)("#contenedor_etiquetas_reimpresion").removeClass('d-none');
+    (jQuery)('#introjsPosicionEtiqueta2').removeClass('d-none');
+    (jQuery)("#introjsPosicionEtiqueta").removeClass('d-none');
+
     var cabecera = "<table style='width:100%' border=1>"+
         "<thead><tr>"+
         "<th>"+idTabla+"</th>"+
@@ -143,15 +149,8 @@ function introjsTourReimpresion(){
         "</tr></thead>";
     var cierre = "</table>";
     var elementos = '';
-
-    if((jQuery)('#reimpresionMasiva').length==0){
-      (jQuery)('#contenedor_pedidos').html(cabecera+elementos+cierre);
-     
-    }
-      (jQuery)('#contenedor_pedidos').removeClass('d-none');
-      (jQuery)('#contenedor_etiquetas_reimpresion').removeClass('d-none');
-      (jQuery)('#introjsPosicionEtiqueta').removeClass('d-none');
-      
+    
+    (jQuery)('#contenedor_pedidos_reimpresion').html(cabecera+elementos+cierre);
     setTimeout('introjsTourReimpresionStart();',100);
 }
 
@@ -191,25 +190,29 @@ function introjsTourReimpresionStart(){
     });
 
     intro.start();
-
+    
     intro.oncomplete(function(){
-        (jQuery)("#contenedor_etiquetas_reimpresion").addClass('d-none');
         (jQuery)('#contenedor_pedidos').addClass('d-none');
-        (jQuery)('#introjsPosicionEtiqueta').addClass('d-none');
+        (jQuery)('#contenedor_pedidos_reimpresion').addClass('d-none');
+        (jQuery)("#contenedor_etiquetas_reimpresion").addClass('d-none');
+        (jQuery)('#introjsPosicionEtiqueta2').addClass('d-none');
     });
 
     intro.onexit(function(){
-        (jQuery)("#contenedor_etiquetas_reimpresion").addClass('d-none');
         (jQuery)('#contenedor_pedidos').addClass('d-none');
-        (jQuery)('#introjsPosicionEtiqueta').addClass('d-none');
+        (jQuery)('#contenedor_pedidos_reimpresion').addClass('d-none');
+        (jQuery)("#contenedor_etiquetas_reimpresion").addClass('d-none');
+        (jQuery)('#introjsPosicionEtiqueta2').addClass('d-none');
     });
 }
 
 function checkReimpresionIntroJS(){
     if( (jQuery)('#toggleReimpresionIntroJS').prop('checked') ) {
+        (jQuery)('#toggleReimpresionIntroJS').addClass('before');
        (jQuery)("#manualInteractivoReimpresion").disabled = false;
        (jQuery)("#manualInteractivoReimpresion").removeClass('d-none');
     }else{
+        (jQuery)('#toggleReimpresionIntroJS:before').css('display','none');
        (jQuery)("#manualInteractivoReimpresion").disabled = true;
        (jQuery)("#manualInteractivoReimpresion").addClass('d-none');
 
@@ -220,6 +223,11 @@ function checkReimpresionIntroJS(){
     GENERACION DE RESUMEN DE PEDIDOS
  */
 function introjsTourResumen(){  
+
+    (jQuery)("#contenedor_resumen").removeClass('d-none');
+    (jQuery)("#contenedor_resumen_pedidos").removeClass('d-none');
+    (jQuery)("#opcionesResumen").removeClass('d-none');
+
     var cabecera = "<table style='width:100%' border=1>"+
         "<thead><tr>"+
         "<th>"+idTabla+"</th>"+
@@ -232,11 +240,7 @@ function introjsTourResumen(){
     var cierre = "</table>";
     var elementos = '';
 
-   (jQuery)('#contenedor_resumen').html(cabecera+elementos+cierre);
-   (jQuery)("#contenedor_resumen").removeClass('d-none');
-   (jQuery)("#marcarResumen").removeClass('d-none');
-   (jQuery)("#opcionesResumen").removeClass('d-none');
-   (jQuery)("#boton_resumen").removeClass('d-none');
+   (jQuery)('#contenedor_resumen_pedidos').html(cabecera+elementos+cierre);
 
     setTimeout('introjsTourResumenStart();',100);
 }
@@ -251,8 +255,8 @@ function introjsTourResumenStart(){
             intro: introjsResumen
         },
         {
-            element: document.querySelector('#introjsFechaResumen'),
-            intro: introjsFechaResumen
+            element: document.querySelector('#fecha_resumen'),
+            intro: fecha_resumen
         },
         {
             element: document.querySelector('#contenedor_resumen'),
@@ -270,31 +274,29 @@ function introjsTourResumenStart(){
 
     intro.start();
 
-    intro.oncomplete(function(){
-       (jQuery)("#marcarResumen").addClass('d-none');       
-       (jQuery)("#opcionesResumen").addClass('d-none');
-       (jQuery)("#boton_resumen").addClass('d-none');
-       (jQuery)("#contenedor_resumen").addClass('d-none');       
-        (jQuery)("#contenedor_resumen").empty();  
-    });
-
-    intro.onexit(function(){
-       (jQuery)("#marcarResumen").addClass('d-none');
-       (jQuery)("#marcarResumen").removeClass('d-flex');
-       (jQuery)("#boton_resumen").addClass('d-none');
-       (jQuery)("#opcionesResumen").addClass('d-none');
-       (jQuery)("#contenedor_resumen").addClass('d-none');
-        (jQuery)("#contenedor_resumen").empty();  
-    });
-}
-
-function checkResumenIntroJS(){
-    if( (jQuery)('#toggleResumenIntroJS').prop('checked') ) {
-       (jQuery)("#manualInteractivoResumen").disabled = false;
-       (jQuery)("#manualInteractivoResumen").removeClass('d-none');
-    }else{
-       (jQuery)("#manualInteractivoResumen").disabled = true;
-       (jQuery)("#manualInteractivoResumen").addClass('d-none');
-
+        intro.oncomplete(function(){
+           (jQuery)("#contenedor_resumen").addClass('d-none');     
+           (jQuery)("#contenedor_resumen_pedido").addClass('d-none');  
+           (jQuery)("#opcionesResumen").addClass('d-none');    
+             
+        });
+    
+         intro.onexit(function(){
+           (jQuery)("#contenedor_resumen").addClass('d-none');
+           (jQuery)("#contenedor_resumen_pedido").addClass('d-none');
+           (jQuery)("#opcionesResumen").addClass('d-none');
+        });
     }
-}
+    
+    function checkResumenIntroJS(){
+        if( (jQuery)('#toggleResumenIntroJS').prop('checked') ) {
+            (jQuery)('#toggleResumenIntroJS').addClass('before');
+           (jQuery)("#manualInteractivoResumen").disabled = false;
+           (jQuery)("#manualInteractivoResumen").removeClass('d-none');
+        }else{
+            (jQuery)('#toggleResumenIntroJS:before').css('display','none');
+           (jQuery)("#manualInteractivoResumen").disabled = true;
+           (jQuery)("#manualInteractivoResumen").addClass('d-none');
+    
+        }
+    }

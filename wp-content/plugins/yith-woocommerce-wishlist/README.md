@@ -151,13 +151,11 @@ Yes, of course you can. To avoid Wishlist page to show product prices, you can h
 
 ## Changelog
 
-### 3.1.0 - Released on 08 September 2021
+### 3.3.0 - Released on 11 November 2021
 
-* New: support for WooCommerce 5.7
-* Update: YITH Plugin Framework
-* Tweak: enforcing a more strict nonce verification
-* Fix: use absolute URL in 'Remove from Wishlist' anchors, to avoid problems when template is loaded via AJAX
-* Dev: added yith_wcwl_plugin_icons filter, to allow third party add custom icons (thanks to swallow2603)
+* New: support for WooCommerce 5.9
+* Update: YITH plugin framework
+* Dev: added yith_wcwl_table_product_show_add_to_cart filter to wishlist-view-mobile.php template
 
 ## Support
 

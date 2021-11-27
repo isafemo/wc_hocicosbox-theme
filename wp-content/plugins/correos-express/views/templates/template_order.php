@@ -338,7 +338,7 @@ $CEX->CEX_styles_datepicker();
 
 <script type="text/javascript">
 // Cabeceras de la orden 
-var introjsFormRemitente = "<?php esc_html_e("Secci&oacute;n de datos referente al remitente.", "cex_pluggin");?>";
+    var introjsFormRemitente = "<?php esc_html_e("Secci&oacute;n de datos referente al remitente.", "cex_pluggin");?>";
     var introjsFormDestinatario = "<?php esc_html_e("Secci&oacute;n de datos referente al destinatario.", "cex_pluggin");?>";
     var introjsFormExtra = "<?php esc_html_e("Informaci&oacute;n extra sobre el pedido.", "cex_pluggin");?>";
 
@@ -375,9 +375,6 @@ var introjsFormRemitente = "<?php esc_html_e("Secci&oacute;n de datos referente 
 
     // Tabla historico
     var tabla_historico = "<?php esc_html_e("Tabla en la que podremos consultar el hist&oacute;rico del pedido.", "cex_pluggin");?>";
-
-
-
 
 </script>
 
@@ -795,6 +792,7 @@ function pedirRemitente() {
                 (jQuery)('#desdem').val(remitente.from_minute);
                 (jQuery)('#hastah').val(remitente.to_hour);
                 (jQuery)('#hastam').val(remitente.to_minute);
+                (jQuery)('#select_paisrte').val(remitente.iso_code_pais);
 
             },
             error: function(msg) {
@@ -1077,52 +1075,13 @@ function validarDestinoEnvio(){
                     'id_customer_code'          : (jQuery)('#select_codigos_cliente').val(),
                     'nonce'                     : (jQuery)('#cex-nonce').val(),
                 },
-                success: function(msg){
-                    if(contenidoVal != '63' && contenidoVal != '26' && contenidoVal != '46' && contenidoVal != '79'){
-                        PNotify.prototype.options.styling = "bootstrap3";
-                            new PNotify({
-                                title: "<?php esc_html_e('Cambio de modalidad', 'cex_pluggin');?>",
-                                text: "<?php esc_html_e('Los env&iacute;os a Portugal solo est&aacute;n disponibles si se utiliza el PAQ 24 ¿Quieres cambiar la modalidad de env&iacute;o a PAQ 24?', 'cex_pluggin');?>",
-                                icon: 'fas fa-question',
-                                hide: false,
-                                stack: myStack,
-                                confirm: {
-                                    confirm: true
-                                },
-                                buttons: {
-                                    closer: false,
-                                    sticker: false
-                                }
-                        }).get().on('pnotify.confirm', function(){
-                            if(contenidoText.search('PAQ 24') == -1){
-                                // AÑADIMOS EL PAQ 24 EN CASO DE QUE NO LO TENGA PARA PASARSELO A LA ORDEN
-                                (jQuery)('#select_modalidad_envio').append("<option value='63' selected>PAQ 24</option>");
-                                // COMPROBAMOS Y OCULTAMOS EN CASO NECESARIO => ENTREGA EN OFICINA Y SUS DATOS
-                                (jQuery)('#entrega_oficina').prop("checked", false);
-                                mostrarBoton();
-                                mostrarCheck();
-
-                                alert("<?php esc_html_e('Cambio de modalidad', 'cex_pluggin');?>");
-                                modificacionAutomatica = 2;
-                                grabarEnvio(modificacionAutomatica);   
-                            }else{
-                                modificacionAutomatica = 1;
-                                (jQuery)('#select_modalidad_envio option[value="63"]').attr("selected", true);
-                                // COMPROBAMOS Y OCULTAMOS EN CASO NECESARIO => ENTREGA EN OFICINA Y SUS DATOS
-                                (jQuery)('#entrega_oficina').prop("checked", false);
-                                grabarEnvio(modificacionAutomatica);
-                            }
-                        }).on('pnotify.cancel', function(){                            
-                            return false;
-                        }); 
-                    }else{
-                        if(postcode_receiver.search('-') !== -1 || 
-                          (jQuery)('#select_paises').val().localeCompare('ES') != 0){
-                            // COMPROBAMOS Y OCULTAMOS EN CASO NECESARIO => ENTREGA EN OFICINA Y SUS DATOS
-                            (jQuery)('#entrega_oficina').prop("checked", false);
-                        }                        
-                        grabarEnvio(modificacionAutomatica);                                                                          
+                success: function(msg){               
+                    if(postcode_receiver.search('-') !== -1 || 
+                      (jQuery)('#select_paises').val().localeCompare('ES') != 0){
+                        // COMPROBAMOS Y OCULTAMOS EN CASO NECESARIO => ENTREGA EN OFICINA Y SUS DATOS
+                        (jQuery)('#entrega_oficina').prop("checked", false);
                     }                        
+                    grabarEnvio(modificacionAutomatica);                                                     
                 },
                 error: function(msg){                     
                     return false;
@@ -1137,20 +1096,6 @@ function validarDestinoEnvio(){
 
     }
 
-
-function validarHora(){
-    let fechaEntrega = (jQuery)('#fecha_entrega').datetimepicker('viewDate');
-    fechaEntrega = fechaEntrega.add( (jQuery)('#desdeh').val(),'hours');
-    let fechaActual = moment();
-    var duration = fechaEntrega.diff(fechaActual, "hours");
-    fechaActual.diff(fechaEntrega, "hours");
-    if(duration>0){
-        return true;
-    }else{
-        return false;
-    }
-}
-
 function formatFecha(fecha){
     let formatoBbdd = '<?php echo get_option("date_format"); ?>';
     let fecha1Formateada = moment(fecha,formatoBbdd).format('YYYY-MM-DD');
@@ -1162,14 +1107,6 @@ function grabarEnvio(modificacionAutomatica = 0) {
 
     (jQuery)('#referencia_envio').removeClass('is-invalid');
 
-    if(validarHora()!=true && jQuery('#grabar_recogida').prop('checked')==true){
-        (jQuery)('#respuestaWS').html("<span class='alert alert-danger mt-3 rounded-2 d-block'><?php esc_html_e("HORA DE RECOGIDA ANTERIOR A LA ACTUAL", "cex_pluggin");?></span>");
-        (jQuery)('#respuestaWS').removeClass('d-none');
-        (jQuery)('#grabar_envio').removeClass('d-none');
-        (jQuery)('#grabar_envio').removeAttr('disabled');
-        (jQuery)('#grabar_envio').removeClass('disabled');
-        return;
-        }
     if ((jQuery)('#select_modalidad_envio').val() == 44 && (jQuery)('#telefono_movil').val() == '') {        
         (jQuery)('#respuestaWS').html(
             "<span class='alert alert-danger mt-3 rounded-2 d-block'><?php esc_html_e("PARA LA ENTREGA EN OFICINA ES NECESARIO INTRODUCIR EL TEL&Eacute;FONO M&Oacute;VIL", "cex_pluggin");?></span>"

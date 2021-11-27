@@ -66,7 +66,9 @@ function install_db()
     $tabla20 = cex_migracion37($wpdb);
     $tabla21 = cex_migracion38($wpdb);
     $pobladoIslas = cex_seeding_saved_modeships_3($wpdb);
-
+    $tabla22 = cex_migracion39($wpdb);
+    $tabla23 = cex_migracion40($wpdb);
+    $tabla24 = cex_migracion41($wpdb);
 }
 
 function comprobar_ejecucion_migracion($wpdb, $nombre_migracion)
@@ -1085,7 +1087,188 @@ function cex_migracion38($wpdb)
     return true;    
 }
 
+function cex_migracion39($wpdb){
+    $nombreTabla        = $wpdb->prefix.'cex_history';
+    $nombreMigracion    = $nombreTabla." ADD CEX PRODUCT WS";
 
+    if (comprobar_ejecucion_migracion($wpdb,$nombreMigracion)) {
+        return true;
+    }
+
+    $sql = "ALTER TABLE $nombreTabla 
+            ADD id_bc_ws INTEGER NULL, 
+            ADD mode_ship_name_ws VARCHAR(50) NULL";
+
+    $query = $wpdb->query($sql);
+
+    if (!$query) {
+        return false;
+    }
+
+    registrar_ejecucion_migracion($wpdb,$nombreMigracion);
+    return true;
+}
+
+function cex_migracion40($wpdb){
+    $nombreTabla        = $wpdb->prefix.'cex_savedsenders';
+    $nombreMigracion    = $nombreTabla." ALTER CITY SAVEDSENDERS";
+
+    if (comprobar_ejecucion_migracion($wpdb,$nombreMigracion)) {
+        return true;
+    }
+
+    $sql = "ALTER TABLE $nombreTabla 
+            MODIFY COLUMN city VARCHAR(40)";
+
+    $query = $wpdb->query($sql);
+
+    if (!$query) {
+        return false;
+    }
+
+    registrar_ejecucion_migracion($wpdb,$nombreMigracion);
+    return true;
+}
+
+function cex_migracion41($wpdb)
+{     
+    $nombreTabla        = $wpdb->prefix.'cex_savedmodeships';
+    $nombreMigracion    = $nombreTabla." UPDATE SAVEDMODESHIPS";
+
+    if (comprobar_ejecucion_migracion($wpdb,$nombreMigracion)) {
+        return true;
+    }
+
+    $sql = "ALTER TABLE $nombreTabla 
+            ADD short_name VARCHAR(30) null";
+    
+    $result  = $wpdb->query($sql);
+    
+    if (!$result) {
+        return false;
+    }
+
+    $updates = array(
+                        [
+                            'name'=>'Islas Express',
+                            'id_bc'=>'26',
+                            'short_name' => 'ISEXP'
+                        ],
+                        [
+                            'name'=>'Campaña Cex',
+                            'id_bc'=>'27',
+                            'short_name' => 'CCEX'
+                        ],
+                        [
+                            'name'=>'Entrega en Oficina',
+                            'id_bc'=>'44',
+                            'short_name' => 'EOFEL'
+                        ],
+                        [
+                            'name'=>'Islas Documentación',
+                            'id_bc'=>'46',
+                            'short_name' => 'ISDOC'
+                        ],
+                        [
+                            'name'=>'Entrega Plus',
+                            'id_bc'=>'54',
+                            'short_name' => '54ER'
+                        ],
+                        [
+                            'name'=>'Entrega Plus con manipulación',
+                            'id_bc'=>'55',
+                            'short_name' => '55ERM'
+                        ],
+                        [
+                            'name'=>'Paq 10',
+                            'id_bc'=>'61',
+                            'short_name' => 'PAQ10'
+                        ],
+                        [
+                            'name'=>'Paq 14',
+                            'id_bc'=>'62',
+                            'short_name' => 'PAQ14'
+                        ],
+                        [
+                            'name'=>'Paq 24',
+                            'id_bc'=>'63',
+                            'short_name' => 'PAQ24'
+                        ],
+                        [
+                            'name'=>'Baleares Express',
+                            'id_bc'=>'66',
+                            'short_name' => 'BAL'
+                        ],
+                        [
+                            'name'=>'Canarias Express',
+                            'id_bc'=>'67',
+                            'short_name' => 'CANE'
+                        ],
+                        [
+                            'name'=>'Canarias Aéreo',
+                            'id_bc'=>'68',
+                            'short_name' => 'CANA'
+                        ],
+                        [
+                            'name'=>'Canarias Marítimo',
+                            'id_bc'=>'69',
+                            'short_name' => 'CANM'
+                        ],
+                        [
+                            'name'=>'Portugal Óptica',
+                            'id_bc'=>'73',
+                            'short_name' => 'CEXPOROPT'
+                        ],
+                        [
+                            'name'=>'Paquetería Ópticas',
+                            'id_bc'=>'76',
+                            'short_name' => 'PQOP'
+                        ],
+                        [
+                            'name'=>'Islas Marítimo',
+                            'id_bc'=>'79',
+                            'short_name' => 'ISEST'
+                        ],
+                        [
+                            'name'=>'Internacional Estándar',
+                            'id_bc'=>'90',
+                            'short_name' => 'IE'
+                        ],
+                        [
+                            'name'=>'Internacional Express',
+                            'id_bc'=>'91',
+                            'short_name' => 'IEX'
+                        ],
+                        [
+                            'name'=>'Paq Empresa 14',
+                            'id_bc'=>'92',
+                            'short_name' => 'PAQE14'
+                        ],
+                        [
+                            'name'=>'ePaq 24',
+                            'id_bc'=>'93',
+                            'short_name' => 'ePAQ24'
+                        ],
+                    );
+
+    $count = 0;
+    foreach ($updates as $update) {
+        $short_name = $update['short_name'];
+        $name       = $update['name'];
+        $id_bc      = $update['id_bc'];
+
+        $query = "UPDATE $nombreTabla s SET s.short_name ='$short_name', s.name='$name' WHERE s.id_bc=$id_bc;";
+        $result  = $wpdb->query($query);
+        $count += $result;
+    }
+
+    if ($count == 20) {
+        registrar_ejecucion_migracion($wpdb,$nombreMigracion);
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function actualizarTablasPrincipales($wpdb, $nombreTablaVieja, $nombreTablaAuxiliar, $nombreTabla)
 {

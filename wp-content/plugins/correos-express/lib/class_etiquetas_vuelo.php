@@ -61,16 +61,16 @@ class EtiquetasVuelo
         $skuProducts='';
         $count=1;
         $table = $wpdb->prefix.'cex_customer_options';    
-        $products = $order->get_items();        
+        $products = $order->get_items(); 
         foreach ($products as $producto) {  
             if($count<count($products)){
                 $product = $producto->get_product();
-                $nameProducts.='#'.$product->get_name().$delimitador;
+                $nameProducts.='#'.$product->get_name().'('.$producto->get_quantity().')'.$delimitador;
                 $idProducts.='Ref#'.$product->get_id().$delimitador;
                 $skuProducts.='#'.$product->get_sku().$delimitador;
             }else{
                 $product = $producto->get_product();
-                $nameProducts.='#'.$product->get_name();
+                $nameProducts.='#'.$product->get_name().'('.$producto->get_quantity().')';
                 $idProducts.='Ref#'.$product->get_id();
                 $skuProducts.='#'.$product->get_sku();
             }
@@ -99,14 +99,14 @@ class EtiquetasVuelo
                         $retorno = $skuProducts;
                         break;
                     default :
-                        $retorno = $idProducts;
+                        $retorno = '';
                         break;
                     break; 
                 }                
             }
-        }else{                
-            $retorno .= $idProducts;            
-        }                
+        }//else{                
+            //$retorno .= $idProducts;            
+        //}                
         return $retorno;
     }
 
@@ -282,16 +282,14 @@ class EtiquetasVuelo
             
         $table1 = $wpdb->prefix.'cex_savedships';
         $table2 = $wpdb->prefix.'cex_envios_bultos';
+        $table3 = $wpdb->prefix.'cex_history';
         $paquetes = $wpdb->get_results($wpdb->prepare("SELECT *    
                 FROM $table1 s 
                 LEFT JOIN $table2 e
-                ON e.numcollect = s.numcollect
-                WHERE s.type = 'Envio' AND e.numcollect in ($numCollect) AND e.deleted_at is null and s.deleted_at is null",null));
-        $sql="SELECT *    
-        FROM $table1 s 
-        LEFT JOIN $table2 e
-        ON e.numcollect = s.numcollect
-        WHERE s.type = 'Envio' AND e.numcollect in ($numCollect) AND e.deleted_at is null and s.deleted_at is null";
+                    ON e.numcollect = s.numcollect
+                LEFT JOIN $table3 h
+                    ON h.numcollect = s.numcollect AND h.numShip = s.numship
+                WHERE s.type = 'Envio' AND e.numcollect in ($numCollect) AND e.deleted_at is null and s.deleted_at is null",null));     
         // define barcode style
         $style = array(
             'position' => '',
@@ -490,7 +488,7 @@ class EtiquetasVuelo
     {
         if (!empty($paquete->deliver_sat)) {
 
-            $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/entregasabado.png", 135, 64+($this->incH*$this->cb)+($this->offset*$this->cb), 10, 15, 'PNG');
+            $pdf->Image(dirname(__FILE__,2)."/views/img/entregasabado.png", 135, 64+($this->incH*$this->cb)+($this->offset*$this->cb), 10, 15, 'PNG');
             $pdf->Cell(140, 48, 'Fecha Envío: '.date("d/m/Y", strtotime($paquete->date)), 0, 0, 'R');
         }
 
@@ -577,7 +575,7 @@ class EtiquetasVuelo
 
             $pdf->Image($MXPS_UPLOADFILE, 150, 10+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 7, substr($rutaLogo,strrpos($MXPS_UPLOADFILE,'.')+1));
         }else{
-            $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/correosexpress.png", 150, 10+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 7, 'PNG');
+            $pdf->Image(dirname(__FILE__,2)."/views/img/correosexpress.png", 150, 10+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 7, 'PNG');
         }
 
         $pdf->setXY(120, 16+($this->incH*$this->cb)+($this->offset*$this->cb));
@@ -607,7 +605,7 @@ class EtiquetasVuelo
         /** DM Country ***/
         $pdf->SetFont('freeserif', 'B', 12);
         // set iso image
-        $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/etiqueta_AENOR.png", 169, 64+($this->incH*$this->cb)+($this->offset*$this->cb), 15, 20, 'PNG');
+        $pdf->Image(dirname(__FILE__,2)."/views/img/etiqueta_AENOR.png", 169, 64+($this->incH*$this->cb)+($this->offset*$this->cb), 15, 20, 'PNG');
 
         // set description references
         $pdf->SetFont('freeserif', '', 10);
@@ -659,7 +657,8 @@ class EtiquetasVuelo
         }
 
         $pdf->SetFont('freeserif', 'B', 8.7);
-        $pdf->MultiCell(50, 8, $paquete->id_bc.' - '.$paquete->mode_ship_name.' - '.$paquete->receiver_country, 1, 'L', 0);
+        //$pdf->MultiCell(50, 8, $paquete->id_bc_ws.' - '.$this->getShortname($paquete->id_bc_ws).' - '.$paquete->receiver_country, 1, 'L', 0);
+        $pdf->MultiCell(50, 8, $paquete->id_bc.' - '.$this->getShortname($paquete->id_bc).' - '.$paquete->receiver_country, 1, 'L', 0);
         $pdf->SetFont('freeserif', '', 8);
         $pdf->Cell(120, 6, "El cliente acepta las condiciones del porte, y estar informado de la posibilidad de seguro a todo riesgo por el valor de la mercancia.", 0, 1, 'L');
         // set lines
@@ -721,14 +720,14 @@ class EtiquetasVuelo
 
         $table1 = $wpdb->prefix.'cex_savedships';
         $table2 = $wpdb->prefix.'cex_envios_bultos';
-        $paquetes = $wpdb->get_results(" SELECT *   
-            FROM $table1 s 
-            LEFT JOIN $table2 e
-            ON e.numcollect = s.numcollect
-            WHERE s.type = 'Envio' 
-            AND e.numcollect in ($numCollect) 
-            AND e.deleted_at is null
-            AND s.deleted_at is null");
+        $table3 = $wpdb->prefix.'cex_history';
+        $paquetes = $wpdb->get_results($wpdb->prepare("SELECT *    
+                FROM $table1 s 
+                LEFT JOIN $table2 e
+                    ON e.numcollect = s.numcollect
+                LEFT JOIN $table3 h
+                    ON h.numcollect = s.numcollect AND h.numShip = s.numship
+                WHERE s.type = 'Envio' AND e.numcollect in ($numCollect) AND e.deleted_at is null and s.deleted_at is null",null));
 
         // define barcode style
         $style = array(
@@ -836,7 +835,7 @@ class EtiquetasVuelo
 
             $pdf->Image($MXPS_UPLOADFILE, 150, 10+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 7, substr($rutaLogo,strrpos($MXPS_UPLOADFILE,'.')+1));
         }else{
-            $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/correosexpress.png", 150, 10+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 7, 'PNG');
+            $pdf->Image(dirname(__FILE__,2)."/views/img/correosexpress.png", 150, 10+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 7, 'PNG');
         }
 
         $pdf->setXY(120, 16+($this->incH*$this->cb)+($this->offset*$this->cb));
@@ -901,7 +900,7 @@ class EtiquetasVuelo
     protected function cex_generarEtiquetaMedioFolioZona6y7($pdf, $paquete)
     {
         if (!empty($paquete->deliver_sat)) {
-            $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/entregasabado.png", 143, 72+($this->incH*$this->cb)+($this->offset*$this->cb), 15, 15, 'PNG');
+            $pdf->Image(dirname(__FILE__,2)."/views/img/entregasabado.png", 143, 72+($this->incH*$this->cb)+($this->offset*$this->cb), 15, 15, 'PNG');
             $pdf->Cell(150, 45, 'Fecha Envío: '.date("d/m/Y", strtotime($paquete->date)), 0, 0, 'R');
         }
 
@@ -941,7 +940,7 @@ class EtiquetasVuelo
         }
 
         $pdf->SetFont('freeserif', 'B', 12);
-        $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/etiqueta_AENOR.png", 169, 78+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 25, 'PNG');
+        $pdf->Image(dirname(__FILE__,2)."/views/img/etiqueta_AENOR.png", 169, 78+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 25, 'PNG');
 
         // set ship name and description references
         /*
@@ -1003,7 +1002,8 @@ class EtiquetasVuelo
 
         $pdf->SetFont('freeserif', '', 8);
         // *** DM ****
-        $pdf->Cell(40, 10, $paquete->id_bc.' - '.$paquete->mode_ship_name.' - '.$paquete->receiver_country, 1, 0, 'L');
+        //$pdf->Cell(40, 10, $paquete->id_bc_ws.' - '.$this->getShortname($paquete->id_bc_ws).' - '.$paquete->receiver_country, 1, 0, 'L');
+        $pdf->Cell(40, 10, $paquete->id_bc.' - '.$this->getShortname($paquete->id_bc).' - '.$paquete->receiver_country, 1, 0, 'L');
         $pdf->setXY(120, 110+($this->incH*$this->cb)+($this->offset*$this->cb));
        
         $pdf->setY(120+($this->incH*$this->cb)+($this->offset*$this->cb));
@@ -1059,11 +1059,14 @@ class EtiquetasVuelo
 
         $table1 = $wpdb->prefix.'cex_savedships';
         $table2 = $wpdb->prefix.'cex_envios_bultos';
-        $paquetes = $wpdb->get_results(" SELECT *   
-            FROM $table1 s 
-            LEFT JOIN $table2 e
-            ON e.numcollect = s.numcollect
-            WHERE s.type = 'Envio' AND e.numcollect in ($numCollect) AND e.deleted_at is null and s.deleted_at is null");
+        $table3 = $wpdb->prefix.'cex_history';
+        $paquetes = $wpdb->get_results($wpdb->prepare("SELECT *    
+                FROM $table1 s 
+                LEFT JOIN $table2 e
+                    ON e.numcollect = s.numcollect
+                LEFT JOIN $table3 h
+                    ON h.numcollect = s.numcollect AND h.numShip = s.numship
+                WHERE s.type = 'Envio' AND e.numcollect in ($numCollect) AND e.deleted_at is null and s.deleted_at is null",null));
 
         // define barcode style
         $style = array(
@@ -1234,7 +1237,7 @@ class EtiquetasVuelo
             }
 
             if (!empty($paquete->deliver_sat)) {
-                $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/entregasabado.png", 62, 22+($this->incH*$this->cb)+($this->offset*$this->cb), 10, 10, 'PNG');
+                $pdf->Image(dirname(__FILE__,2)."/views/img/entregasabado.png", 62, 22+($this->incH*$this->cb)+($this->offset*$this->cb), 10, 10, 'PNG');
             }
    
             // sender information
@@ -1287,7 +1290,7 @@ class EtiquetasVuelo
             $pdf->setXY(8, 21+($this->incH*$this->cb)+($this->offset*$this->cb));
            
             if (!empty($paquete->deliver_sat)) {
-                $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/entregasabado.png", 60, 35+($this->incH*$this->cb)+($this->offset*$this->cb), 10, 15, 'PNG');
+                $pdf->Image(dirname(__FILE__,2)."/views/img/entregasabado.png", 60, 35+($this->incH*$this->cb)+($this->offset*$this->cb), 10, 15, 'PNG');
             }
    
             // sender information
@@ -1422,7 +1425,9 @@ class EtiquetasVuelo
         // mode ship name
         $pdf->setXY(75, 40+($this->incH*$this->cb)+($this->offset*$this->cb));
         $pdf->SetFont('freeserif', 'B', 11.5);
-        $pdf->MultiCell(65, 12, $paquete->id_bc.' - '.$paquete->mode_ship_name.' -  '.$paquete->receiver_country, 0, 'L', 0);
+
+        //$pdf->MultiCell(65, 12, $paquete->id_bc_ws.' - '.$this->getShortname($paquete->id_bc_ws).' -  '.$paquete->receiver_country, 0, 'L', 0);
+        $pdf->MultiCell(65, 12, $paquete->id_bc.' - '.$this->getShortname($paquete->id_bc).' -  '.$paquete->receiver_country, 0, 'L', 0);
 
         $products_name =  $this->cex_retornarNombresProductos($paquete->id_order);
 
@@ -1430,7 +1435,7 @@ class EtiquetasVuelo
         $pdf->SetFont('freeserif', 'B', 8);
         // Nombre de Productos segun la orden
         $pdf->SetAutoPageBreak(true, 0);
-        $pdf->MultiCell(45, 45, "Producto/s: ".$products_name, 0, 'L', false, 8, 107, 50, true, 0, false, true, 0, "L", true);
+        $pdf->MultiCell(45, 45, $products_name, 0, 'L', false, 8, 107, 50, true, 0, false, true, 0, "L", true);
         $pdf->SetAutoPageBreak(true, 0);
         
         return $pdf;
@@ -1456,7 +1461,7 @@ class EtiquetasVuelo
             $paquete->id_ship."\n".
             "codigo barras std?"."\n".
             "delegacion destino?"."\n".
-            $paquete->mode_ship_name."\n".
+            $paquete->mode_ship_name_ws."\n".
             $paquete->numship."\n".
             $paquete->kg."\n"
             .($i+1)."\n".
@@ -1481,9 +1486,9 @@ class EtiquetasVuelo
 
             $pdf->Image($MXPS_UPLOADFILE, -30, -10+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 8, substr($rutaLogo,strrpos($MXPS_UPLOADFILE,'.')+1));
         }else{
-            $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/correosexpress.png", -30, -10+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 8, 'PNG');
+            $pdf->Image(dirname(__FILE__,2)."/views/img/correosexpress.png", -30, -10+($this->incH*$this->cb)+($this->offset*$this->cb), 20, 8, 'PNG');
         }
-
+        
         $pdf->StopTransform();
         /***************************************************************************    ********
         * barcode vertical , de momento se encuentra deshabilitado por la lógica   del módulo
@@ -1504,9 +1509,20 @@ class EtiquetasVuelo
         global $wpdb;
 
         $numCollect = $this->cex_comprobarUnaVariasEtiquetas($numCollect);
-        $table = $wpdb->prefix.'cex_savedships';
-        $paquetes = $wpdb->get_results(" SELECT *   
-            FROM $table WHERE type = 'Envio' AND status = 'Grabado' AND numcollect in ($numCollect)");
+        $table1 = $wpdb->prefix.'cex_savedships';
+        $table2 = $wpdb->prefix.'cex_history';
+
+        $sql    =  "SELECT * 
+                    FROM $table1 s 
+                    LEFT JOIN $table2 h
+                        ON h.numcollect = s.numcollect AND s.numship = h.numship 
+                    WHERE s.type = 'Envio' 
+                    AND s.status = 'Grabado'
+                    AND s.deleted_at IS NULL 
+                    AND s.numcollect in ($numCollect)";
+                    
+        $paquetes = $wpdb->get_results($sql);
+
         $pdf = new TCPDF_CEX();
         $pdf->SetAutoPageBreak(true, 0);
         $pdf->SetPrintHeader(false);
@@ -1526,7 +1542,7 @@ class EtiquetasVuelo
 
             $pdf->Image($MXPS_UPLOADFILE, 190, 10, 20, 7, substr($rutaLogo,strrpos($MXPS_UPLOADFILE,'.')+1));
         }else{
-            $pdf->Image(plugin_dir_url(dirname(__FILE__))."/views/img/correosexpress.png", 190, 10, 20, 7, 'PNG');
+            $pdf->Image(dirname(__FILE__,2)."/views/img/correosexpress.png", 190, 10, 20, 7, 'PNG');
         }
 
         $pdf->SetFont('freeserif', '', 18);
@@ -1556,7 +1572,8 @@ class EtiquetasVuelo
             $insured_value    = number_format($paquete->insured_value, 2);
             $receiver_contact = $paquete->receiver_contact;
             $receiver_phone   = $paquete->receiver_phone;
-            $mode_ship_name   = $paquete->mode_ship_name;
+            $mode_ship_name   = $paquete->mode_ship_name_ws;
+
             $receiver_address = $paquete->receiver_address;
             $array_data[]     = array(
                 'idship'            => $paquete->numship,
@@ -1567,7 +1584,8 @@ class EtiquetasVuelo
                 'insured_value'     => number_format($paquete->insured_value, 2),
                 'receiver_contact'  => $paquete->receiver_contact,
                 'receiver_phone'    => $paquete->receiver_phone,
-                'mode_ship_name'    => $paquete->mode_ship_name,
+                //'mode_ship_name'    => $this->getShortname($paquete->id_bc_ws),
+                'mode_ship_name'    => $this->getShortname($paquete->id_bc),
                 'receiver_address'  => $paquete->receiver_address,
                 'receiver_country'  => $paquete->receiver_country);
             
@@ -1664,5 +1682,17 @@ class EtiquetasVuelo
         $codigo=$a.$b.$c.$d.$e;
         
         return $codigo;
+    }
+
+    protected function getShortname($id_bc_ws)
+    {
+        global $wpdb;
+
+        $tabla = $wpdb->prefix.'cex_savedmodeships';
+        $sql = "SELECT distinct short_name FROM $tabla WHERE id_bc = ".(int)$id_bc_ws."";
+
+        $result = $wpdb->get_var($sql);
+        
+        return $result;
     }
 }?>

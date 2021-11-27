@@ -12,6 +12,13 @@
  *  @license   LICENSE.txt
  *  @email peticiones@correosexpress.com
  */
+
+var section1 = '<div id="woocommerce-history-cex" class="postbox " style=""><div class="postbox-header"><h2 class="hndle ui-sortable-handle">Histórico Envío Correos Express</h2><div class="handle-actions hide-if-no-js"><button type="button" class="handle-order-higher" aria-disabled="false" aria-describedby="woocommerce-history-cex-handle-order-higher-description"><span class="screen-reader-text">Subir</span><span class="order-higher-indicator" aria-hidden="true"></span></button><span class="hidden" id="woocommerce-history-cex-handle-order-higher-description">Mover la caja Histórico Envío Correos Express arriba</span><button type="button" class="handle-order-lower" aria-disabled="false" aria-describedby="woocommerce-history-cex-handle-order-lower-description"><span class="screen-reader-text">Bajar</span><span class="order-lower-indicator" aria-hidden="true"></span></button><span class="hidden" id="woocommerce-history-cex-handle-order-lower-description">Mover la caja Histórico Envío Correos Express abajo</span><button type="button" class="handlediv" aria-expanded="true"><span class="screen-reader-text">Alternar panel: Histórico Envío Correos Express</span><span class="toggle-indicator" aria-hidden="true"></span></button></div></div><div class="inside"><input type="hidden" id="cex-nonce" name="cex-nonce" value="6d387c9610"><input type="hidden" name="_wp_http_referer" value="/WP_Sprint38/wp-admin/post.php?post=21&amp;action=edit"><div id="CEX"><div id="history" class="row mt-3 mx-1"><div class="col-12 col-md-12 col-lg-12 p-0 rounded CEX-overflow-y-hidden">';
+var tabla = '<table id="tabla_historico" border="1" class="table w-100"><thead><tr><th>Seguimiento</th><th>Fecha</th><th>Ref.Pedido</th><th>Tipo</th><th>Identificador</th><th>Recogida desde</th><th>Fecha de Recogida</th><th>Hora Recogida desde</th><th>Hora Recogida hasta</th><th>Estado</th><th>Acciones</th></tr></thead><tbody><tr><td><a href="#"">CorreosExpress</a></td><td>aaaa-mm-dd</td><td>0</td><td>Envio</td><td>0000000000000000</td><td>Sede Recogida</td><td></td><td></td><td></td><td>Grabado</td><td><a href="#"><i class="fa fa-trash"></i></a></td></tr><tr><td><a href="#">CorreosExpress</a></td><td>aaaa-mm-dd</td><td>0</td><td>Recogida</td><td>Automatica</td><td>Sede Recogida</td><td></td><td></td><td></td><td>Grabado</td><td><a href="#""><i class="fa fa-trash"></i></a></td></tr></tbody><tfoot><tr><th>Seguimiento</th><th>Fecha</th><th>Ref.Pedido</th><th>Tipo</th><th>Identificador</th><th>Recogida desde</th><th>Fecha de Recogida</th><th>Hora Recogida desde</th><th>Hora Recogida hasta</th><th>Estado</th><th>Acciones</th></tr></tfoot></table>';
+var section2 = '</div></div>';
+var section = section1+tabla+section2;
+//var historico = jQuery("#woocommerce-history-cex").length;
+
 function changeCustomOptions(intro){   
     intro.setOption('nextLabel', '<i class="fas fa-chevron-right"></i>');
     intro.setOption('prevLabel', '<i class="fas fa-chevron-left"></i>');
@@ -20,10 +27,15 @@ function changeCustomOptions(intro){
 }
 
 
-function introjsOrder(){   
+function introjsOrder(){ 
     if ((jQuery)("#select_etiqueta").val()=='3') {
         (jQuery)("#introjsPosicionEtiquetas").removeClass('d-none');
-    } 
+    }   
+
+    if(historico == 0){
+        jQuery("#advanced-sortables").append(section);
+    }
+
     var intro = introJs();
     changeCustomOptions(intro);
     intro.setOptions({
@@ -73,6 +85,10 @@ function introjsOrder(){
             intro: introjsCodCliente
         },
         {
+            element: document.querySelector('#introjsRefEnvio'),
+            intro: introjsRefEnvio
+        },
+        {
             element: document.querySelector('#introjsFechaEntrega'),
             intro: introjsFechaEntrega
         },
@@ -81,8 +97,8 @@ function introjsOrder(){
             intro: introjsHHMM
         },
         {
-            element: document.querySelector('#introjsRefEnvio'),
-            intro: introjsRefEnvio
+            element: document.querySelector('#introjsBultosKilos'),
+            intro: introjsBultosKilos
         },
        /* {
             element: document.querySelector('#introjsPaisDestino'),
@@ -99,10 +115,6 @@ function introjsOrder(){
         {
             element: document.querySelector('#introjsValorAsegurado'),
             intro: introjsValorAsegurado
-        },
-        {
-            element: document.querySelector('#introjsBultosKilos'),
-            intro: introjsBultosKilos
         },
         {
             element: document.querySelector('#introjsModalidadEnvio'),

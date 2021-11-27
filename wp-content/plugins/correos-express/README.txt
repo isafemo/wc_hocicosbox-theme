@@ -33,6 +33,8 @@ No, above 3.3.5
 fix update
 new migrations for products
 upgrade action hook
+fix img url tcpdf
+fix translations
 
 =2.5.10=
 fix update

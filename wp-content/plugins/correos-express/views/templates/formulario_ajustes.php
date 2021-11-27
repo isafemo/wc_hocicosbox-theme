@@ -5,140 +5,141 @@ $this->CEX_styles();
 wp_enqueue_script("jquery");
 ?>
 
-<div id="CEX" class="CEX-panel">
-    <div id="configuracion" class="CEX-container container pt-5 px-3 pr-sm-5">
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12">
-                <div id="CEX-cabecera" class="row mb-4 mb-sm-1 d-flex align-items-center">
-                    <!--Inicio Cabecera menu opciones-->
-                    <div class="col-6 col-sm-6 my-auto">
-                        <h2 id="step1" class="CEX-text-blue my-0">
-                            <?php esc_html_e('Configuraci&oacute;n', 'cex_pluggin');?></h2>
-                        <button id="ejecutarUpdateButton" name="ejecutarUpdateButton" onclick="ejecutarUpdate();"
-                            class="d-none">
-                            <?php esc_html_e('Ejecutar actualizaciones', 'cex_pluggin');?>
-                        </button>
-                    </div>
-                    <div class="col-6 col-sm-6 text-right my-0">
-                        <img class="img-fluid w-50"
-                            src="<?php echo esc_url(plugins_url('/../img/correosexpress.png',__FILE__));?>">
-                    </div>
-                </div>
-                <div class="row mb-5 d-flex align-items-center">
-                    <div class="col-12 col-sm-12">
-                        <div id="CEX-manualInteractivo" class="CEX-manual">
-                            <fieldset class="rounded CEX-background-bluelight2 border-0 px-3">
-                                <legend
-                                    class="p-2 ml-2 CEX-background-blue CEX-text-white rounded w-auto border CEX-border-primary mb-3">
-                                    <?php esc_html_e('Manual interactivo', 'cex_pluggin');?>
-                                </legend>
-                                <div id="contenidoManual" class="form-group mb-3 w-auto row">
-                                 <div id="parteIzqManual" class="col-lg-6 d-flex">
-                                    <input id="toggleIntroJS" checked="" type="checkbox" class="form-control mt-1 my-auto" onchange="checkIntroJS();">
-                                    <label for="toggleIntroJS" class="m-0 my-auto mr-1 mr-sm-5 CEX-text-blue">Activar / Desactivar</label>
-                                    <button id="manualInteractivo" class="px-2 CEX-btn btn-large CEX-button-red my-auto" href="javascript:void(0)" onclick="introConfiguracionTPL();">
-                                        <?php esc_html_e('Manual interactivo', 'cex_pluggin');?>                                    
-                                    </button>
-                                 </div>
-    
-                                 <div id="parteDerechaManual" class="col-lg-6">
-                                    <a id="quickSupport" class="px-2 CEX-btn btn-large CEX-button-blue my-auto" style="float:right" href="https://get.teamviewer.com/6mxd5fj" target="_blank">
-                                         <?php esc_html_e('Soporte Rápido', 'cex_pluggin');?> 
-                                    </a>
-                                 </div>
-                                </div>
-                            </fieldset>
+    <div id="CEX" class="CEX-panel">
+        <div id="configuracion" class="CEX-container container pt-5 px-3 pr-sm-5">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div id="CEX-cabecera" class="row mb-4 mb-sm-1 d-flex align-items-center">
+                        <!--Inicio Cabecera menu opciones-->
+                        <div class="col-6 col-sm-6 my-auto">
+                            <h2 id="step1" class="CEX-text-blue my-0">
+                                <?php esc_html_e('Configuraci&oacute;n', 'cex_pluggin');?></h2>
+                            <button id="ejecutarUpdateButton" name="ejecutarUpdateButton" onclick="ejecutarUpdate();"
+                                class="d-none">
+                                <?php esc_html_e('Ejecutar actualizaciones', 'cex_pluggin');?>
+                            </button>
                         </div>
-                        <div id="CEX-manualCodigoCliente" class="CEX-manual d-none">
-                            <fieldset class="rounded CEX-background-bluelight2 border-0 px-3">
-                                <legend
-                                    class="p-2 ml-2 CEX-background-blue CEX-text-white rounded w-auto border CEX-border-primary mb-3">
-                                    <?php esc_html_e('Manual Edici&oacute;n C&oacute;digo Cliente', 'cex_pluggin');?>
-                                </legend>
-                                <div id="contenidoManual" class="form-group mb-3 w-auto d-flex">
-                                    <input id="toggleCodigoClienteJS" checked type="checkbox"
-                                        class="form-control mt-1 my-auto" onchange="checkEdicionCodigoClienteJS();">
-                                    <label for="toggleCodigoClienteJS"
-                                        class="m-0 my-auto mr-5 CEX-text-blue"><?php esc_html_e('Activar / Desactivar', 'cex_pluggin');?></label>
-                                    <button id="manualCodigoCliente" class="CEX-btn btn-large CEX-button-red my-auto"
-                                        href="javascript:void(0)" onclick="buttonIntroEdicionCodigoCliente();">
+                        <div class="col-6 col-sm-6 text-right my-0">
+                            <img class="img-fluid w-50"
+                                src="<?php echo esc_url(plugins_url('/../img/correosexpress.png',__FILE__));?>">
+                        </div>
+                    </div>
+                    <div class="row mb-5 d-flex align-items-center">
+                        <div class="col-12 col-sm-12">
+                            <div id="CEX-manualInteractivo" class="CEX-manual">
+                                <fieldset class="rounded CEX-background-bluelight2 border-0 px-3">
+                                    <legend
+                                        class="p-2 ml-2 CEX-background-blue CEX-text-white rounded w-auto border CEX-border-primary mb-3">
                                         <?php esc_html_e('Manual interactivo', 'cex_pluggin');?>
-                                    </button>
-                                </div>
-                            </fieldset>
+                                    </legend>
+                                    <div id="contenidoManual" class="form-group mb-3 w-auto row">
+                                     <div id="parteIzqManual" class="col-lg-6 d-flex">
+                                        <input id="toggleIntroJS" checked="" type="checkbox" class="form-control mt-1 my-auto" onchange="checkIntroJS();">
+                                        <label for="toggleIntroJS" class="m-0 my-auto mr-1 mr-sm-5 CEX-text-blue"><?php esc_html_e('Activar / Desactivar', 'cex_pluggin');?></label>
+                                        <button id="manualInteractivo" class="px-2 CEX-btn btn-large CEX-button-red my-auto" href="javascript:void(0)" onclick="introConfiguracionTPL();">
+                                            <?php esc_html_e('Manual interactivo', 'cex_pluggin');?>                                    
+                                        </button>
+                                     </div>
+        
+                                     <div id="parteDerechaManual" class="col-lg-6">
+                                        <a id="quickSupport" class="px-2 CEX-btn btn-large CEX-button-blue my-auto" style="float:right" href="https://get.teamviewer.com/6mxd5fj" target="_blank">
+                                             <?php esc_html_e('Soporte Rápido', 'cex_pluggin');?> 
+                                        </a>
+                                     </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div id="CEX-manualCodigoCliente" class="CEX-manual d-none">
+                                <fieldset class="rounded CEX-background-bluelight2 border-0 px-3">
+                                    <legend
+                                        class="p-2 ml-2 CEX-background-blue CEX-text-white rounded w-auto border CEX-border-primary mb-3">
+                                        <?php esc_html_e('Manual Edici&oacute;n C&oacute;digo Cliente', 'cex_pluggin');?>
+                                    </legend>
+                                    <div id="contenidoManual" class="form-group mb-3 w-auto d-flex">
+                                        <input id="toggleCodigoClienteJS" checked type="checkbox"
+                                            class="form-control mt-1 my-auto" onchange="checkEdicionCodigoClienteJS();">
+                                        <label for="toggleCodigoClienteJS"
+                                            class="m-0 my-auto mr-5 CEX-text-blue"><?php esc_html_e('Activar / Desactivar', 'cex_pluggin');?></label>
+                                        <button id="manualCodigoCliente" class="CEX-btn btn-large CEX-button-red my-auto"
+                                            href="javascript:void(0)" onclick="buttonIntroEdicionCodigoCliente();">
+                                            <?php esc_html_e('Manual interactivo', 'cex_pluggin');?>
+                                        </button>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div id="CEX-manualRemitente" class="CEX-manual d-none">
+                                <fieldset class="rounded CEX-background-bluelight2 border-0 px-3">
+                                    <legend
+                                        class="p-2 ml-2 CEX-background-blue CEX-text-white rounded w-auto border CEX-border-primary mb-3">
+                                        <?php esc_html_e('Manual Edici&oacute;n Remitente', 'cex_pluggin');?>
+                                    </legend>
+                                    <div id="contenidoManual" class="form-group mb-3 w-auto d-flex">
+                                        <input id="toggleRemitenteJS" checked type="checkbox"
+                                            class="form-control mt-1 my-auto" onchange="checkEdicionRemitenteJS();">
+                                        <label for="toggleRemitenteJS"
+                                            class="m-0 my-auto mr-2 mr-sm-5 CEX-text-blue"><?php esc_html_e('Activar / Desactivar', 'cex_pluggin');?></label>
+                                        <button id="manualRemitente" class="CEX-btn btn-large CEX-button-red my-auto"
+                                            href="javascript:void(0)" onclick="buttonIntroEdicionRemitente();">
+                                            <?php esc_html_e('Manual interactivo', 'cex_pluggin');?>
+                                        </button>
+                                    </div>
+                                </fieldset>
+                            </div>
                         </div>
-                        <div id="CEX-manualRemitente" class="CEX-manual d-none">
-                            <fieldset class="rounded CEX-background-bluelight2 border-0 px-3">
-                                <legend
-                                    class="p-2 ml-2 CEX-background-blue CEX-text-white rounded w-auto border CEX-border-primary mb-3">
-                                    <?php esc_html_e('Manual Edici&oacute;n Remitente', 'cex_pluggin');?>
-                                </legend>
-                                <div id="contenidoManual" class="form-group mb-3 w-auto d-flex">
-                                    <input id="toggleRemitenteJS" checked type="checkbox"
-                                        class="form-control mt-1 my-auto" onchange="checkEdicionRemitenteJS();">
-                                    <label for="toggleRemitenteJS"
-                                        class="m-0 my-auto mr-2 mr-sm-5 CEX-text-blue"><?php esc_html_e('Activar / Desactivar', 'cex_pluggin');?></label>
-                                    <button id="manualRemitente" class="CEX-btn btn-large CEX-button-red my-auto"
-                                        href="javascript:void(0)" onclick="buttonIntroEdicionRemitente();">
-                                        <?php esc_html_e('Manual interactivo', 'cex_pluggin');?>
-                                    </button>
-                                </div>
-                            </fieldset>
-                        </div>
+                        <!--Fin cabecera menu opciones-->
                     </div>
-                    <!--Fin cabecera menu opciones-->
                 </div>
             </div>
         </div>
-    </div>
-    <div id="ajustes" class="CEX-container container mt-1 pr-sm-5">
-        <div class="row mt-1">
-            <div class="col-12 col-md-12 col-lg-12" id="CEX-paneles">
-                <!--Contenedor de codigos de cliente-->
-                <div class="accordion CEX-panel CEX-panel-primary">
-                    <div class="card m-0 p-0 w-100 mw-100 border-0">
-                        <div class="card-header m-0 p-0 CEX-panel-heading" id="step2">
-                            <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
-                                data-target="#panel_codigo_cliente" aria-expanded="true"
-                                aria-controls="panel_codigo_cliente" onclick="animacionBoton('#panel_codigo_cliente');">
-                                <?php esc_html_e('GESTIONAR C&Oacute;DIGOS DE CLIENTE', 'cex_pluggin');?>
-                                <span id="Cex-arrow" class="float-right clickable"><i
-                                        class="fas fa-chevron-down"></i></span>
-                            </a>
-                            <span id="iconCodigoCliente" class="CEX-iconoInfo"
-                                title="Hacer click para ver el manual de esta secci&oacute;n"><i
-                                    class="fas fa-info-circle"
-                                    onclick="checkIntroCodigoCliente('#panel_codigo_cliente');"></i></span>
-                        </div>
+        <div id="ajustes" class="CEX-container container mt-1 pr-sm-5">
+            <div class="row mt-1">
+                <div class="col-12 col-md-12 col-lg-12" id="CEX-paneles">
+                    <!--Contenedor de codigos de cliente-->
+                    <div class="accordion CEX-panel CEX-panel-primary">
+                        <div class="card m-0 p-0 w-100 mw-100 border-0">
+                            <div class="card-header m-0 p-0 CEX-panel-heading" id="step2">
+                                <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
+                                    data-target="#panel_codigo_cliente" aria-expanded="true"
+                                    aria-controls="panel_codigo_cliente" onclick="animacionBoton('#panel_codigo_cliente');">
+                                    <?php esc_html_e('GESTIONAR C&Oacute;DIGOS DE CLIENTE', 'cex_pluggin');?>
+                                    <span id="Cex-arrow" class="float-right clickable"><i
+                                            class="fas fa-chevron-down"></i></span>
+                                </a>
+                                <span id="iconCodigoCliente" class="CEX-iconoInfo"
+                                    title="Hacer click para ver el manual de esta secci&oacute;n"><i
+                                        class="fas fa-info-circle"
+                                        onclick="checkIntroCodigoCliente('#panel_codigo_cliente');"></i></span>
+                            </div>
 
-                        <div id="panel_codigo_cliente" class="collapse" aria-labelledby="panel_codigo_cliente"
-                            data-parent="">
-                            <div class="card-body">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-12 col-lg-5">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span
-                                                        class="input-group-text"><?php esc_html_e('C&oacute;digo cliente', 'cex_pluggin');?></span>
+                            <div id="panel_codigo_cliente" class="collapse" aria-labelledby="panel_codigo_cliente"
+                                data-parent="">
+                                <div class="card-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12 col-lg-5">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span
+                                                            class="input-group-text"><?php esc_html_e('C&oacute;digo cliente', 'cex_pluggin');?></span>
+                                                    </div>
+                                                    <input class="form-control rounded-left-0 rounded-right m-0"
+                                                        type="text" id="customer_code" name='customer_code' maxlength="9" minlength="9"
+                                                        onchange='calcular_codigo_customer();'
+                                                        placeholder="<?php esc_html_e('C&oacute;digo cliente', 'cex_pluggin'); ?>" autocomplete="off">
+                                                    <input class="form-control rounded-left-0 rounded-right m-0"
+                                                        type="hidden" id="code_demand" name='code_demand'>
                                                 </div>
-                                                <input class="form-control rounded-left-0 rounded-right m-0"
-                                                    type="text" id="customer_code" name='customer_code' maxlength="9" minlength="9"
-                                                    onchange='calcular_codigo_customer();'
-                                                    placeholder="<?php esc_html_e('C&oacute;digo cliente', 'cex_pluggin'); ?>" autocomplete="off">
-                                                <input class="form-control rounded-left-0 rounded-right m-0"
-                                                    type="hidden" id="code_demand" name='code_demand'>
+                                                <button id="guardar_cod_cliente"
+                                                    class="CEX-btn CEX-button-success mx-auto my-3"
+                                                    onclick='guardarCodigoCliente();'>
+                                                    <?php esc_html_e('A&ntilde;adir c&oacute;digos', 'cex_pluggin') ;?>
+                                                </button>
                                             </div>
-                                            <button id="guardar_cod_cliente"
-                                                class="CEX-btn CEX-button-success mx-auto my-3"
-                                                onclick='guardarCodigoCliente();'>
-                                                <?php esc_html_e('A&ntilde;adir c&oacute;digos', 'cex_pluggin') ;?>
-                                            </button>
-                                        </div>
-                                        <div class="col-12 col-lg-7">
-                                            <div class="row">
-                                                <div id="saved_codes"
-                                                    class="col-12 d-none CEX-border rounded p-0 overflow-hidden">
+                                            <div class="col-12 col-lg-7">
+                                                <div class="row">
+                                                    <div id="saved_codes"
+                                                        class="col-12 d-none CEX-border rounded p-0 overflow-hidden">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -147,242 +148,245 @@ wp_enqueue_script("jquery");
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion CEX-panel CEX-panel-primary">
-                    <div class="card m-0 p-0 w-100 mw-100 border-0">
-                        <div class="card-header m-0 p-0 CEX-panel-heading" id="step3">
-                            <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
-                                data-target="#panel_remitentes" aria-expanded="true" aria-controls="panel_remitentes"
-                                onclick="animacionBoton('#panel_remitentes');">
-                                <?php esc_html_e('REMITENTES', 'cex_pluggin');?>
-                                <span id="Cex-arrow" class="float-right clickable"><i
-                                        class="fas fa-chevron-down"></i></span>
-                            </a>
-                            <span id="iconRemitente" class="CEX-iconoInfo"
-                                title="Hacer click para ver el manual de esta secci&oacute;n"><i
-                                    class="fas fa-info-circle" onclick="checkIntroRemitente();"></i></span>
-                        </div>
+                    <div class="accordion CEX-panel CEX-panel-primary">
+                        <div class="card m-0 p-0 w-100 mw-100 border-0">
+                            <div class="card-header m-0 p-0 CEX-panel-heading" id="step3">
+                                <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
+                                    data-target="#panel_remitentes" aria-expanded="true" aria-controls="panel_remitentes"
+                                    onclick="animacionBoton('#panel_remitentes');">
+                                    <?php esc_html_e('REMITENTES', 'cex_pluggin');?>
+                                    <span id="Cex-arrow" class="float-right clickable"><i
+                                            class="fas fa-chevron-down"></i></span>
+                                </a>
+                                <span id="iconRemitente" class="CEX-iconoInfo"
+                                    title="Hacer click para ver el manual de esta secci&oacute;n"><i
+                                        class="fas fa-info-circle" onclick="checkIntroRemitente();"></i></span>
+                            </div>
 
-                        <div id="panel_remitentes" class="collapse" aria-labelledby="panel_remitentes" data-parent="">
-                            <div class="card-body p-0 pb-3">
-                                <div class="container-fluid">                                    
-                                    <form id="formCrearRemt" class="w-100" onsubmit="return false">
-                                        <div class="row">
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <div id="div_codigo_cliente" class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span
-                                                            class="input-group-text"><?php esc_html_e('C&oacute;digo cliente', 'cex_pluggin');?></span>
+                            <div id="panel_remitentes" class="collapse" aria-labelledby="panel_remitentes" data-parent="">
+                                <div class="card-body p-0 pb-3">
+                                    <div class="container-fluid">                                    
+                                        <form id="formCrearRemt" class="w-100" onsubmit="return false">
+                                            <div class="row CEX-background-bluelight2 px-1 py-4 mb-3 mt-0 rounded-0">
+                                                <div class="col-8 offset-lg-2">
+                                                    <div id="div_codigo_cliente" class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span
+                                                                class="input-group-text"><?php esc_html_e('C&oacute;digo cliente', 'cex_pluggin');?></span>
+                                                        </div>
+                                                        <select id="codigo_cliente" name="codigo_cliente"
+                                                            class="form-control rounded-left-0 rounded-right m-0"
+                                                            required></select>
                                                     </div>
-                                                    <select id="codigo_cliente" name="codigo_cliente"
-                                                        class="form-control rounded-left-0 rounded-right m-0"
-                                                        required></select>
                                                 </div>
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span
-                                                            class="input-group-text"><?php esc_html_e('Nombre remitente', 'cex_pluggin');?></span>
+                                            </div>        
+                                            <div class="row" id="div_datos_cliente">
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">        
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span
+                                                                class="input-group-text"><?php esc_html_e('Nombre remitente', 'cex_pluggin');?></span>
+                                                        </div>
+                                                        <input id="name_sender" name="name_sender"
+                                                            class="form-control rounded-left-0 rounded-right m-0"
+                                                            type="text"
+                                                            placeholder="<?php esc_html_e('Nombre remitente', 'cex_pluggin');?>"
+                                                            required>
                                                     </div>
-                                                    <input id="name_sender" name="name_sender"
-                                                        class="form-control rounded-left-0 rounded-right m-0"
-                                                        type="text"
-                                                        placeholder="<?php esc_html_e('Nombre remitente', 'cex_pluggin');?>"
-                                                        required>
-                                                </div>
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span
-                                                            class="input-group-text"><?php esc_html_e('Persona contacto', 'cex_pluggin');?></span>
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span
+                                                                class="input-group-text"><?php esc_html_e('Persona contacto', 'cex_pluggin');?></span>
+                                                        </div>
+                                                        <input class="form-control rounded-left-0 rounded-right m-0"
+                                                            type="text" id="contact_sender" name="contact_sender"
+                                                            placeholder="<?php esc_html_e('Persona contacto', 'cex_pluggin');?>"
+                                                            required>
                                                     </div>
-                                                    <input class="form-control rounded-left-0 rounded-right m-0"
-                                                        type="text" id="contact_sender" name="contact_sender"
-                                                        placeholder="<?php esc_html_e('Persona contacto', 'cex_pluggin');?>"
-                                                        required>
-                                                </div>
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span
-                                                            class="input-group-text"><?php esc_html_e('Direcci&oacute;n recogida', 'cex_pluggin');?></span>
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span
+                                                                class="input-group-text"><?php esc_html_e('Direcci&oacute;n recogida', 'cex_pluggin');?></span>
+                                                        </div>
+                                                        <input id="address_sender" name="address_sender"
+                                                            class="form-control rounded-left-0 rounded-right m-0"
+                                                            type="text"
+                                                            placeholder="<?php esc_html_e('Direcci&oacute;n recogida', 'cex_pluggin');?>"
+                                                            required>
                                                     </div>
-                                                    <input id="address_sender" name="address_sender"
-                                                        class="form-control rounded-left-0 rounded-right m-0"
-                                                        type="text"
-                                                        placeholder="<?php esc_html_e('Direcci&oacute;n recogida', 'cex_pluggin');?>"
-                                                        required>
-                                                </div>
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span
-                                                            class="input-group-text"><?php esc_html_e('Poblaci&oacute;n', 'cex_pluggin');?></span>
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span
+                                                                class="input-group-text"><?php esc_html_e('Poblaci&oacute;n', 'cex_pluggin');?></span>
+                                                        </div>
+                                                        <input id="city_sender" name="city_sender"
+                                                            class="form-control rounded-left-0 rounded-right m-0"
+                                                            type="text" placeholder="<?php esc_html_e('Poblaci&oacute;n', 'cex_pluggin');?>" required>
                                                     </div>
-                                                    <input id="city_sender" name="city_sender"
-                                                        class="form-control rounded-left-0 rounded-right m-0"
-                                                        type="text" placeholder="Poblaci&oacute;n" required>
                                                 </div>
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span
-                                                            class="input-group-text"><?php esc_html_e('C&oacute;digo Postal', 'cex_pluggin');?></span>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span
+                                                                class="input-group-text"><?php esc_html_e('C&oacute;digo Postal', 'cex_pluggin');?></span>
+                                                        </div>
+                                                        <input id="postcode_sender" name="postcode_sender"
+                                                            class="form-control rounded-left-0 rounded-right m-0"
+                                                            pattern="\d*"
+                                                            placeholder="<?php esc_html_e('C&oacute;digo Postal', 'cex_pluggin');?>"
+                                                            maxlength="8" type="text" required>
                                                     </div>
-                                                    <input id="postcode_sender" name="postcode_sender"
-                                                        class="form-control rounded-left-0 rounded-right m-0"
-                                                        pattern="\d*"
-                                                        placeholder="<?php esc_html_e('C&oacute;digo Postal', 'cex_pluggin');?>"
-                                                        maxlength="8" type="text" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span
-                                                            class="input-group-text"><?php esc_html_e('Pa&iacute;s', 'cex_pluggin') ;?></span>
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span
+                                                                class="input-group-text"><?php esc_html_e('Pa&iacute;s', 'cex_pluggin') ;?></span>
+                                                        </div>
+                                                        <select id="country_sender" name="country_sender"
+                                                            class="form-control rounded-left-0 rounded-right m-0" required="">
+                                                            <option value="ES"><?php esc_html_e("España", "cex_pluggin");?>
+                                                            </option>
+                                                            <option value="PT">
+                                                                <?php esc_html_e("Portugal", "cex_pluggin");?>
+                                                            </option>
+                                                        </select>
                                                     </div>
-                                                    <select id="country_sender" name="country_sender"
-                                                        class="form-control rounded-left-0 rounded-right m-0" required>
-                                                        <option value="ES"><?php esc_html_e("España", "cex_pluggin");?>
-                                                        </option>
-                                                        <option value="PT">
-                                                            <?php esc_html_e("Portugal", "cex_pluggin");?>
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span
-                                                            class="input-group-text"><?php esc_html_e('Tel&eacute;fono', 'cex_pluggin');?></span>
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span
+                                                                class="input-group-text"><?php esc_html_e('Tel&eacute;fono', 'cex_pluggin');?></span>
+                                                        </div>
+                                                        <input id="phone_sender" name="phone_sender"
+                                                            class="form-control rounded-left-0 rounded-right m-0" type="tel"
+                                                            pattern="\d*" maxlength="9" minlength="9"
+                                                            placeholder="<?php esc_html_e('Tel&eacute;fono', 'cex_pluggin');?>"
+                                                            required>
                                                     </div>
-                                                    <input id="phone_sender" name="phone_sender"
-                                                        class="form-control rounded-left-0 rounded-right m-0" type="tel"
-                                                        pattern="\d*" maxlength="9" minlength="9"
-                                                        placeholder="<?php esc_html_e('Tel&eacute;fono', 'cex_pluggin');?>"
-                                                        required>
-                                                </div>
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span
-                                                            class="input-group-text"><?php esc_html_e('Correo electr&oacute;nico', 'cex_pluggin');?></span>
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span
+                                                                class="input-group-text"><?php esc_html_e('Correo electr&oacute;nico', 'cex_pluggin');?></span>
+                                                        </div>
+                                                        <input id="email_sender" name="email_sender"
+                                                            class="form-control rounded-left-0 rounded-right m-0"
+                                                            type="email"
+                                                            placeholder="<?php esc_html_e('Correo electr&oacute;nico', 'cex_pluggin');?>"
+                                                            required>
                                                     </div>
-                                                    <input id="email_sender" name="email_sender"
-                                                        class="form-control rounded-left-0 rounded-right m-0"
-                                                        type="email"
-                                                        placeholder="<?php esc_html_e('Correo electr&oacute;nico', 'cex_pluggin');?>"
-                                                        required>
                                                 </div>
-                                                <div id="bloqueHoraDesdeHasta" class="row">
-                                                    <div id="introHoraDesde" class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                        <div class="CEX-panel CEX-panel-primary">
-                                                            <div class="CEX-panel-heading">
-                                                                <?php esc_html_e('Desde', 'cex_pluggin') ;?></div>
-                                                            <div class="panel-body py-3">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-6">
-                                                                            <label for="fromHH_sender"
-                                                                                class="control-label d-block"><?php esc_html_e('Hora', 'cex_pluggin');?></label>
-                                                                            <input type="number" class="form-control"
-                                                                                id="fromHH_sender" placeholder="0"
-                                                                                value="" size="2" name="fromHH_sender"
-                                                                                min=0 max=24 required>
-                                                                        </div>
-                                                                        <div class="col-6">
-                                                                            <label for="fromMM_sender"
-                                                                                class="control-label d-block"><?php esc_html_e('Minutos', 'cex_pluggin') ;?></label>
-                                                                            <input type="number" class="form-control"
-                                                                                id="fromMM_sender" placeholder="0"
-                                                                                value="0" size="2" name="fromMM_sender"
-                                                                                min=0 max=60>
-                                                                        </div>
+                                                <div id="guardarRemitenteMsn"
+                                                    class="col-12 col-sm-12 col-md-12 col-lg-12 d-none text-center mb-3">
+                                                    <span class="text-danger">
+                                                        <?php esc_html_e('Para guardar los datos del remitente, primero hay que a&ntilde;adir un c&oacute;digo de cliente.', 'cex_pluggin') ;?>
+                                                    </span>
+                                                </div>
+                                            </div>    
+                                            <div id="bloqueHoraDesdeHasta" class="row">
+                                                <div id="introHoraDesde" class="col-12 col-sm-6 col-lg-3 offset-lg-3 mb-3 mb-md-0">
+                                                    <div class="CEX-panel CEX-panel-primary">
+                                                        <div class="CEX-panel-heading">
+                                                            <?php esc_html_e('Desde', 'cex_pluggin') ;?></div>
+                                                        <div class="panel-body py-3">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <label for="fromHH_sender"
+                                                                            class="control-label d-block"><?php esc_html_e('Hora', 'cex_pluggin');?></label>
+                                                                        <input type="number" class="form-control"
+                                                                            id="fromHH_sender" placeholder="0"
+                                                                            value="" size="2" name="fromHH_sender"
+                                                                            min=0 max=24 required>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <label for="fromMM_sender"
+                                                                            class="control-label d-block"><?php esc_html_e('Minutos', 'cex_pluggin') ;?></label>
+                                                                        <input type="number" class="form-control"
+                                                                            id="fromMM_sender" placeholder="0"
+                                                                            value="0" size="2" name="fromMM_sender"
+                                                                            min=0 max=60>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div id="introHoraHasta" class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                        <div class="CEX-panel CEX-panel-primary">
-                                                            <div class="CEX-panel-heading">
-                                                                <?php esc_html_e('Hasta', 'cex_pluggin');  ?></div>
-                                                            <div class="panel-body py-3">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-6">
-                                                                            <label for="toHH_sender"
-                                                                                class="control-label d-block"><?php esc_html_e('Hora', 'cex_pluggin') ;?></label>
-                                                                            <input type="number"
-                                                                                class="form-control rounded-right"
-                                                                                id="toHH_sender" placeholder="0"
-                                                                                value="" size="2" name="toHH_sender"
-                                                                                min=0 max=24 required>
-                                                                        </div>
-                                                                        <div class="col-6">
-                                                                            <label for="toMM_sender"
-                                                                                class="control-label d-block"><?php esc_html_e('Minutos', 'cex_pluggin');?></label>
-                                                                            <input type="number"
-                                                                                class="form-control rounded-right"
-                                                                                id="toMM_sender" placeholder="0"
-                                                                                value="0" size="2" name="toMM_sender"
-                                                                                min=0 max=60>
-                                                                        </div>
+                                                </div>
+                                                <div id="introHoraHasta" class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                                    <div class="CEX-panel CEX-panel-primary">
+                                                        <div class="CEX-panel-heading">
+                                                            <?php esc_html_e('Hasta', 'cex_pluggin');  ?></div>
+                                                        <div class="panel-body py-3">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <label for="toHH_sender"
+                                                                            class="control-label d-block"><?php esc_html_e('Hora', 'cex_pluggin') ;?></label>
+                                                                        <input type="number"
+                                                                            class="form-control rounded-right"
+                                                                            id="toHH_sender" placeholder="0"
+                                                                            value="" size="2" name="toHH_sender"
+                                                                            min=0 max=24 required>
                                                                     </div>
-                                                                </Div>
+                                                                    <div class="col-6">
+                                                                        <label for="toMM_sender"
+                                                                            class="control-label d-block"><?php esc_html_e('Minutos', 'cex_pluggin');?></label>
+                                                                        <input type="number"
+                                                                            class="form-control rounded-right"
+                                                                            id="toMM_sender" placeholder="0"
+                                                                            value="0" size="2" name="toMM_sender"
+                                                                            min=0 max=60>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="guardarRemitenteMsn"
-                                                class="col-12 col-sm-12 col-md-12 col-lg-12 d-none text-center">
-                                                <span class="text-danger">
-                                                    <?php esc_html_e('Para guardar los datos del remitente, primero hay que a&ntilde;adir un c&oacute;digo de cliente.', 'cex_pluggin') ;?>
-                                                </span>
+                                            <div class="row mt-3 mb-5">
+                                                <div class="col-6 text-right">
+                                                    <button id="guardarRemitente" data-toggle=" tooltip" data-placement="top"
+                                                        title="<?php esc_html_e('Necesitas  tener códigos de remitente', 'cex_pluggin') ; ?>" name=" guardarRemitente"
+                                                        class="CEX-btn CEX-button-success py-2 px-5"  onclick="crearRemitente(event);">
+                                                        <?php esc_html_e('Guardar', 'cex_pluggin') ;?>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 ">
+                                                    <button id="cancelar" type="reset" class="CEX-btn CEX-button-red px-5 py-2">
+                                                        <?php esc_html_e('Cancelar','cex_pluggin') ; ?>
+                                                    </button>
+                                                </div>    
                                             </div>
-                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3 text-center">
-                                                <button id="guardarRemitente" data-toggle="tooltip" data-placement="top"
-                                                    title="<?php esc_html_e('Necesitas tener códigos de remitente', 'cex_pluggin') ; ?>" name="guardarRemitente"
-                                                    class="CEX-btn CEX-button-success" onclick="crearRemitente(event);">
-                                                    <?php esc_html_e('Guardar', 'cex_pluggin') ;?>
-                                                </button>
-                                                <button id="cancelar" type="reset" class="CEX-btn CEX-button-red">
-                                                    <?php esc_html_e('Cancelar', 'cex_pluggin') ; ?>
-
-                                                </button>
+                                        </form>
+                                        <div class="col-12 col-lg-12 my-3">
+                                            <div id="tableSavedSenders"
+                                                class="p-0 rounded table-responsive CEX-overflow-y-hidden">
+                                                <table cellspacing="0" cellpadding="0" id="savedsenders"
+                                                    class="table table-striped m-0">
+                                                </table>
                                             </div>
-                                            <div class="col-12 col-lg-12 my-3">
-                                                <div id="tableSavedSenders"
-                                                    class="p-0 rounded table-responsive CEX-overflow-y-hidden">
-                                                    <table cellspacing="0" cellpadding="0" id="savedsenders"
-                                                        class="table table-striped m-0">
-                                                    </table>
+                                        </div>    
+                                        <div class="row CEX-background-bluelight2 pt-3 pb-2">
+                                            <div class="col-12 col-md-6 col-lg-6 offset-lg-2">
+                                                <div class="input-group my-3">
+                                                    <div class="input-group-prepend">
+                                                        <span
+                                                            class="input-group-text"><?php esc_html_e('Remitente por defecto', 'cex_pluggin'); ?>
+                                                            </span>
+                                                    </div>
+                                                    <select name="MXPS_DEFAULTSEND" id="MXPS_DEFAULTSEND"
+                                                        class="form-control rounded-left-0 rounded-right m-0"
+                                                        required>
+                                                        <option value="" disabled="disabled">
+                                                            <?php esc_html_e("No hay remitentes dados de alta", "cex_pluggin");?>
+                                                        </option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </form>
-                                    <div class="row">
-                                        <div
-                                            class="col-12 col-sm-12 col-md-12 col-lg-12 jumbotron CEX-background-bluelight2 px-1 py-4 mb-3 mt-0 rounded-0">
-                                            <div class="row m-0">
-                                                <div class="col-12 col-md-8 col-lg-8">
-                                                    <div class="input-group my-3">
-                                                        <div class="input-group-prepend">
-                                                            <span
-                                                                class="input-group-text"><?php esc_html_e('Remitente por defecto', 'cex_pluggin'); ?></span>
-                                                        </div>
-                                                        <select name="MXPS_DEFAULTSEND" id="MXPS_DEFAULTSEND"
-                                                            class="form-control rounded-left-0 rounded-right m-0"
-                                                            required>
-                                                            <option value="" disabled="disabled">
-                                                                <?php esc_html_e("No hay remitentes dados de alta", "cex_pluggin");?>
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-4 col-lg-4">
-                                                    <div class="input-group my-3">
-                                                        <button id="guardarRemitenteDefecto"
-                                                            class="CEX-btn CEX-button-success d-block"
-                                                            onclick="guardarRemitenteDefecto();">
-                                                            <?php esc_html_e('Guardar Remitente por defecto', 'cex_pluggin'); ?>
-                                                        </button>
-                                                    </div>
+                                            <div class="col-12 col-md-2 col-lg-2">
+                                                <div class="input-group my-3">
+                                                    <button id="guardarRemitenteDefecto"
+                                                        class="CEX-btn CEX-button-success d-block"
+                                                        onclick="guardarRemitenteDefecto();">
+                                                        <?php esc_html_e('Guardar Remitente por defecto', 'cex_pluggin'); ?>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -391,615 +395,616 @@ wp_enqueue_script("jquery");
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion CEX-panel CEX-panel-primary">
-                    <div class="card m-0 p-0 w-100 mw-100 border-0">
-                        <div class="card-header m-0 p-0 CEX-panel-heading" id="step4">
-                            <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
-                                data-target="#panel_usuario" aria-expanded="true" aria-controls="panel_usuario"
-                                onclick="animacionBoton('#panel_usuario');">
-                                <?php esc_html_e('CONFIGURACI&Oacute;N DE USUARIO', 'cex_pluggin');?>
-                                <span id="Cex-arrow" class="float-right clickable"><i
-                                        class="fas fa-chevron-down"></i></span>
-                            </a>
-                            <span id="iconConfiguracionUsuario" class="CEX-iconoInfo"
-                                title="Hacer click para ver el manual de esta secci&oacute;n"><i
-                                    class="fas fa-info-circle" onclick="checkIntroConfiguracionUsuario();"></i></span>
-                        </div>
+                    <div class="accordion CEX-panel CEX-panel-primary">
+                        <div class="card m-0 p-0 w-100 mw-100 border-0">
+                            <div class="card-header m-0 p-0 CEX-panel-heading" id="step4">
+                                <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
+                                    data-target="#panel_usuario" aria-expanded="true" aria-controls="panel_usuario"
+                                    onclick="animacionBoton('#panel_usuario');">
+                                    <?php esc_html_e('CONFIGURACI&Oacute;N DE USUARIO', 'cex_pluggin');?>
+                                    <span id="Cex-arrow" class="float-right clickable"><i
+                                            class="fas fa-chevron-down"></i></span>
+                                </a>
+                                <span id="iconConfiguracionUsuario" class="CEX-iconoInfo"
+                                    title="Hacer click para ver el manual de esta secci&oacute;n"><i
+                                        class="fas fa-info-circle" onclick="checkIntroConfiguracionUsuario();"></i></span>
+                            </div>
 
-                        <div id="panel_usuario" class="collapse" aria-labelledby="panel_usuario" data-parent="">
-                            <div class="card-body p-0 pt-3">
-                                <div class="container-fluid">
-                                    <div class="row" id="stepUser0">
-                                        <div id="stepUser1" class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                            <div class="input-group my-3">
-                                                <div class="input-group-prepend">
-                                                    <span
-                                                        class="input-group-text"><?php esc_html_e('Usuario', 'cex_pluggin'); ?></span>
-                                                </div>
-                                                <input class="form-control rounded-left-0 rounded-right m-0" type="text"
-                                                    id="MXPS_USER" name="MXPS_USER"
-                                                    placeholder="<?php esc_html_e('Usuario', 'cex_pluggin'); ?>"
-                                                    autocomplete="off" 
-                                                    required>
-                                            </div>
-                                        </div>
-                                        <div id="stepUser2" class="col-12 col-sm-6 col-md-4 col-lg-3">
-                                            <div class="input-group my-3">
-                                                <div class="input-group-prepend">
-                                                    <span
-                                                        class="input-group-text"><?php esc_html_e('Password', 'cex_pluggin'); ?></span>
-                                                </div>
-                                                <input class="form-control rounded-left-0 rounded-right m-0"
-                                                    type="password" id="MXPS_PASSWD" name="MXPS_PASSWD"
-                                                    placeholder="<?php esc_html_e('Password', 'cex_pluggin'); ?>"
-                                                    autocomplete="off" 
-                                                    required>
-                                            </div>
-                                        </div>
-                                        <div id="stepUser21" class="col-6 col-sm-6 col-md-6 col-lg-4 mt-3 d-none">
-                                            <h6 id="cex_account_title"></h6>
-                                            <span id="cex_username" class="d-inline-block"></span> / <span id="cex_passw" class="d-inline-block"></span>
-                                        </div>
-                                        <div class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                            <button class="btn CEX-button-success my-3" id="guardarCredenciales" onclick="guardarCredenciales();"><?php esc_html_e('Guardar Credenciales', 'cex_pluggin'); ?>
-                                            </button>
-                                            <button class="btn CEX-button-success my-3 d-none" id="editarCredenciales" onclick="editarCredenciales();"><?php esc_html_e('Editar Credenciales', 'cex_pluggin'); ?>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <div clas="row">  
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-none CEX-background-bluelight2 p-3 my-3 rounded-0">
-                                            <div class="input-group my-3">
+                            <div id="panel_usuario" class="collapse" aria-labelledby="panel_usuario" data-parent="">
+                                <div class="card-body p-0 pt-3">
+                                    <div class="container-fluid">
+                                        <div class="row" id="stepUser0">
+                                            <div id="stepUser1" class="col-12 col-sm-3 col-md-3 col-lg-3">
                                                 <div class="input-group my-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text">
-                                                            WebService                                                       
-                                                        </span>
+                                                        <span
+                                                            class="input-group-text"><?php esc_html_e('Usuario', 'cex_pluggin'); ?></span>
                                                     </div>
-                                                    <select name="MXPS_DEFAULTWS" id="MXPS_DEFAULTWS" class="form-control rounded-left-0 rounded-right m-0" onchange="mostrarUrlWebService()">
-                                                        <option value="SOAP" selected="">SOAP</option>
-                                                        <option value="REST" selected="selected">REST</option>
+                                                    <input class="form-control rounded-left-0 rounded-right m-0" type="text"
+                                                        id="MXPS_USER" name="MXPS_USER"
+                                                        placeholder="<?php esc_html_e('Usuario', 'cex_pluggin'); ?>"
+                                                        autocomplete="off" 
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div id="stepUser2" class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                                <div class="input-group my-3">
+                                                    <div class="input-group-prepend">
+                                                        <span
+                                                            class="input-group-text"><?php esc_html_e('Password', 'cex_pluggin'); ?></span>
+                                                    </div>
+                                                    <input class="form-control rounded-left-0 rounded-right m-0"
+                                                        type="password" id="MXPS_PASSWD" name="MXPS_PASSWD"
+                                                        placeholder="<?php esc_html_e('Password', 'cex_pluggin'); ?>"
+                                                        autocomplete="off" 
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div id="stepUser21" class="col-6 col-sm-6 col-md-6 col-lg-4 mt-3 d-none">
+                                                <h6 id="cex_account_title"></h6>
+                                                <span id="cex_username" class="d-inline-block"></span> / <span id="cex_passw" class="d-inline-block"></span>
+                                            </div>
+                                            <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                                <button class="btn CEX-button-success my-3" id="guardarCredenciales" onclick="guardarCredenciales();"><?php esc_html_e('Guardar Credenciales', 'cex_pluggin'); ?>
+                                                </button>
+                                                <button class="btn CEX-button-success my-3 d-none" id="editarCredenciales" onclick="editarCredenciales();"><?php esc_html_e('Editar Credenciales', 'cex_pluggin'); ?>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div clas="row">  
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-none CEX-background-bluelight2 p-3 my-3 rounded-0">
+                                                <div class="input-group my-3">
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                                WebService                                                       
+                                                            </span>
+                                                        </div>
+                                                        <select name="MXPS_DEFAULTWS" id="MXPS_DEFAULTWS" class="form-control rounded-left-0 rounded-right m-0" onchange="mostrarUrlWebService()">
+                                                            <option value="SOAP" selected="">SOAP</option>
+                                                            <option value="REST" selected="selected">REST</option>
+                                                        </select>
+                                                    </div>                                               
+                                                </div>
+                                                <div id="mostrarSoap">
+                                                    <div id="stepUser3" class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">URL Web Service (envío)</span>
+                                                        </div>
+                                                        <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURL" name="MXPS_WSURL" value="" placeholder="URL Web Service (envío)" required="">
+                                                    </div>
+                                                    <div id="stepUser4" class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">URL Web Service (recogida)</span>
+                                                        </div>
+                                                        <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURLREC" name="MXPS_WSURLREC" value="" placeholder="URL Web Service (recogida)" required="">
+                                                    </div>
+                                                    <div id="stepUser5" class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">URL Web Service (seguimiento)</span>
+                                                        </div>
+                                                        <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURLSEG" name="MXPS_WSURLSEG" value="" placeholder="URL Web Service (seguimiento)" required="">
+                                                    </div>
+                                                   
+                                                </div>
+                                                <div id="mostrarRest">
+                                                    <div id="stepUser3_rest" class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">URL Web Service (envío)</span>
+                                                        </div>
+                                                        <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURL_REST" name="MXPS_WSURL" value="" placeholder="URL Web Service (envío)" required="">
+                                                    </div>
+                                                     <div id="stepUser4_rest" class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">URL Web Service (recogida)</span>
+                                                        </div>
+                                                        <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURLREC_REST" name="MXPS_WSURLREC" value="" placeholder="URL Web Service (recogida)" required="">
+                                                    </div>
+                                                    <div id="stepUser5_rest" class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">URL Web Service (seguimiento)</span>
+                                                        </div>
+                                                        <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURLSEG_REST" name="MXPS_WSURLSEG" value="" placeholder="URL Web Service (seguimiento)" required="">          
+                                                    </div>                                                
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <div id="stepUser6" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="input-group my-3">
+                                                    <div class="input-group-prepend">
+                                                        <span
+                                                            class="input-group-text"><?php esc_html_e('Bultos por defecto', 'cex_pluggin'); ?></span>
+                                                    </div>
+                                                    <input class="form-control rounded-left-0 rounded-right m-0"
+                                                        type="number" id="MXPS_DEFAULTBUL" name="MXPS_DEFAULTBUL"
+                                                        placeholder="<?php esc_html_e('N&uacute;mero de bultos por defecto', 'cex_pluggin'); ?>"
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div id="stepUser7" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="input-group my-3">
+                                                    <div class="input-group-prepend">
+                                                        <span
+                                                            class="input-group-text"><?php esc_html_e('Tipo de etiqueta por defecto', 'cex_pluggin');?></span>
+                                                    </div>
+                                                    <select name="MXPS_DEFAULTPDF" id="MXPS_DEFAULTPDF"
+                                                        class="form-control rounded-left-0 rounded-right m-0" required>
+                                                        <option value="1"><?php esc_html_e("Adhesiva", "cex_pluggin");?>
+                                                        </option>
+                                                        <option value="2"><?php esc_html_e("Medio Folio", "cex_pluggin");?>
+                                                        </option>
+                                                        <option value="3">
+                                                            <?php esc_html_e("T&eacute;rmica", "cex_pluggin");?>
+                                                        </option>
                                                     </select>
-                                                </div>                                               
+                                                </div>
                                             </div>
-                                            <div id="mostrarSoap">
-                                                <div id="stepUser3" class="input-group my-3">
+                                            <div id="stepUser8" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="input-group my-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text">URL Web Service (envío)</span>
+                                                        <span
+                                                            class="input-group-text"><?php esc_html_e('Datos de env&iacute;o para la etiqueta', 'cex_pluggin');?></span>
                                                     </div>
-                                                    <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURL" name="MXPS_WSURL" value="" placeholder="URL Web Service (envío)" required="">
+                                                    <select name="MXPS_DEFAULTDELIVER" id="MXPS_DEFAULTDELIVER"
+                                                        class="form-control rounded-left-0 rounded-right m-0" required>
+                                                        <option value="ENVIO">
+                                                            <?php esc_html_e("Env&iacute;o", "cex_pluggin");?>
+                                                        </option>
+                                                        <option value="FACTURACION">
+                                                            <?php esc_html_e("Facturaci&oacute;n", "cex_pluggin");?>
+                                                        </option>
+                                                    </select>
                                                 </div>
-                                                <div id="stepUser4" class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">URL Web Service (recogida)</span>
-                                                    </div>
-                                                    <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURLREC" name="MXPS_WSURLREC" value="" placeholder="URL Web Service (recogida)" required="">
-                                                </div>
-                                                <div id="stepUser5" class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">URL Web Service (seguimiento)</span>
-                                                    </div>
-                                                    <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURLSEG" name="MXPS_WSURLSEG" value="" placeholder="URL Web Service (seguimiento)" required="">
-                                                </div>
-                                               
                                             </div>
-                                            <div id="mostrarRest">
-                                                <div id="stepUser3_rest" class="input-group my-3">
+                                            <div id="stepUser9" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="input-group my-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text">URL Web Service (envío)</span>
+                                                        <span
+                                                            class="input-group-text"><?php esc_html_e('M&eacute;todo de pago contrareembolso', 'cex_pluggin');?></span>
                                                     </div>
-                                                    <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURL_REST" name="MXPS_WSURL" value="" placeholder="URL Web Service (envío)" required="">
+                                                    <select name="MXPS_DEFAULTPAYBACK" id="MXPS_DEFAULTPAYBACK"
+                                                        class="form-control rounded-left-0 rounded-right m-0">
+                                                        <option value="ninguno"><?php _e("Ninguno", "cex_pluggin")?>
+                                                        </option>
+                                                        <option value="ps_checkpayment">
+                                                            <?php _e("Pagos por cheque", "cex_pluggin")?></option>
+                                                        <option value="ps_wirepayment">
+                                                            <?php _e("Pagos por transferencia bancaria", "cex_pluggin")?>
+                                                        </option>
+                                                    </select>
                                                 </div>
-                                                 <div id="stepUser4_rest" class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">URL Web Service (recogida)</span>
-                                                    </div>
-                                                    <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURLREC_REST" name="MXPS_WSURLREC" value="" placeholder="URL Web Service (recogida)" required="">
-                                                </div>
-                                                <div id="stepUser5_rest" class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">URL Web Service (seguimiento)</span>
-                                                    </div>
-                                                    <input class="form-control rounded-left-0 rounded-right m-0" type="text" id="MXPS_WSURLSEG_REST" name="MXPS_WSURLSEG" value="" placeholder="URL Web Service (seguimiento)" required="">          
-                                                </div>                                                
                                             </div>
                                         </div>
-                                        <div class="row">
-                                        <div id="stepUser6" class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <div class="input-group my-3">
-                                                <div class="input-group-prepend">
-                                                    <span
-                                                        class="input-group-text"><?php esc_html_e('Bultos por defecto', 'cex_pluggin'); ?></span>
+                                    
+                                        <div class="row CEX-background-bluelight2 px-0 my-3 rounded-0">
+                                            <div class="col-12">
+                                                <div id="stepUser10" class="row">
+                                                    <div class="col-12">
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><input type="checkbox"
+                                                                        class="form-control m-0" name="MXPS_ENABLESHIPPINGTRACK"
+                                                                        id="MXPS_ENABLESHIPPINGTRACK"></span>
+                                                            </div>
+                                                            <input readonly type="text"
+                                                                class="form-control rounded-left-0 rounded-right m-0"
+                                                                aria-label="Activar enlace de seguimiento en el historial de compras del cliente"
+                                                                value="<?php esc_html_e('Activar enlace de seguimiento en el historial de compras del cliente', 'cex_pluggin'); ?>">
+                                                        </div>
+                                                    </div>    
                                                 </div>
-                                                <input class="form-control rounded-left-0 rounded-right m-0"
-                                                    type="number" id="MXPS_DEFAULTBUL" name="MXPS_DEFAULTBUL"
-                                                    placeholder="<?php esc_html_e('N&uacute;mero de bultos por defecto', 'cex_pluggin'); ?>"
-                                                    required>
+                                            </div>    
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div id="stepUser11" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><input type="checkbox"
+                                                                        class="form-control m-0" name="MXPS_LABELSENDER"
+                                                                        id="MXPS_LABELSENDER"class="form-control m-0"
+                                                                        onclick="mostrarRemitenteAlternativo();">
+                                                                </span>
+                                                            </div>
+                                                            <input readonly type="text"
+                                                                class="form-control rounded-left-0 rounded-right m-0"
+                                                                aria-label="Texto alternativo del remitente"
+                                                                value="<?php esc_html_e('Texto alternativo del remitente', 'cex_pluggin') ;?>">
+                                                        </div>
+                                                    </div>
+                                                    <div id="remitenteAlt" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend">
+                                                                <span
+                                                                    class="input-group-text"><?php esc_html_e('Texto alternativo etiqueta', 'cex_pluggin'); ?></span>
+                                                            </div>
+                                                            <input class="form-control rounded-left-0 rounded-right m-0"
+                                                                type="text" id="MXPS_LABELSENDER_TEXT" name="MXPS_LABELSENDER_TEXT"
+                                                                placeholder="<?php esc_html_e('texto alternativo', 'cex_pluggin'); ?>"
+                                                                required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>        
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div id="stepUser12" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="MXPS_DEFAULTKG_SPAN">
+                                                                    <input type="checkbox" name="MXPS_ENABLEWEIGHT"
+                                                                        id="MXPS_ENABLEWEIGHT" class="form-control m-0"
+                                                                        onclick="mostrarPesoDefecto();">
+                                                                </span>
+                                                            </div>
+                                                            <input readonly type="text" class="form-control rounded-left-0      rounded-right m-0"
+                                                                aria-label="<?php esc_html_e('Activar peso por defecto', 'cex_pluggin'); ?>"
+                                                                value="<?php esc_html_e('Activar peso por defecto', 'cex_pluggin'); ?>">
+                                                        </div>
+                                                    </div>
+                                                    <div id="pesodefecto" class="col-12 col-sm-6 col-md-6 col-lg-6 d-none">
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend">
+                                                                <span id="unidadMedida"
+                                                                    class="input-group-text"><?php esc_html_e('Peso por defecto ', 'cex_pluggin'); ?>
+                                                                    <span  class="ml-1"></span>
+                                                                </span>
+                                                            </div>
+                                                            <input class="form-control rounded-left-0 rounded-right m-0"
+                                                                type="number" id="MXPS_DEFAULTKG" name='MXPS_DEFAULTKG' value=""
+                                                                step="0.01">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div id="stepUser7" class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <div class="input-group my-3">
-                                                <div class="input-group-prepend">
-                                                    <span
-                                                        class="input-group-text"><?php esc_html_e('Tipo de etiqueta por defecto', 'cex_pluggin');?></span>
+                                            <div class="col-12">
+                                                <div class="row">       
+                                                    <div id="stepUser14" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="MXPS_NODATAPROTECTION_SPAN">                                                       
+                                                                <i class="fas fa-info-circle"
+                                                                        data-toogle="tooltip" title="<?php esc_html_e('Información legal pertinente a mostrar' , 'cex_pluggin');?>"></i>
+                                                                    <input type="checkbox" name="MXPS_NODATAPROTECTION"
+                                                                        id="MXPS_NODATAPROTECTION" class="form-control m-0 ml-1"
+                                                                        onchange="mostrarProteccionDatos();">
+                                                                </span>
+                                                            </div>
+                                                            <input readonly type="text" class="form-control rounded-left-0 rounded-right m-0" aria-label="<?php esc_html_e('Acepto alterar la referencia de los productos en los envios.' , 'cex_pluggin');?>"
+                                                            value="<?php esc_html_e('Acepto alterar la referencia de los productos en los envios' , 'cex_pluggin');?>">
+                                                        </div>
+                                                    </div>      
+                                                    <div id="proteccionDatos" class="col-12 col-sm-6 col-md-6 col-lg-6 d-none">
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <?php esc_html_e('Datos a mostrar en etiqueta' , 'cex_pluggin');?>
+                                                                </span>
+                                                            </div>
+                                                            <select name="MXPS_DATAPROTECTIONVALUE" id="MXPS_DATAPROTECTIONVALUE"
+                                                                class="form-control rounded-left-0 rounded-right m-0">
+                                                                <option value="1"><?php esc_html_e('ID' , 'cex_pluggin');?></option>
+                                                                <option value="2"><?php esc_html_e('NOMBRE' , 'cex_pluggin');?></option>
+                                                                <option value="3"><?php esc_html_e('VAC&Iacute;O' , 'cex_pluggin');?></option>
+                                                                <option value="4"><?php esc_html_e('SKU' , 'cex_pluggin');?></option>
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <select name="MXPS_DEFAULTPDF" id="MXPS_DEFAULTPDF"
-                                                    class="form-control rounded-left-0 rounded-right m-0" required>
-                                                    <option value="1"><?php esc_html_e("Adhesiva", "cex_pluggin");?>
-                                                    </option>
-                                                    <option value="2"><?php esc_html_e("Medio Folio", "cex_pluggin");?>
-                                                    </option>
-                                                    <option value="3">
-                                                        <?php esc_html_e("T&eacute;rmica", "cex_pluggin");?>
-                                                    </option>
-                                                </select>
                                             </div>
-                                        </div>
-                                        <div id="stepUser8" class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <div class="input-group my-3">
-                                                <div class="input-group-prepend">
-                                                    <span
-                                                        class="input-group-text"><?php esc_html_e('Datos de env&iacute;o para la etiqueta', 'cex_pluggin');?></span>
+                                            <div class="col-12">
+                                                <div class="row">                                      
+                                                    <div id="wpsn" class="col-6">
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <?php esc_html_e('Referencias para las ordenes' , 'cex_pluggin');?>
+                                                                </span>
+                                                            </div>
+                                                            <select name="MXPS_REFETIQUETAS" id="MXPS_REFETIQUETAS"
+                                                                class="form-control rounded-left-0 rounded-right m-0">
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <select name="MXPS_DEFAULTDELIVER" id="MXPS_DEFAULTDELIVER"
-                                                    class="form-control rounded-left-0 rounded-right m-0" required>
-                                                    <option value="ENVIO">
-                                                        <?php esc_html_e("Env&iacute;o", "cex_pluggin");?>
-                                                    </option>
-                                                    <option value="FACTURACION">
-                                                        <?php esc_html_e("Facturaci&oacute;n", "cex_pluggin");?>
-                                                    </option>
-                                                </select>
                                             </div>
-                                        </div>
-                                        <div id="stepUser9" class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <div class="input-group my-3">
-                                                <div class="input-group-prepend">
-                                                    <span
-                                                        class="input-group-text"><?php esc_html_e('M&eacute;todo de pago contrareembolso', 'cex_pluggin');?></span>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div id="cex_logo" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="MXPS__SPAN">
+                                                                    <input type="checkbox" name="MXPS_CHECKUPLOADFILE"
+                                                                        id="MXPS_CHECKUPLOADFILE" accept="image/*" class="form-control m-0"
+                                                                        onclick="mostrarFormLogo(' ');">
+                                                                </span>
+                                                            </div>
+                                                            <input readonly type="text" class="form-control rounded-left-0 rounded-right m-0"
+                                                                aria-label="<?php esc_html_e('Cambiar Logo de las Etiquetas', 'cex_pluggin'); ?>"
+                                                                value="<?php esc_html_e('Cambiar Logo de las Etiquetas', 'cex_pluggin'); ?>">
+                                                        </div>                              
+                                                    </div>      
+                                                    <div id="mostrarLogo" class="col-12 col-sm-6 col-md-6 col-lg-6 my-3 d-none">    <div>
+                                                            <label for="MXPS_UPLOADFILE" class="CEX-btn CEX-button-success"><?php esc_html_e('Subir Imagen','cex_pluggin');?><i class="far fa-images ml-2"></i></label>
+                                                            <input type="file" id="MXPS_UPLOADFILE" name="MXPS_UPLOADFILE" class="file-input" onchange="cambiarImagen(event);"> 
+                                                        </div>
+                                                        <div id="mostrarImagenLogo" class="d-none">
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend" id="divImagenLogo">
+                                                                    <img class="img-logo w-50" id="imagenLogoEtiqueta" src="">
+                                                                </div>                      
+                                                            </div>
+                                                        </div> 
+                                                    </div>
                                                 </div>
-                                                <select name="MXPS_DEFAULTPAYBACK" id="MXPS_DEFAULTPAYBACK"
-                                                    class="form-control rounded-left-0 rounded-right m-0">
-                                                    <option value="ninguno"><?php _e("Ninguno", "cex_pluggin")?>
-                                                    </option>
-                                                    <option value="ps_checkpayment">
-                                                        <?php _e("Pagos por cheque", "cex_pluggin")?></option>
-                                                    <option value="ps_wirepayment">
-                                                        <?php _e("Pagos por transferencia bancaria", "cex_pluggin")?>
-                                                    </option>
-                                                </select>
+                                            </div>                                          
+                                        </div>
+                                        <div class="row mt-5 mb-3">
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                <button id="guardarDatosCliente" class="CEX-btn CEX-button-success"
+                                                    onclick="guardarDatosUser();">
+                                                    <?php esc_html_e('Guardar datos de cliente', 'cex_pluggin');?>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                                
-                                    <div class="row CEX-background-bluelight2 px-0 my-3 rounded-0">
-                                        <div class="col-12">
-                                            <div id="stepUser10" class="row">
-                                                <div class="col-12">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion CEX-panel CEX-panel-primary">
+                        <div class="card m-0 p-0 w-100 mw-100 border-0">
+                            <div class="card-header m-0 p-0 CEX-panel-heading" id="step5">
+                                <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
+                                    data-target="#panel_metodos_cron" aria-expanded="true"
+                                    aria-controls="panel_metodos_cron" onclick="animacionBoton('#panel_metodos_cron');">
+                                    <?php esc_html_e('OPCIONES CRON', 'cex_pluggin');?>
+                                    <span id="Cex-arrow" class="float-right clickable"><i
+                                            class="fas fa-chevron-down"></i></span>
+                                </a>
+                                <span id="iconCron" class="CEX-iconoInfo"
+                                    title="Hacer click para ver el manual de esta secci&oacute;n"><i
+                                        class="fas fa-info-circle" onclick="checkIntroOpcionesCron();"></i></span>
+                            </div>
+
+                            <div id="panel_metodos_cron" class="collapse" aria-labelledby="panel_metodos_cron"
+                                data-parent="">
+                                <div class="card-body p-0 pt-3">
+                                    <div class="container-fluid">
+                                        <form id="formDatosCron" class="w-100">
+                                            <div class="row">
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12" id="IntroJS_MXPS_SAVEDSTATUS">
                                                     <div class="input-group my-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><input type="checkbox"
-                                                                    class="form-control m-0" name="MXPS_ENABLESHIPPINGTRACK"
-                                                                    id="MXPS_ENABLESHIPPINGTRACK"></span>
+                                                            <span class="input-group-text" id="MXPS_SAVEDSTATUS_SPAN">
+                                                                <input type="checkbox" name="MXPS_SAVEDSTATUS"
+                                                                    id="MXPS_SAVEDSTATUS" class="form-control m-0"
+                                                                    onclick="mostrarEstadoGrabacion();">
+                                                            </span>
                                                         </div>
                                                         <input readonly type="text"
                                                             class="form-control rounded-left-0 rounded-right m-0"
-                                                            aria-label="Activar enlace de seguimiento en el historial de compras del cliente"
-                                                            value="<?php esc_html_e('Activar enlace de seguimiento en el historial de compras del cliente', 'cex_pluggin'); ?>">
+                                                            aria-label="<?php esc_html_e('Activar cambio de estado de la orden tras grabaci&oacute;n', 'cex_pluggin');?>"
+                                                            value="<?php esc_html_e('Activar cambio de estado de la orden tras grabaci&oacute;n', 'cex_pluggin');?>">
                                                     </div>
-                                                </div>    
+                                                </div>
                                             </div>
-                                        </div>    
-                                        <div class="col-12">
+                                            <div id="estado_grabacion" class="row d-none">
+                                                <div
+                                                    class="col-12 col-sm-12 col-md-12 col-lg-12 CEX-background-bluelight2 p-3 my-1 rounded-0">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text rounded-left">
+                                                                <?php esc_html_e('Estado del pedido tras la grabaci&oacute;n', 'cex_pluggin');?>
+                                                            </span>
+                                                        </div>
+                                                        <select name="MXPS_RECORDSTATUS" id="MXPS_RECORDSTATUS"
+                                                            class="form-control rounded-left-0 rounded-right m-0" required>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="row">
-                                                <div id="stepUser11" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12" id="IntroJS_MXPS_TRACKINGCEX">
                                                     <div class="input-group my-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text"><input type="checkbox"
-                                                                    class="form-control m-0" name="MXPS_LABELSENDER"
-                                                                    id="MXPS_LABELSENDER"class="form-control m-0"
-                                                                    onclick="mostrarRemitenteAlternativo();">
+                                                            <span class="input-group-text" id="MXPS_TRACKINGCEX_SPAN">
+                                                                <i id="info1" class="fas fa-info-circle"
+                                                                    data-toogle="tooltip"></i>
+                                                                <input type="checkbox" name="MXPS_TRACKINGCEX"
+                                                                    id="MXPS_TRACKINGCEX" class="form-control m-0 ml-1"
+                                                                    onchange="activarCambioEstado();">
                                                             </span>
                                                         </div>
                                                         <input readonly type="text"
                                                             class="form-control rounded-left-0 rounded-right m-0"
-                                                            aria-label="Texto alternativo del remitente"
-                                                            value="<?php esc_html_e('Texto alternativo del remitente', 'cex_pluggin') ;?>">
+                                                            aria-label="Activar tracking autom&aacute;tico"
+                                                            value="<?php esc_html_e('Activar tracking autom&aacute;tico', 'cex_pluggin');?>">
                                                     </div>
                                                 </div>
-                                                <div id="remitenteAlt" class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <div class="input-group my-3">
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12" id="IntroJS_MXPS_CHANGESTATUS_SPAN">
+                                                    <div class="input-group my-3 pl-4">
                                                         <div class="input-group-prepend">
-                                                            <span
-                                                                class="input-group-text"><?php esc_html_e('Texto alternativo etiqueta', 'cex_pluggin'); ?></span>
+                                                            <span class="input-group-text" id="MXPS_CHANGESTATUS_SPAN">
+                                                                <i id="info2" class="fas fa-info-circle"
+                                                                    data-toogle="tooltip"></i>
+                                                                <input type="checkbox" name="MXPS_CHANGESTATUS"
+                                                                    onclick="mostrarEstadosCron();"
+                                                                    class="form-control m-0 ml-1" id="MXPS_CHANGESTATUS">
+                                                            </span>
                                                         </div>
-                                                        <input class="form-control rounded-left-0 rounded-right m-0"
-                                                            type="text" id="MXPS_LABELSENDER_TEXT" name="MXPS_LABELSENDER_TEXT"
-                                                            placeholder="<?php esc_html_e('texto alternativo', 'cex_pluggin'); ?>"
-                                                            required>
+                                                        <input readonly type="text"
+                                                            class="form-control rounded-left-0 rounded-right m-0"
+                                                            aria-label="Activar cambio de estado de la orden"
+                                                            value="<?php esc_html_e('Activar cambio de estado de la orden', 'cex_pluggin');?>">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>        
-                                        <div class="col-12">
-                                            <div class="row">
-                                                <div id="stepUser12" class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <div class="input-group my-3">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="MXPS_DEFAULTKG_SPAN">
-                                                                <input type="checkbox" name="MXPS_ENABLEWEIGHT"
-                                                                    id="MXPS_ENABLEWEIGHT" class="form-control m-0"
-                                                                    onclick="mostrarPesoDefecto();">
-                                                            </span>
-                                                        </div>
-                                                        <input readonly type="text" class="form-control rounded-left-0      rounded-right m-0"
-                                                            aria-label="<?php esc_html_e('Activar peso por defecto', 'cex_pluggin'); ?>"
-                                                            value="<?php esc_html_e('Activar peso por defecto', 'cex_pluggin'); ?>">
-                                                    </div>
-                                                </div>
-                                                <div id="pesodefecto" class="col-12 col-sm-6 col-md-6 col-lg-6 d-none">
-                                                    <div class="input-group my-3">
-                                                        <div class="input-group-prepend">
-                                                            <span id="unidadMedida"
-                                                                class="input-group-text"><?php esc_html_e('Peso por defecto ', 'cex_pluggin'); ?>
-                                                                <span  class="ml-1"></span>
-                                                            </span>
-                                                        </div>
-                                                        <input class="form-control rounded-left-0 rounded-right m-0"
-                                                            type="number" id="MXPS_DEFAULTKG" name='MXPS_DEFAULTKG' value=""
-                                                            step="0.01">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="row">       
+                                            <div id="estados_cron"
+                                                class="row jumbotron CEX-background-bluelight2 p-4 my-3 rounded-0 d-none">
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                     <div class="input-group my-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="MXPS_NODATAPROTECTION_SPAN">                                                       
-                                                            <i class="fas fa-info-circle"
-                                                                    data-toogle="tooltip" title="<?php esc_html_e('Información legal pertinente a mostrar' , 'cex_pluggin');?>"></i>
-                                                                <input type="checkbox" name="MXPS_NODATAPROTECTION"
-                                                                    id="MXPS_NODATAPROTECTION" class="form-control m-0 ml-1"
-                                                                    onchange="mostrarProteccionDatos();">
+                                                            <span class="input-group-text rounded-left">
+                                                                <?php esc_html_e('Estado en curso', 'cex_pluggin');?>
                                                             </span>
                                                         </div>
-                                                        <input readonly type="text" class="form-control rounded-left-0 rounded-right m-0" aria-label="<?php esc_html_e('Acepto alterar la referencia de los productos en los envios.' , 'cex_pluggin');?>"
-                                                        value="<?php esc_html_e('Acepto alterar la referencia de los productos en los envios' , 'cex_pluggin');?>">
-                                                    </div>
-                                                </div>      
-                                                <div id="proteccionDatos" class="col-12 col-sm-6 col-md-6 col-lg-6 d-none">
-                                                    <div class="input-group my-3">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text">
-                                                                <?php esc_html_e('Datos a mostrar en etiqueta' , 'cex_pluggin');?>
-                                                            </span>
-                                                        </div>
-                                                        <select name="MXPS_DATAPROTECTIONVALUE" id="MXPS_DATAPROTECTIONVALUE"
-                                                            class="form-control rounded-left-0 rounded-right m-0">
-                                                            <option value="1"><?php esc_html_e('ID' , 'cex_pluggin');?></option>
-                                                            <option value="2"><?php esc_html_e('NOMBRE' , 'cex_pluggin');?></option>
-                                                            <option value="3"><?php esc_html_e('VAC&Iacute;O' , 'cex_pluggin');?></option>
-                                                            <option value="4"><?php esc_html_e('SKU' , 'cex_pluggin');?></option>
-                                                        </select>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="row">                                      
-                                                <div id="WPSN" class="col-6">
-                                                    <div class="input-group my-3">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text">
-                                                                <?php esc_html_e('Referencias para las ordenes' , 'cex_pluggin');?>
-                                                            </span>
-                                                        </div>
-                                                        <select name="MXPS_REFETIQUETAS" id="MXPS_REFETIQUETAS"
-                                                            class="form-control rounded-left-0 rounded-right m-0">
+                                                        <select name="MXPS_SENDINGSTATUS" id="MXPS_SENDINGSTATUS"
+                                                            class="form-control rounded-left-0 rounded-right m-0" required>
                                                         </select>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div id="CEX_LOGO" class="col-6">
-                                            <div class="input-group my-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="MXPS__SPAN">
-                                                        <input type="checkbox" name="MXPS_CHECKUPLOADFILE"
-                                                            id="MXPS_CHECKUPLOADFILE" accept="image/*" class="form-control m-0"
-                                                            onclick="mostrarFormLogo(' ');">
-                                                    </span>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text rounded-left">
+                                                                <?php esc_html_e('Estado Entregado', 'cex_pluggin');?>
+                                                            </span>
+                                                        </div>
+                                                        <select name="MXPS_DELIVEREDSTATUS" id="MXPS_DELIVEREDSTATUS"
+                                                            class="form-control rounded-left-0 rounded-right m-0" required>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <input readonly type="text" class="form-control rounded-left-0 rounded-right m-0"
-                                                    aria-label="<?php esc_html_e('Cambiar Logo de las Etiquetas', 'cex_pluggin'); ?>"
-                                                    value="<?php esc_html_e('Cambiar Logo de las Etiquetas', 'cex_pluggin'); ?>">
-                                            </div>                                           
-                                        </div>  
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                        </div>                                      
-                                        <div id="mostrarLogo" class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3 d-none">  
-                                            <div> 
-                                                <label for="MXPS_UPLOADFILE" class="CEX-btn CEX-button-success"><?php esc_html_e('Subir Imagen Logo','cex_pluggin');?></label>                                         
-                                                <input type="file" id="MXPS_UPLOADFILE" name="MXPS_UPLOADFILE" class="file-input" onchange="cambiarImagen(event);"> 
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text rounded-left">
+                                                                <?php esc_html_e('Estado Anulado', 'cex_pluggin');?>
+                                                            </span>
+                                                        </div>
+                                                        <select name="MXPS_CANCELEDSTATUS" id="MXPS_CANCELEDSTATUS"
+                                                            class="form-control rounded-left-0 rounded-right m-0" required>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="input-group my-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text rounded-left">
+                                                                <?php esc_html_e('Estado Devuelto', 'cex_pluggin');?>
+                                                            </span>
+                                                        </div>
+                                                        <select name="MXPS_RETURNEDSTATUS" id="MXPS_RETURNEDSTATUS"
+                                                            class="form-control rounded-left-0 rounded-right m-0" required>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-5 mb-3">
+                                                <div class="col-12 col-md-6 mt-3">
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-1 d-md-flex">
+                                                            <label class="mr-2 mb-0 font-size16"><?php esc_html_e('Tiempo de Actualización de los Estados', 'cex_pluggin');?></label>
+                                                            <input type="range" name="MXPS_CRONINTERVAL" id="MXPS_CRONINTERVAL" max="8" min="2" onchange="horasIntervalo();" class="w-10 mb-2 mt-2">  
+                                                            <span name="MXPS_CRONINTERVAL_TEXT" id="MXPS_CRONINTERVAL_TEXT" class="ml-2 font-size16"> </span>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                            <small><?php esc_html_e('El tiempo seleccionado determina con que frecuencia se actualizan los estados de los pedidos.', 'cex_pluggin');?>                              
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-2 mt-3">
+                                                    <label class="font-size16 d-block"><?php esc_html_e('Descarga de informes:', 'cex_pluggin');?></label>
+                                                    <a id="descargarArchivoCron" class="btn btn-outline-info mt-2 d-block" href="<?php echo esc_url(plugins_url('/../../log/log_cron_function.txt',__FILE__));?>" download><?php esc_html_e('Cron', 'cex_pluggin');?></a>
+                                                    <a id="descargarArchivoPeticion" class="btn btn-outline-info mt-2 d-block" href="<?php echo esc_url(plugins_url('/../../log/log_ordenes.txt',__FILE__));?>" download><?php esc_html_e('Órdenes', 'cex_pluggin');?></a>
+                                                    <a id="descargarArchivoRespuesta" class="btn btn-outline-info mt-2 d-block" href="<?php echo esc_url(plugins_url('/../../log/log_rest.txt',__FILE__));?>" download><?php esc_html_e('Respuesta WS', 'cex_pluggin');?></a>
+                                                </div>
                                             </div>  
-                                            <div id="mostrarImagenLogo" class="d-none">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend" id="divImagenLogo">
-                                                    <img class="img-logo w-50" id="imagenLogoEtiqueta" src="">
-                                                </div>                                                
-                                            </div>
-                                        </div> 
 
-                                        </div> 
-                                                                                                                  
+                                            <div class="row mt-5 mb-3">
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">                                                
+                                                    <button id="guardarDatosCron" data-toggle="tooltip" data-placement="top" 
+                                                    name="guardarDatosCron"
+                                                    class="CEX-btn CEX-button-success" onclick="guardarValidarDatosCron(event);">
+                                                        <?php esc_html_e('Guardar configuraci&oacute;n Cron', 'cex_pluggin');?>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="row mt-5 mb-3">
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                            <button id="guardarDatosCliente" class="CEX-btn CEX-button-success"
-                                                onclick="guardarDatosUser();">
-                                                <?php esc_html_e('Guardar datos de cliente', 'cex_pluggin');?>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion CEX-panel CEX-panel-primary">
-                    <div class="card m-0 p-0 w-100 mw-100 border-0">
-                        <div class="card-header m-0 p-0 CEX-panel-heading" id="step5">
-                            <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
-                                data-target="#panel_metodos_cron" aria-expanded="true"
-                                aria-controls="panel_metodos_cron" onclick="animacionBoton('#panel_metodos_cron');">
-                                <?php esc_html_e('OPCIONES CRON', 'cex_pluggin');?>
-                                <span id="Cex-arrow" class="float-right clickable"><i
-                                        class="fas fa-chevron-down"></i></span>
-                            </a>
-                            <span id="iconCron" class="CEX-iconoInfo"
-                                title="Hacer click para ver el manual de esta secci&oacute;n"><i
-                                    class="fas fa-info-circle" onclick="checkIntroOpcionesCron();"></i></span>
-                        </div>
+                    <div class="accordion CEX-panel CEX-panel-primary">
+                        <div class="card m-0 p-0 w-100 mw-100 border-0">
+                            <div class="card-header m-0 p-0 CEX-panel-heading" id="step6">
+                                <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
+                                    data-target="#panel_productos_cex" aria-expanded="true"
+                                    aria-controls="panel_productos_cex" onclick="animacionBoton('#panel_productos_cex');">
+                                    <?php esc_html_e('PRODUCTOS CEX', 'cex_pluggin');?>
+                                    <span id="Cex-arrow" class="float-right clickable"><i
+                                            class="fas fa-chevron-down"></i></span>
+                                </a>
+                                <span id="iconProductos" class="CEX-iconoInfo"
+                                    title="Hacer click para ver el manual de esta secci&oacute;n"><i
+                                        class="fas fa-info-circle" onclick="checkIntroProductosCEX();"></i></span>
+                            </div>
 
-                        <div id="panel_metodos_cron" class="collapse" aria-labelledby="panel_metodos_cron"
-                            data-parent="">
-                            <div class="card-body p-0 pt-3">
-                                <div class="container-fluid">
-                                    <form id="formDatosCron" class="w-100">
+                            <div id="panel_productos_cex" class="collapse" aria-labelledby="panel_productos_cex"
+                                data-parent="">
+                                <div class="card-body">
+                                    <div class="container-fluid my-3">
                                         <div class="row">
                                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="MXPS_SAVEDSTATUS_SPAN">
-                                                            <input type="checkbox" name="MXPS_SAVEDSTATUS"
-                                                                id="MXPS_SAVEDSTATUS" class="form-control m-0"
-                                                                onclick="mostrarEstadoGrabacion();">
-                                                        </span>
-                                                    </div>
-                                                    <input readonly type="text"
-                                                        class="form-control rounded-left-0 rounded-right m-0"
-                                                        aria-label="<?php esc_html_e('Activar cambio de estado de la orden tras grabaci&oacute;n', 'cex_pluggin');?>"
-                                                        value="<?php esc_html_e('Activar cambio de estado de la orden tras grabaci&oacute;n', 'cex_pluggin');?>">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="estado_grabacion" class="row d-none">
-                                            <div
-                                                class="col-12 col-sm-12 col-md-12 col-lg-12 CEX-background-bluelight2 p-3 my-1 rounded-0">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text rounded-left">
-                                                            <?php esc_html_e('Estado del pedido tras la grabaci&oacute;n', 'cex_pluggin');?>
-                                                        </span>
-                                                    </div>
-                                                    <select name="MXPS_RECORDSTATUS" id="MXPS_RECORDSTATUS"
-                                                        class="form-control rounded-left-0 rounded-right m-0" required>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="MXPS_TRACKINGCEX_SPAN">
-                                                            <i id="info1" class="fas fa-info-circle"
-                                                                data-toogle="tooltip"></i>
-                                                            <input type="checkbox" name="MXPS_TRACKINGCEX"
-                                                                id="MXPS_TRACKINGCEX" class="form-control m-0 ml-1"
-                                                                onchange="activarCambioEstado();">
-                                                        </span>
-                                                    </div>
-                                                    <input readonly type="text"
-                                                        class="form-control rounded-left-0 rounded-right m-0"
-                                                        aria-label="Activar tracking autom&aacute;tico"
-                                                        value="<?php esc_html_e('Activar tracking autom&aacute;tico', 'cex_pluggin');?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                                <div class="input-group my-3 pl-4">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="MXPS_CHANGESTATUS_SPAN">
-                                                            <i id="info2" class="fas fa-info-circle"
-                                                                data-toogle="tooltip"></i>
-                                                            <input type="checkbox" name="MXPS_CHANGESTATUS"
-                                                                onclick="mostrarEstadosCron();"
-                                                                class="form-control m-0 ml-1" id="MXPS_CHANGESTATUS">
-                                                        </span>
-                                                    </div>
-                                                    <input readonly type="text"
-                                                        class="form-control rounded-left-0 rounded-right m-0"
-                                                        aria-label="Activar cambio de estado de la orden"
-                                                        value="<?php esc_html_e('Activar cambio de estado de la orden', 'cex_pluggin');?>">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="estados_cron"
-                                            class="row jumbotron CEX-background-bluelight2 p-4 my-3 rounded-0 d-none">
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text rounded-left">
-                                                            <?php esc_html_e('Estado en curso', 'cex_pluggin');?>
-                                                        </span>
-                                                    </div>
-                                                    <select name="MXPS_SENDINGSTATUS" id="MXPS_SENDINGSTATUS"
-                                                        class="form-control rounded-left-0 rounded-right m-0" required>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text rounded-left">
-                                                            <?php esc_html_e('Estado Entregado', 'cex_pluggin');?>
-                                                        </span>
-                                                    </div>
-                                                    <select name="MXPS_DELIVEREDSTATUS" id="MXPS_DELIVEREDSTATUS"
-                                                        class="form-control rounded-left-0 rounded-right m-0" required>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text rounded-left">
-                                                            <?php esc_html_e('Estado Anulado', 'cex_pluggin');?>
-                                                        </span>
-                                                    </div>
-                                                    <select name="MXPS_CANCELEDSTATUS" id="MXPS_CANCELEDSTATUS"
-                                                        class="form-control rounded-left-0 rounded-right m-0" required>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <div class="input-group my-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text rounded-left">
-                                                            <?php esc_html_e('Estado Devuelto', 'cex_pluggin');?>
-                                                        </span>
-                                                    </div>
-                                                    <select name="MXPS_RETURNEDSTATUS" id="MXPS_RETURNEDSTATUS"
-                                                        class="form-control rounded-left-0 rounded-right m-0" required>
-                                                    </select>
+                                                <div class="form-group" id="productos_cex">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mt-5 mb-3">
-                                            <div class="col-6">
-                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3 mb-1 d-flex">
-                                                    <label class="mr-2 mb-0 font-size16"><?php esc_html_e('Tiempo de Actualización de los Estados', 'cex_pluggin');?></label>
-                                                    <input type="range" name="MXPS_CRONINTERVAL" id="MXPS_CRONINTERVAL" max="8" min="2" onchange="horasIntervalo();" class="w-10 mb-2 mt-2">  
-                                                    <span name="MXPS_CRONINTERVAL_TEXT" id="MXPS_CRONINTERVAL_TEXT" class="ml-2 font-size16"> </span>
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex">
-                                                    <small><?php esc_html_e('El tiempo seleccionado determina con que frecuencia se actualizan los estados de los pedidos.', 'cex_pluggin');?>                            
-                                                    </small>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <a class="btn btn-outline-info mt-2" href="<?php echo esc_url(plugins_url('/../../log/log_cron_function.txt',__FILE__));?>" download>Descarga el log</a><br>
-                                                <a class="btn btn-outline-info mt-2" href="<?php echo esc_url(plugins_url('/../../log/log_ordenes.txt',__FILE__));?>" download>Descargar los errores de actualizacion</a><br>
-                                                <a class="btn btn-outline-info mt-2" href="<?php echo esc_url(plugins_url('/../../log/log_rest.txt',__FILE__));?>" download>Descargar la ultima peticion</a><br>
-                                            </div>
-                                        </div>  
-
-                                        <div class="row mt-5 mb-3">
-                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">                                                
-                                                <button id="guardarDatosCron" data-toggle="tooltip" data-placement="top" 
-                                                name="guardarDatosCron"
-                                                class="CEX-btn CEX-button-success" onclick="guardarValidarDatosCron(event);">
-                                                    <?php esc_html_e('Guardar configuraci&oacute;n Cron', 'cex_pluggin');?>
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                <button id="guardarProductosCex" class="CEX-btn CEX-button-success"
+                                                    onclick="guardarProductosCex();">
+                                                    <?php esc_html_e('Guardar productos', 'cex_pluggin');?>
                                                 </button>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion CEX-panel CEX-panel-primary">
-                    <div class="card m-0 p-0 w-100 mw-100 border-0">
-                        <div class="card-header m-0 p-0 CEX-panel-heading" id="step6">
-                            <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
-                                data-target="#panel_productos_cex" aria-expanded="true"
-                                aria-controls="panel_productos_cex" onclick="animacionBoton('#panel_productos_cex');">
-                                <?php esc_html_e('PRODUCTOS CEX', 'cex_pluggin');?>
-                                <span id="Cex-arrow" class="float-right clickable"><i
-                                        class="fas fa-chevron-down"></i></span>
-                            </a>
-                            <span id="iconProductos" class="CEX-iconoInfo"
-                                title="Hacer click para ver el manual de esta secci&oacute;n"><i
-                                    class="fas fa-info-circle" onclick="checkIntroProductosCEX();"></i></span>
-                        </div>
+                    <div class="accordion CEX-panel CEX-panel-primary">
+                        <div class="card m-0 p-0 w-100 mw-100 border-0">
+                            <div class="card-header m-0 p-0 CEX-panel-heading" id="step7">
+                                <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
+                                    data-target="#panel_relacion_trans" aria-expanded="true"
+                                    aria-controls="panel_relacion_trans" onclick="animacionBoton('#panel_relacion_trans');">
+                                    <?php esc_html_e('RELACIONAR ZONAS DE ENV&Iacute;O Y TRANSPORTISTAS', 'cex_pluggin');?>
+                                    <span id="Cex-arrow" class="float-right clickable"><i
+                                            class="fas fa-chevron-down"></i></span>
+                                </a>
+                                <span id="iconRelacionTransportistas" class="CEX-iconoInfo"
+                                    title="<?php esc_html_e('Hacer click para ver el manual de esta secci&oacute;n', 'cex_pluggin');?>"><i
+                                        class="fas fa-info-circle" onclick="checkIntroZonasTransportistas();"></i></span>
+                            </div>
 
-                        <div id="panel_productos_cex" class="collapse" aria-labelledby="panel_productos_cex"
-                            data-parent="">
-                            <div class="card-body">
-                                <div class="container-fluid my-3">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group" id="productos_cex">
+                            <div id="panel_relacion_trans" class="collapse" aria-labelledby="panel_relacion_trans"
+                                data-parent="">
+                                <div class="card-body p-0">
+                                    <div class="container-fluid mb-3">
+                                        <form id="transportistas"></form>
+                                        <div class="row mt-2 mb-3">
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                <button id="guardarTransportistas" class="CEX-btn CEX-button-success"
+                                                    onclick='mapear_transportistas();'>
+                                                    <?php esc_html_e('Guardar relaciones de transportistas', 'cex_pluggin');?>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mt-5 mb-3">
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                            <button id="guardarProductosCex" class="CEX-btn CEX-button-success"
-                                                onclick="guardarProductosCex();">
-                                                <?php esc_html_e('Guardar productos', 'cex_pluggin');?>
-                                            </button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div id="CEX-loading" class="modal d-none"></div>
                     </div>
-                </div>
-                <div class="accordion CEX-panel CEX-panel-primary">
-                    <div class="card m-0 p-0 w-100 mw-100 border-0">
-                        <div class="card-header m-0 p-0 CEX-panel-heading" id="step7">
-                            <a class="mb-0 CEX-text-white p-2 d-block" data-toggle="collapse"
-                                data-target="#panel_relacion_trans" aria-expanded="true"
-                                aria-controls="panel_relacion_trans" onclick="animacionBoton('#panel_relacion_trans');">
-                                <?php esc_html_e('RELACIONAR ZONAS DE ENV&Iacute;O Y TRANSPORTISTAS', 'cex_pluggin');?>
-                                <span id="Cex-arrow" class="float-right clickable"><i
-                                        class="fas fa-chevron-down"></i></span>
-                            </a>
-                            <span id="iconRelacionTransportistas" class="CEX-iconoInfo"
-                                title="<?php esc_html_e('Hacer click para ver el manual de esta secci&oacute;n', 'cex_pluggin');?>"><i
-                                    class="fas fa-info-circle" onclick="checkIntroZonasTransportistas();"></i></span>
-                        </div>
-
-                        <div id="panel_relacion_trans" class="collapse" aria-labelledby="panel_relacion_trans"
-                            data-parent="">
-                            <div class="card-body p-0">
-                                <div class="container-fluid mb-3">
-                                    <form id="transportistas"></form>
-                                    <div class="row mt-2 mb-3">
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                            <button id="guardarTransportistas" class="CEX-btn CEX-button-success"
-                                                onclick='mapear_transportistas();'>
-                                                <?php esc_html_e('Guardar relaciones de transportistas', 'cex_pluggin');?>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="CEX-loading" class="modal d-none"></div>
                 </div>
             </div>
         </div>
-    </div>
     <!-- JAVASCRIPT -->
 
     <script type="text/javascript">
@@ -1039,6 +1044,12 @@ wp_enqueue_script("jquery");
         "<?php esc_html_e('Si marca esta opci&oacute;n, las etiquetas se generar&aacute;n sin remitente.', 'cex_pluggin');?>";
     var stepUser12 =
         "<?php esc_html_e('Cantidad de kilos predeterminados para cada env&iacute;o, este valor podr&aacute; ser modificado m&aacute;s adelante en el detalle del pedido.', 'cex_pluggin');?>";
+    var stepUser14 =
+        "<?php esc_html_e('Datos a mostrar en la etiqueta.', 'cex_pluggin');?>";
+    var wpsn =
+        "<?php esc_html_e('Referencias para las órdenes.', 'cex_pluggin');?>";
+    var cex_logo =
+        "<?php esc_html_e('Cambiar el logo que aparece en las etiquetas.', 'cex_pluggin');?>";
     var guardarDatosCliente =
         "<?php esc_html_e('Bot&oacute;n para guardar nuestra configuraci&oacute;n de usuario.', 'cex_pluggin');?>";
 
@@ -1065,6 +1076,10 @@ wp_enqueue_script("jquery");
         "<?php esc_html_e('Bot&oacute;n mediante el que guardaremos nuestro remitente por defecto.', 'cex_pluggin');?>";
     var div_codigo_cliente =
         "<?php esc_html_e('C&oacute;digo de cliente que se asociar&aacute; al remitente, no se puede cambiar de c&oacute;digo asociado una vez se genere el remitente.', 'cex_pluggin');?>";
+    var div_datos_cliente =
+        "<?php esc_html_e('Datos personales del remitente.', 'cex_pluggin');?>";
+    var div_bloqueHoraDesdeHasta =
+        "<?php esc_html_e('Intervalo de horas para la recogida.', 'cex_pluggin');?>";
     var introHoraDesde =
         "<?php esc_html_e('Hora desde la que est&aacute; disponible para la recogida.', 'cex_pluggin');?>";
     var introHoraHasta =
@@ -1118,6 +1133,13 @@ wp_enqueue_script("jquery");
         "<?php esc_html_e('Si se activa, actualizar&aacute; el estado de la orden en funci&oacute;n del CRON y la selecci&oacute;n de estados realizada.', 'cex_pluggin');?>";
     var literalGuardarDatosCron =
         "<?php esc_html_e('Guardaremos la configuraci&oacute;n de nuestro Cron.', 'cex_pluggin');?>";
+        
+    var descargarArchivoCron =
+        "<?php esc_html_e(' Descargar el log de la última ejecución del cron.', 'cex_pluggin');?>";
+    var descargarArchivoPeticion =
+        "<?php esc_html_e('Descargar el log de la última petición al WS.', 'cex_pluggin');?>";
+    var descargarArchivoRespuesta =
+        "<?php esc_html_e('Descargar el log de la última respuesta del WS.', 'cex_pluggin');?>";
 
     var titleErrorActualizarCliente = "<?php esc_html_e('C&oacute;digo de cliente invalido', 'cex_pluggin');?>";
     var textErrorActualizarCliente = "<?php esc_html_e('El c&oacute;digo de cliente debe tener 9 d&iacute;gitos', 'cex_pluggin');?>";

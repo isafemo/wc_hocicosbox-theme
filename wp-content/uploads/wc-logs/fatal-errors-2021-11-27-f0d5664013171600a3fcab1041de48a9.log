@@ -1,0 +1,40 @@
+2021-11-27T09:45:42+00:00 CRITICAL syntax error, unexpected 'echo' (T_ECHO) en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\header.php en la línea 49
+
+2021-11-27T11:36:54+00:00 CRITICAL Uncaught Error: Call to a member function get_first_name() on null in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\header.php:35
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\template.php(770): require_once()
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\template.php(716): load_template('C:\\Users\\Isabel...', true, Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\page-home.php(12): get_header()
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\template-loader.php(106): include('C:\\Users\\Isabel...')
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-blog-header.php(19): require_once('C:\\Users\\Isabel...')
+#6 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\index.php(17): require('C:\\Users\\Isabel...')
+#7 {main}
+  thrown en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\header.php en la línea 35
+
+2021-11-27T11:37:50+00:00 CRITICAL syntax error, unexpected '$cart_content' (T_VARIABLE) en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\header.php en la línea 35
+
+2021-11-27T11:45:29+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Cart::get_cart_content() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\header.php:39
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\template.php(770): require_once()
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\template.php(716): load_template('C:\\Users\\Isabel...', true, Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\page-home.php(12): get_header()
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\template-loader.php(106): include('C:\\Users\\Isabel...')
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-blog-header.php(19): require_once('C:\\Users\\Isabel...')
+#6 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\index.php(17): require('C:\\Users\\Isabel...')
+#7 {main}
+  thrown en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\header.php en la línea 39
+
+2021-11-27T11:49:38+00:00 CRITICAL Uncaught Error: Call to a member function get_formatted_url() on null in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\header.php:38
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\template.php(770): require_once()
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\template.php(716): load_template('C:\\Users\\Isabel...', true, Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\page-home.php(12): get_header()
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\template-loader.php(106): include('C:\\Users\\Isabel...')
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-blog-header.php(19): require_once('C:\\Users\\Isabel...')
+#6 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\index.php(17): require('C:\\Users\\Isabel...')
+#7 {main}
+  thrown en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\header.php en la línea 38
+

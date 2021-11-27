@@ -160,7 +160,7 @@
                                     <div id="fila2"
                                         class="col-12 col-xs-12 col-md-12 col-lg-12 text-center form-group mt-5">
                                         <button class="CEX-btn CEX-button-blue"
-                                            onclick="obtenerPedidosBusqueda(event);">
+                                            onclick="obtenerPedidosBusqueda(event,0);">
                                             <?php esc_html_e("Buscar Env&iacute;os", "cex_pluggin");?>
                                         </button>
                                     </div>
@@ -466,7 +466,7 @@
     // Generacion de resumen de pedidos
     var introjsResumen =
         "<?php esc_html_e('Utilidad mediante la que imprimiremos el resumen de nuestros pedidos.' , "cex_pluggin");?>";
-    var introjsFechaResumen =
+    var fecha_resumen =
         "<?php esc_html_e('Fecha sobre la que realizaremos la b&uacute;squeda de pedidos.' , "cex_pluggin");?>";
     var contenedor_resumen =
         "<?php esc_html_e('Detalle del resultado de la b&uacute;squeda de pedidos.' , "cex_pluggin");?>";
@@ -806,13 +806,15 @@
                 'nonce': '<?php echo wp_create_nonce('cex-nonce'); ?>'
             },
             success: function(msg) {
+                pintarSelectPosicion2();
+                (jQuery)('#contenedor_pedidos').removeClass('d-none');
+                (jQuery)('#contenedor_pedidos_reimpresion').removeClass('d-none');
                 pintarPedido(msg);
                 (jQuery)('#CEX-loading').addClass('d-none');
-                pintarSelectPosicion2();
             },
             error: function(msg) {
                 (jQuery)('#CEX-loading').addClass('d-none');
-                pintarSelectPosicion2();
+                //pintarSelectPosicion2();
             }
         });
     }
@@ -847,7 +849,7 @@
         });
     }
 
-    function obtenerPedidosBusqueda(event) {        
+    function obtenerPedidosBusqueda(event, borrado) {        
         (jQuery)('#CEX-loading').removeClass('d-none');
         event.preventDefault();                        
         var desde=formatFecha((jQuery)('#fecha_desde').datetimepicker('viewDate'));
@@ -865,7 +867,7 @@
             success: function(msg) {
                 pintarSelectPosicion();
                 (jQuery)('#respuesta_buscador_pedidos').removeClass('d-none');
-                pintarPedidosBusqueda(msg);
+                pintarPedidosBusqueda(msg, borrado);
                 (jQuery)('#CEX-loading').addClass('d-none');
                 pintarSelectPosicion2();
 
@@ -877,7 +879,10 @@
     }
 
 
-    function pintarPedidosBusqueda(resultado) {
+    function pintarPedidosBusqueda(resultado, borrado) {
+        if (borrado == 0) {
+            (jQuery)("#contenedor_errores").empty();
+        }
         var pedidos = JSON.parse(resultado);
         var tabla = '';
         var cabecera = "<table id='grabacionMasiva' border=0 class='table w-100'>" +
@@ -1102,14 +1107,33 @@
                 'posicion': (jQuery)("#posicion_etiqueta_masiva").val(),
 
             },
-            success: function(msg) {   
-                if(ordenes.length !=0){    
-                    generarEtiquetasGrabaciones(JSON.parse(msg));                
-                    (jQuery)('#contenedor_errores').html('');                
-                    (jQuery)('#contenedor_errores').addClass('d-none');
-                    pintarErrores(msg);
-                    obtenerPedidosBusqueda(event);
-                    (jQuery)('#CEX-loading').addClass('d-none');  
+            success: function(msg) {
+                if(ordenes.length !=0){
+                    var aux = JSON.parse(msg);
+
+                    var banderaEtiqueta = false;
+                    var arrayEtiquetas =  new Array(); 
+                    var banderaErrores = false;
+                    var arrayErrores =  new Array(); 
+                    aux.forEach( function(valor, indice, array) {
+                        if(valor.numShip > 0){
+                            banderaEtiqueta = true;
+                            arrayEtiquetas.push(valor);
+                        }else{
+                            banderaErrores = true;
+                            arrayErrores.push(valor);
+                        }
+                    });
+
+                    if(banderaEtiqueta){
+                        generarEtiquetasGrabaciones(arrayEtiquetas);
+                    }
+
+                    if(banderaErrores){
+                        pintarErrores(msg);                       
+                    }else{
+                        (jQuery)('#contenedor_errores').html('');                
+                    }
                 }else{
                     (jQuery)('#CEX-loading').addClass('d-none');
                     PNotify.prototype.options.styling = "bootstrap3";
@@ -1118,7 +1142,7 @@
                         type: 'error',
                         stack: myStack
                     })
-                }      
+                }
             },
             error: function(msg) {
                 (jQuery)('#CEX-loading').addClass('d-none');
@@ -1142,7 +1166,6 @@
                     retorno.push(element.numCollect);
             });
         }
-
     
         (jQuery).ajax({
             type: "POST",
@@ -1163,9 +1186,9 @@
                 (jQuery)("#etiquetas").attr("download", nombre);
                 (jQuery)("#etiquetas").attr("href", "data:application/pdf;base64," + base64);
                 (jQuery)("#etiquetas")[0].click();
+                obtenerPedidosBusqueda(event,1);
             },
             error: function(msg) {
-                //console.log(msg);
                 (jQuery)('#CEX-loading').addClass('d-none');
             }
         });
@@ -1249,10 +1272,6 @@
     function pintarPedido(msg) {
         (jQuery)('#CEX-loading').removeClass('d-none');
         var pedidos = JSON.parse(msg);
-         (jQuery)('#contenedor_pedidos').removeClass('d-none');                  
-        (jQuery)('#contenedor_pedidos_reimpresion').removeClass('d-none');                  
-        (jQuery)('#contenedor_etiquetas_reimpresion').removeClass('d-none');
-        (jQuery)('#contenedor_pedidos').removeClass('d-none');   
         var cabecera = "<table id='reimpresionMasiva' border=0 class='table w-100'>" +
             "<thead><tr>" +
             "<th><?php _e('ID', 'cex_pluggin');?></th>" +
@@ -1273,10 +1292,10 @@
         var cierre = "</tbody>"+footer+"</table>";
         var elementos = '<tbody>';
         if (pedidos == null || pedidos == '') {
-            (jQuery)('#contenedor_pedidos').addClass('d-none');
             (jQuery)('#contenedor_etiquetas_reimpresion').addClass('d-none');
             //elementos +="<tr><td colspan='6' class='text-center'><strong><?php _e('No hay resultados para la b&uacute;squeda', 'cex_pluggin');?></strong></td></tr>";
         } else {
+            (jQuery)('#contenedor_etiquetas_reimpresion').removeClass('d-none');
             pedidos.forEach(function(element) {
                 if (datediff(element.fecha) >= 7) {
                     var checkbox = "<input type='checkbox' class='form-control my-auto' id='" + element
@@ -1300,7 +1319,7 @@
         }
 
         (jQuery)('#contenedor_pedidos_reimpresion').html(cabecera + elementos + cierre);
-                      
+        (jQuery)('#contenedor_pedidos').removeClass('d-none');          
         $orden=new Array();
         $orden=[[1, 'asc'],[0, 'desc']];
         declareDataTables('reimpresionMasiva',$orden);        
@@ -1376,8 +1395,12 @@
                 if (elemento.resultado == 1) {
                     contenido += '';
                 } else {
-                    var enlace = "<a href='../wp-admin/post.php?post=" + elemento.id_order +
+                    if(elemento.resultado == 99){
+                        var enlace = "<a href='../wp-admin/admin.php?page=correosexpress-ajustes'><?php esc_html_e('EDITAR', 'cex_pluggin');?></a>";
+                    }else{
+                        var enlace = "<a href='../wp-admin/post.php?post=" + elemento.id_order +
                         "&action=edit'><?php esc_html_e('EDITAR', 'cex_pluggin');?></a>";
+                    }
                     contenido += "<tr>" +
                         "<td>" + elemento.id_order + "</td>" +
                         "<td>" + elemento.mensajeRetorno + "</td>" +
@@ -1397,6 +1420,7 @@
             (jQuery)('#contenedor_errores').html(cabecera + contenido + finTabla);
             (jQuery)('#contenedor_errores').removeClass('d-none');
         }
+        obtenerPedidosBusqueda(event, 1);
     }
 
     function activarManual(manual, check) {        
