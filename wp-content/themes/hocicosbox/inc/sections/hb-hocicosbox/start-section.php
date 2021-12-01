@@ -16,4 +16,4 @@ $bigImage = get_theme_mod('hocicosbox_big_image', '');
         </div>
     </div>
 </div>
-<center><div class="purple-line"></div></center>
+<center><div class="purple-line-hocicosbox-section"></div></center>

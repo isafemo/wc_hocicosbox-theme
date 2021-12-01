@@ -1,2 +1,2 @@
-Comenzamos ejecucion Cron -> 01-12-2021 17:42:25
+Comenzamos ejecucion Cron -> 01-12-2021 19:42:22
 	 LA EJECUCIÓN DEL CRON HA ACABADO

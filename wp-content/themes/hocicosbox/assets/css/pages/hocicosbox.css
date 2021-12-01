@@ -5,7 +5,13 @@
     background-size: cover;
 }
 .hb-background{
-    padding: 50px 0px 50px 0px;
+    padding: 20px 0px 50px 0px;
+}
+.purple-line-hocicosbox-section{
+    width: 3px;
+    height: 41px;
+    margin: 0px;
+    background-color: #492f82;
 }
 .wis-start{
     padding: 100px 0px 100px 0px;
@@ -72,6 +78,10 @@
     color: black;
 }
 
+.wis-boxes{
+    padding-top: 40px;
+}
+
 .img-wis{
     width: 100%;
     height: 306px;
@@ -80,9 +90,31 @@
     background-position: center;
     background-size: cover;
     background-color: white;
-    background-image: url("../../images/afiliates/register1.png");
 }
 
+.wis-title-box{
+    font-family: HelveticaNeue;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    text-align: center;
+    color: black;
+    margin-top: 22px;
+}
+
+.wis-desc-box{
+    font-family: HelveticaNeue;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.7;
+    letter-spacing: 0.25px;
+    color: #9b9b9b;
+}
 .hbox-sub-background{
     background-color: #ebf9f8;
     padding: 50px 0px 50px 0px;
@@ -120,7 +152,6 @@
     background-position: center;
     background-size: cover;
     background-color: blue;
-    /*background-image: url("../../images/afiliates/register1.png");*/
     display: flex;
     align-items: end;
     justify-content: center;

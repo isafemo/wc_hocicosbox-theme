@@ -1,3 +1,8 @@
+<?php
+$box_sus1 = get_theme_mod('hocicosbox_sn_box_1', '');
+$box_sus2 = get_theme_mod('hocicosbox_sn_box_2', '');
+$box_sus3 = get_theme_mod('hocicosbox_sn_box_3', '');
+?>
 <div class="container-fluid hbox-sub-background">
     <div class="row">
         <div class="col">
@@ -10,23 +15,25 @@
         </div>
     </div>
     <div class="row align-items-center justify-content-center">
-        <div class="col-1"></div>
-        <div class="col-3 text-center">
-            <div class="hbox-image">
-                <a type="button" class="btn btn-primary hbox-btn-dca" href="#">PERRETE</a>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="hbox-image" style="background-image: url(<?= $box_sus1 ?>)">
+                        <a type="button" class="btn btn-primary hbox-btn-dca" href="#">PERRETE</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hbox-image" style="background-image: url(<?= $box_sus2 ?>)">
+                        <a type="button" class="btn btn-primary hbox-btn-dca" href="#">GATETE</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hbox-image" style="background-image: url(<?= $box_sus3 ?>)">
+                        <a type="button" class="btn btn-primary hbox-btn-dca" href="#">AMBOS</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-3 text-center">
-            <div class="hbox-image">
-                <a type="button" class="btn btn-primary hbox-btn-dca" href="#">GATETE</a>
-            </div>
-        </div>
-        <div class="col-3 text-center">
-            <div class="hbox-image">
-                <a type="button" class="btn btn-primary hbox-btn-dca" href="#">AMBOS</a>
-            </div>
-        </div>
-        <div class="col-1"></div>
     </div>
     <div class="row align-items-center justify-content-center">
         <div class="col text-center">
