@@ -9,6 +9,7 @@
             $wp_customize->add_section(
                 'trades_custom', array(
                     'title' 		=> __( 'Nuestras marcas', 'hocicosbox'),
+                    'panel'          => 'hb_general_panel_wpcustomize',
                 )
             );
 

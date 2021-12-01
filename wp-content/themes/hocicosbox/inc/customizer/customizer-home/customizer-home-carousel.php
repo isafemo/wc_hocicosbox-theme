@@ -8,7 +8,8 @@
 
             $wp_customize->add_section(
                 'carousel_custom', array(
-                    'title' 		=> __( 'Opciones de Carrusel', 'hocicosbox'),
+                    'title' 		=> __( 'Carrusel', 'hocicosbox'),
+                    'panel'          => 'hb_general_panel_wpcustomize',
                 )
             );
 
@@ -16,7 +17,7 @@
                 'sanitize_callback' => 'customizer_repeater_sanitize'
             ));
             $wp_customize->add_control( new Customizer_Repeater( $wp_customize, 'customizer_repeater_example', array(
-                'label'   => esc_html__('Example','customizer-repeater'),
+                'label'   => esc_html__('Carrusel','customizer-repeater'),
                 'section' => 'carousel_custom',
                 'priority' => 1,
                 'customizer_repeater_image_control' => true,

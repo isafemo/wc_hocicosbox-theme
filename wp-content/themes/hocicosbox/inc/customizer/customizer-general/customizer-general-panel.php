@@ -30,10 +30,15 @@ if (!function_exists('hb_general_panel_wpcustomize')) {
         // Panel: Basic.
         $wp_customize->add_panel('hb_general_panel_wpcustomize', array(
             'priority' => 10,
-            'title' => __('Cabecera', 'WPC'),
-            'description' => __('Cabezera de la web, incluye barra de noticias y logo', 'WPC'),
+            'title' => __('Home', 'WPC'),
+            'description' => __('Todo lo que podemos incluir en la home', 'WPC'),
             'capability' => 'edit_theme_options'
         ));
+
+        //REMOVERS
+        $wp_customize->remove_panel( 'woocommerce' );
+        $wp_customize->remove_panel( 'widgets' );
+        $wp_customize->remove_panel( 'nav_menus' );
     }
 }
 

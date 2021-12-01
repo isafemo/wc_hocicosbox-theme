@@ -13,6 +13,7 @@ if (!function_exists('hocicosbox_customize_home_month')) {
             $wp_customize->add_section(
                 'home_month', array(
                     'title' 		=> __( 'Meses hocicosbox', 'hocicosbox'),
+                    'panel'          => 'hb_general_panel_wpcustomize',
                 )
             );
 

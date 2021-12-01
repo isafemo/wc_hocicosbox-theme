@@ -37,6 +37,7 @@ $cart_page_url = function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : $woo
 $cart_count_contents = count($woocommerce->cart->get_cart_contents());
 ?>
 <!--HEADER GROUP 1-->
+<div class="container-fluid header-hb-shadow">
 <div class="container">
     <div class="row align-items-center">
         <div class="col-4">
@@ -102,5 +103,6 @@ $cart_count_contents = count($woocommerce->cart->get_cart_contents());
     <div class="row header-menu align-items-center justify-content-center">
         <?php wp_nav_menu(array('theme_location' => 'hocicosbox_header_menu')); ?>
     </div>
+</div>
 </div>
 <!--FIN HEADER GROUP 1-->

@@ -17,3 +17,4 @@ require_once get_template_directory() . '/inc/customizer/customizer-home/customi
 require_once get_template_directory() . '/inc/customizer/customizer-home/customizer-home-trades.php';
 require_once get_template_directory() . '/inc/customizer/customizer-pages/customizer-solidary-page.php';
 
+

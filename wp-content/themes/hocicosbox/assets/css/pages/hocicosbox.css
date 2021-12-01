@@ -120,6 +120,7 @@
     /*background-image: url("../../images/afiliates/register1.png");*/
     display: flex;
     align-items: end;
+    justify-content: center;
 }
 
 .hbox-btn-dca{
