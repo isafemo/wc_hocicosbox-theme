@@ -1,5 +1,8 @@
 .start-section-hocicosbox{
     background-color: #7a4e7e;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .hb-background{
     padding: 50px 0px 50px 0px;

@@ -1,4 +1,7 @@
-<div class="container-fluid start-section-hocicosbox">
+<?php
+$bigImage = get_theme_mod('hocicosbox_big_image', '');
+?>
+<div class="container-fluid start-section-hocicosbox"  style="background-image: url(<?php echo $bigImage ?>);">
     <div class="row">
         <div class="col">
             <div class="container wis-start">

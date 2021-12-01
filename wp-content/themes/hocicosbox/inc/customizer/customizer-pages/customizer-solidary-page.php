@@ -8,7 +8,7 @@ if (!function_exists('rincon_solidario_customize_register')) {
 
         $wp_customize->add_section(
             'rincon_solidario_custom', array(
-                'title' 		=> __( 'Rincon Solidario', 'hocicosbox'),
+                'title' 		=> __( 'Sección Rincon Solidario', 'hocicosbox'),
             )
         );
 
