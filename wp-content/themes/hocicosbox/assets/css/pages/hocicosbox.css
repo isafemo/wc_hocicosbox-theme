@@ -1,25 +1,489 @@
-.start-section-hocicosbox{
+/* Smartphones (landscape) */
+@media only screen
+and (min-width: 321px) {
+    /*Zona fluid con boton suscribete*/
+
+    .wis-start {
+        padding: 20px 0px 20px 0px;
+    }
+
+    .wis-title {
+        font-size: 10px;
+    }
+
+    .wis-subtitle {
+        font-size: 20px;
+    }
+
+    .wis-btn-start {
+        color: #08c0bc;
+        padding: 12px 28px 12px 28px;
+        font-size: 14px;
+    }
+
+    /*Zona explicativa con 3 columns imagenes*/
+
+    .wis-what {
+        font-size: 22px;
+    }
+
+    .wis-desc {
+        font-size: 16px;
+    }
+
+    .img-wis {
+        height: 156px;
+        border-radius: 24px;
+    }
+
+    .wis-title-box {
+        font-size: 18px;
+    }
+
+    .wis-desc-box {
+        font-size: 14px;
+    }
+
+    /*Zona suscripción con 3 opciones*/
+
+    .hbox-title {
+        font-size: 22px;
+    }
+
+    .hbox-subtitle {
+        font-size: 16px;
+    }
+
+    .hbox-image {
+        height: 200px;
+        border-radius: 24px;
+        margin-bottom: 20px;
+    }
+
+    .hbox-btn-dca {
+        padding: 11px 30px 11px 30px;
+    }
+}
+
+/* Smartphones (portrait) */
+@media only screen
+and (max-width: 320px) {
+    /*Zona fluid con boton suscribete*/
+
+    .wis-start {
+        padding: 50px 10px 50px 0px;
+    }
+
+    .wis-title {
+        font-size: 10px;
+    }
+
+    .wis-subtitle {
+        font-size: 18px;
+    }
+
+    .wis-btn-start {
+        color: #08c0bc;
+        padding: 12px 28px 12px 28px;
+        font-size: 14px;
+    }
+
+    /*Zona explicativa con 3 columns imagenes*/
+
+    .wis-what {
+        font-size: 22px;
+    }
+
+    .wis-desc {
+        font-size: 16px;
+    }
+
+    .img-wis {
+        height: 200px;
+        border-radius: 34px;
+    }
+
+    .wis-title-box {
+        font-size: 18px;
+    }
+
+    .wis-desc-box {
+        font-size: 14px;
+    }
+
+    /*Zona suscripción con 3 opciones*/
+
+    .hbox-title {
+        font-size: 22px;
+    }
+
+    .hbox-subtitle {
+        font-size: 18px;
+    }
+
+    .hbox-image {
+        height: 215px;
+        border-radius: 34px;
+        margin-bottom: 20px;
+    }
+
+    .hbox-btn-dca {
+        padding: 11px 60px 11px 60px;
+    }
+}
+
+/* iPads (portrait & landscape) */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px) {
+    /*Zona fluid con boton suscribete*/
+
+    .wis-start {
+        padding: 100px 0px 100px 0px;
+    }
+
+    .wis-title {
+        font-size: 14px;
+    }
+
+    .wis-subtitle {
+        font-size: 46px;
+    }
+
+    .wis-btn-start {
+        padding: 12px 28px 12px 28px;
+        font-size: 18px;
+        color: #08c0bc;
+    }
+
+    /*Zona explicativa con 3 columns imagenes*/
+
+    .wis-what {
+        font-size: 34px;
+    }
+
+    .wis-desc {
+        font-size: 22px;
+    }
+
+    .img-wis {
+        height: 306px;
+        border-radius: 64px;
+    }
+
+    .wis-title-box {
+        font-size: 22px;
+    }
+
+    .wis-desc-box {
+        font-size: 16px;
+    }
+
+    /*Zona suscripción con 3 opciones*/
+
+    .hbox-title {
+        font-size: 34px;
+    }
+
+    .hbox-subtitle {
+        font-size: 22px;
+    }
+
+    .hbox-image {
+        height: 393px;
+        border-radius: 64px;
+    }
+
+    .hbox-btn-dca {
+        padding: 11px 60px 11px 60px;
+    }
+}
+
+/* iPads (landscape) */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape) {
+    /*Zona fluid con boton suscribete*/
+
+    .wis-start {
+        padding: 50px 30px 50px 0px;
+    }
+
+    .wis-title {
+        font-size: 12px;
+    }
+
+    .wis-subtitle {
+        font-size: 36px;
+    }
+
+    .wis-btn-start {
+        color: #08c0bc;
+        padding: 12px 28px 12px 28px;
+        font-size: 18px;
+    }
+
+    /*Zona explicativa con 3 columns imagenes*/
+
+    .wis-what {
+        font-size: 26px;
+    }
+
+    .wis-desc {
+        font-size: 18px;
+    }
+
+    .img-wis {
+        height: 215px;
+        border-radius: 34px;
+    }
+
+    .wis-title-box {
+        font-size: 18px;
+    }
+
+    .wis-desc-box {
+        font-size: 14px;
+    }
+
+    /*Zona suscripción con 3 opciones*/
+
+    .hbox-title {
+        font-size: 26px;
+    }
+
+    .hbox-subtitle {
+        font-size: 18px;
+    }
+
+    .hbox-image {
+        height: 215px;
+        border-radius: 34px;
+    }
+
+    .hbox-btn-dca {
+        padding: 11px 60px 11px 60px;
+    }
+}
+
+/* iPads (portrait) */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
+    /*Zona fluid con boton suscribete*/
+
+    .wis-start {
+        padding: 50px 0px 50px 0px;
+    }
+
+    .wis-title {
+        font-size: 14px;
+    }
+
+    .wis-subtitle {
+        font-size: 30px;
+    }
+
+    .wis-btn-start {
+        padding: 18px 58px 18px 58px;
+        font-size: 16px;
+        color: #08c0bc;
+    }
+
+    /*Zona explicativa con 3 columns imagenes*/
+
+    .wis-what {
+        font-size: 34px;
+    }
+
+    .wis-desc {
+        font-size: 22px;
+    }
+
+    .img-wis {
+        height: 250px;
+        border-radius: 34px;
+    }
+
+    .wis-title-box {
+        font-size: 22px;
+    }
+
+    .wis-desc-box {
+        font-size: 16px;
+    }
+
+    /*Zona suscripción con 3 opciones*/
+
+    .hbox-title {
+        font-size: 34px;
+    }
+
+    .hbox-subtitle {
+        font-size: 22px;
+    }
+
+    .hbox-image {
+        height: 250px;
+        border-radius: 34px;
+    }
+
+    .hbox-btn-dca {
+        padding: 11px 60px 11px 60px;
+    }
+}
+
+/* Ordenadores de sobremesa y portátiles */
+@media only screen
+and (min-width: 1224px) {
+    /*Zona fluid con boton suscribete*/
+    .start-section-hocicosbox {
+
+    }
+
+    .wis-start {
+        padding: 100px 0px 100px 0px;
+    }
+
+    .wis-title {
+        font-size: 14px;
+    }
+
+    .wis-subtitle {
+        font-size: 46px;
+    }
+
+    .wis-btn-start {
+        color: #08c0bc;
+        padding: 22px 78px 22px 78px;
+        font-size: 18px;
+    }
+
+    /*Zona explicativa con 3 columns imagenes*/
+
+    .wis-what {
+        font-size: 34px;
+    }
+
+    .wis-desc {
+        font-size: 22px;
+    }
+
+    .img-wis {
+        height: 306px;
+        border-radius: 64px;
+    }
+
+    .wis-title-box {
+        font-size: 22px;
+    }
+
+    .wis-desc-box {
+        font-size: 16px;
+    }
+
+    /*Zona suscripción con 3 opciones*/
+
+    .hbox-title {
+        font-size: 34px;
+    }
+
+    .hbox-subtitle {
+        font-size: 22px;
+    }
+
+    .hbox-image {
+        height: 393px;
+        border-radius: 64px;
+    }
+
+    .hbox-btn-dca {
+        padding: 11px 60px 11px 60px;
+    }
+}
+
+/* Pantallas grandes */
+@media only screen
+and (min-width: 1824px) {
+    /*Zona fluid con boton suscribete*/
+
+    .wis-start {
+        padding: 100px 0px 100px 0px;
+    }
+
+    .wis-title {
+        font-size: 14px;
+    }
+
+    .wis-subtitle {
+        font-size: 46px;
+    }
+
+    .wis-btn-start {
+        color: #08c0bc;
+        padding: 22px 78px 22px 78px;
+        font-size: 18px;
+    }
+
+    /*Zona explicativa con 3 columns imagenes*/
+
+    .wis-what {
+        font-size: 34px;
+    }
+
+    .wis-desc {
+        font-size: 22px;
+    }
+
+    .img-wis {
+        height: 306px;
+        border-radius: 64px;
+    }
+
+    .wis-title-box {
+        font-size: 22px;
+    }
+
+    .wis-desc-box {
+        font-size: 16px;
+    }
+
+    /*Zona suscripción con 3 opciones*/
+
+    .hbox-title {
+        font-size: 34px;
+    }
+
+    .hbox-subtitle {
+        font-size: 22px;
+    }
+
+    .hbox-image {
+        height: 393px;
+        border-radius: 64px;
+    }
+
+    .hbox-btn-dca {
+        padding: 11px 60px 11px 60px;
+    }
+}
+
+/*Zona fluid con boton suscribete*/
+.start-section-hocicosbox {
     background-color: #7a4e7e;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.hb-background{
-    padding: 20px 0px 50px 0px;
-}
-.purple-line-hocicosbox-section{
-    width: 3px;
-    height: 41px;
-    margin: 0px;
-    background-color: #492f82;
-}
-.wis-start{
-    padding: 100px 0px 100px 0px;
+
+.wis-start {
+    padding: 20px 0px 20px 0px;
 }
 
-.wis-title{
+.wis-title {
     font-family: HelveticaNeue;
-    font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -28,9 +492,8 @@
     color: #fff;
 }
 
-.wis-subtitle{
+.wis-subtitle {
     font-family: Vintage;
-    font-size: 46px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -39,24 +502,32 @@
     color: #fff;
 }
 
-.wis-btn-start{
+.wis-btn-start {
     background-color: white;
     border: 0px;
-    padding: 22px 78px 22px 78px;
     margin-top: 20px;
     font-family: HelveticaNeue;
-    font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: 1.83px;
-    color: #08c0bc;
 }
 
-.wis-what{
+.purple-line-hocicosbox-section {
+    width: 3px;
+    height: 41px;
+    margin: 0px;
+    background-color: #492f82;
+}
+
+/*Zona explicativa con 3 columns imagenes*/
+.hb-background {
+    padding: 20px 0px 20px 0px;
+}
+
+.wis-what {
     font-family: Vintage;
-    font-size: 34px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -66,9 +537,8 @@
     color: #8064bc;
 }
 
-.wis-desc{
+.wis-desc {
     font-family: HelveticaNeue;
-    font-size: 22px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -78,23 +548,20 @@
     color: black;
 }
 
-.wis-boxes{
+.wis-boxes {
     padding-top: 40px;
 }
 
-.img-wis{
+.img-wis {
     width: 100%;
-    height: 306px;
-    border-radius: 64px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-color: white;
 }
 
-.wis-title-box{
+.wis-title-box {
     font-family: HelveticaNeue;
-    font-size: 22px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -105,9 +572,8 @@
     margin-top: 22px;
 }
 
-.wis-desc-box{
+.wis-desc-box {
     font-family: HelveticaNeue;
-    font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -115,14 +581,15 @@
     letter-spacing: 0.25px;
     color: #9b9b9b;
 }
-.hbox-sub-background{
+
+/*Zona suscripción con 3 opciones*/
+.hbox-sub-background {
     background-color: #ebf9f8;
     padding: 50px 0px 50px 0px;
 }
 
-.hbox-title{
+.hbox-title {
     font-family: Vintage;
-    font-size: 34px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -132,9 +599,8 @@
     color: #00a4a0;
 }
 
-.hbox-subtitle{
+.hbox-subtitle {
     font-family: HelveticaNeue;
-    font-size: 22px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -144,10 +610,8 @@
     color: black;
 }
 
-.hbox-image{
+.hbox-image {
     width: 100%;
-    height: 393px;
-    border-radius: 64px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -157,7 +621,7 @@
     justify-content: center;
 }
 
-.hbox-btn-dca{
+.hbox-btn-dca {
     border-radius: 10px;
     background-color: #f3f4f9;
     font-family: HelveticaNeue;
@@ -168,12 +632,11 @@
     line-height: normal;
     letter-spacing: 2.03px;
     color: #8064bc;
-    padding: 11px 60px 11px 60px;
     border: 0px;
     margin-bottom: 33px;
 }
 
-.hbox-btn-sub{
+.hbox-btn-sub {
     font-family: HelveticaNeue;
     font-size: 18px;
     font-weight: bold;
@@ -190,7 +653,11 @@
     margin-top: 50px;
 }
 
-.hbox-om-title{
+/**/
+/**/
+/**/
+/**/
+.hbox-om-title {
     font-family: Vintage;
     font-size: 34px;
     font-weight: normal;

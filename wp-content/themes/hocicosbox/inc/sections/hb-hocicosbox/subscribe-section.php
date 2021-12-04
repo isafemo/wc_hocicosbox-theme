@@ -16,18 +16,18 @@ $box_sus3 = get_theme_mod('hocicosbox_sn_box_3', '');
     </div>
     <div class="row align-items-center justify-content-center">
         <div class="container">
-            <div class="row">
-                <div class="col">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-8 col-sm-4">
                     <div class="hbox-image" style="background-image: url(<?= $box_sus1 ?>)">
                         <a type="button" class="btn btn-primary hbox-btn-dca" href="#">PERRETE</a>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-8 col-sm-4">
                     <div class="hbox-image" style="background-image: url(<?= $box_sus2 ?>)">
                         <a type="button" class="btn btn-primary hbox-btn-dca" href="#">GATETE</a>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-8 col-sm-4">
                     <div class="hbox-image" style="background-image: url(<?= $box_sus3 ?>)">
                         <a type="button" class="btn btn-primary hbox-btn-dca" href="#">AMBOS</a>
                     </div>
@@ -36,7 +36,7 @@ $box_sus3 = get_theme_mod('hocicosbox_sn_box_3', '');
         </div>
     </div>
     <div class="row align-items-center justify-content-center">
-        <div class="col text-center">
+        <div class="col-8 text-center">
             <a type="button" class="btn btn-primary hbox-btn-sub" href="#">COMENZAR SUSCRIPCIÓN</a>
         </div>
     </div>
