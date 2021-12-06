@@ -30,7 +30,7 @@ if ( ! function_exists( 'wpc_customize_panel_basic' ) ) {
         // Section: Basic.
         $wp_customize->add_section( 'wpc_section_basic', array(
             'priority'       => 10,
-            'panel'          => 'hb_general_panel_wpcustomize',
+            'panel'          => 'hb_general_home_wpcustomize',
             'title'          => __( 'Basic Section Title', 'WPC' ),
             'description'    => __( 'Section Description.', 'WPC' ),
             'capability'     => 'edit_theme_options'

@@ -30,7 +30,7 @@ if ( ! function_exists( 'hb_customize_header_notice' ) ) {
         // Section: Notices.
         $wp_customize->add_section( 'hb_section_header_notice', array(
             'priority'       => 10,
-            'panel'          => 'hb_general_panel_wpcustomize',
+            'panel'          => 'hb_general_header_wpcustomize',
             'title'          => __( 'Barra informativa', 'WPC' ),
             'description'    => __( 'Barra informativa al inicio de la web.', 'WPC' ),
             'capability'     => 'edit_theme_options'
@@ -56,7 +56,7 @@ if ( ! function_exists( 'hb_customize_header_notice' ) ) {
         // Section: Logo.
         $wp_customize->add_section( 'hb_section_header_logo', array(
             'priority'       => 10,
-            'panel'          => 'hb_general_panel_wpcustomize',
+            'panel'          => 'hb_general_header_wpcustomize',
             'title'          => __( 'Logotipo', 'WPC' ),
             'description'    => __( 'Logotipo de la cabecera.', 'WPC' ),
             'capability'     => 'edit_theme_options'

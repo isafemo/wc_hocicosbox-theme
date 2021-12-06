@@ -6,9 +6,12 @@
  */
 include_once ABSPATH . 'wp-includes/class-wp-customize-control.php';
 require_once get_template_directory() . '/inc/customizer/customizer-repeater/functions.php';
-//GENERAL PANEL
-require_once get_template_directory() . '/inc/customizer/customizer-general/customizer-general-panel.php';
+//GENERAL PANELS
+require_once get_template_directory() . '/inc/customizer/customizer-panels/customizer-header-panel.php';
+require_once get_template_directory() . '/inc/customizer/customizer-panels/customizer-home-panel.php';
+//HEADER
 require_once get_template_directory() . '/inc/customizer/customizer-general/customizer-header.php';
+require_once get_template_directory() . '/inc/customizer/customizer-general/customizer-menu.php';
 //HOME
 require_once get_template_directory() . '/inc/customizer/customizer-home//basic-complete-simple-custom.php'; //TODO: QUITAR AL FINAL
 require_once get_template_directory() . '/inc/customizer/customizer-home/customizer-home-carousel.php';

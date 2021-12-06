@@ -13,7 +13,7 @@ if (!function_exists('hocicosbox_customize_home_solidary')) {
             $wp_customize->add_section(
                 'home_solidary', array(
                     'title' 		=> __( 'Espacio solidario', 'hocicosbox'),
-                    'panel'          => 'hb_general_panel_wpcustomize',
+                    'panel'          => 'hb_general_home_wpcustomize',
                 )
             );
 

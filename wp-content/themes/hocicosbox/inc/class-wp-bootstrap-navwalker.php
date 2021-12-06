@@ -603,6 +603,52 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			return $result;
 		}
 
+		public function getCategoriesMenu($menuName){
+            $menu = get_nav_menu_locations();
+            $navbar_items = wp_get_nav_menu_items($menu[$menuName]);
+            $result = [];
+            $child_items = [];
+            $baby_child_items = [];
+            $parents_ids = [];
+            $children_id = [];
+
+            // pull all child menu items into separate object
+            foreach ($navbar_items as $key => $item) {
+                if(!$item->menu_item_parent){
+
+                    array_push($parents_ids, $item->ID);
+                    array_push($result, ['id' => $item->ID, 'name' => $item->title, 'url' => $item->url, 'class' => implode(" ", $item->classes), 'children' => []]);
+                } else {
+                    array_push($child_items, $item);
+                }
+            }
+
+            foreach ($child_items as $key => $item){
+                if(in_array($item->menu_item_parent, $parents_ids)){
+                    foreach ($result as $keyResult => $resultItem){
+                        if($resultItem['id'] == $item->menu_item_parent) {
+                            array_push($children_id, $item->ID);
+                            array_push($result[$keyResult]['children'], ['id' => $item->ID, 'name' => $item->title, 'url' => $item->url, 'class' => implode(" ", $item->classes), 'children' => []]);
+                        }
+                    }
+                } else {
+                    array_push($baby_child_items, $item);
+                }
+            }
+
+            foreach ($baby_child_items as $key => $item){
+                if(in_array($item->menu_item_parent, $children_id)){
+                    foreach ($result as $keyResult => $resultItem){
+                        foreach ($resultItem['children'] as $keyBaby => $children){
+                            if($children['id'] == $item->menu_item_parent) {
+                                array_push($result[$keyResult]['children'][$keyBaby]['children'], ['id' => $item->ID, 'name' => $item->title, 'url' => $item->url, 'class' => implode(" ", $item->classes)]);
+                            }
+                        }
+                    }
+                }
+            }
+            return $result;
+        }
 	}
 
 endif;

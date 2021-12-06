@@ -1,10 +1,19 @@
+/*GENERAL*/
 @import "icons.css";
-@import "General/footer.css";
+/*HEADER*/
 @import "General/header.css";
+/*FOOTER*/
+@import "General/footer.css";
+/*SECTION HOME*/
 @import "home/carousel.css";
 @import "home/contact.css";
-@import "home/afiliados.css";
+/*SECTION HOCICOSBOX*/
 @import "pages/hocicosbox.css";
+
+
+
+
+@import "home/afiliados.css";
 @import "pages/blog.css";
 @import "shop/single-product.css";
 @import "shop/archive-product.css";

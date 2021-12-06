@@ -9,7 +9,7 @@
             $wp_customize->add_section(
                 'carousel_custom', array(
                     'title' 		=> __( 'Carrusel', 'hocicosbox'),
-                    'panel'          => 'hb_general_panel_wpcustomize',
+                    'panel'          => 'hb_general_home_wpcustomize',
                 )
             );
 

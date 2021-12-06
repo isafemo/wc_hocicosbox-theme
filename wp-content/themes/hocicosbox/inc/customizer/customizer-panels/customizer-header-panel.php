@@ -14,9 +14,9 @@ if (!defined('ABSPATH')) {
 }
 
 // Customize function.
-if (!function_exists('hb_general_panel_wpcustomize')) {
+if (!function_exists('hb_general_home_wpcustomize')) {
     // Customize Register action.
-    add_action('customize_register', 'hb_general_panel_wpcustomize');
+    add_action('customize_register', 'hb_general_header_wpcustomize');
     /**
      * Customize Panel.
      *
@@ -25,13 +25,13 @@ if (!function_exists('hb_general_panel_wpcustomize')) {
      * @param object WP_Customize $wp_customize Instance of the WP_Customize_Manager class.
      * @since  1.0.0
      */
-    function hb_general_panel_wpcustomize($wp_customize)
+    function hb_general_header_wpcustomize($wp_customize)
     {
         // Panel: Basic.
-        $wp_customize->add_panel('hb_general_panel_wpcustomize', array(
+        $wp_customize->add_panel('hb_general_header_wpcustomize', array(
             'priority' => 10,
-            'title' => __('Home', 'WPC'),
-            'description' => __('Todo lo que podemos incluir en la home', 'WPC'),
+            'title' => __('Header', 'WPC'),
+            'description' => __('Todo lo que podemos incluir en lel header', 'WPC'),
             'capability' => 'edit_theme_options'
         ));
 
