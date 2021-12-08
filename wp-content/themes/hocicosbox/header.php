@@ -79,8 +79,8 @@ $cart_page_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : $wooco
                                         <i class="fa fa-user-o"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right list-data-hb" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="/mi-cuenta/orders/">Historial de pedidos</a>
-                                        <a class="dropdown-item" href="/mi-cuenta/edit-account/">Mi cuenta</a>
+                                        <a class="dropdown-item" href="/mi-cuenta/pedidos/">Historial de pedidos</a>
+                                        <a class="dropdown-item" href="/mi-cuenta/editar-cuenta/">Mi cuenta</a>
                                         <a class="dropdown-item" href="#">Afiliados</a>
                                         <a class="dropdown-item" href="#">Suscripción</a>
                                         <!--                                TODO: LOGOUT USUARIO ACTIVO-->

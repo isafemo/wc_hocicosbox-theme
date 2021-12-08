@@ -27,7 +27,7 @@ $allowed_html = array(
 	),
 );
 ?>
-
+DASHBOARD PAPA
 <p>
 	<?php
 	printf(

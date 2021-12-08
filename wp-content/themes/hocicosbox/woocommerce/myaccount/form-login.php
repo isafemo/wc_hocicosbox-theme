@@ -20,52 +20,149 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 do_action( 'woocommerce_before_customer_login_form' ); ?>
+<article class="hb-article-login">
+    <div class="container access">
+        <div class="row justify-content-center align-self-center">
+            <div class="col-5 hb-login-col-left">
+                <div class="container-fluid hb-access">
+                    <form class="woocommerce-form woocommerce-form-login" method="post">
+                        <div class="row">
+                            <div class="col text-right">
+                                <h2 class="hb-login-title">Acceso</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">
+                                <label class="hb-login-label" for="username">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">
+                                <input type="text" class="input-text hb-input-login-text" name="username"
+                                       id="username" autocomplete="username"
+                                       value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">
+                                <label class="hb-login-label"
+                                       for="password"><?php esc_html_e('Password', 'woocommerce'); ?></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">
+                                <input class="hb-input-login-text input-text" type="password" name="password"
+                                       id="password" autocomplete="current-password"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-right">
+                                <?php do_action('woocommerce_login_form'); ?>
+                                <a class="hb-lost-pass"
+                                   href="<?php echo esc_url(wp_lostpassword_url()); ?>"><?php esc_html_e('Lost your password?', 'woocommerce'); ?></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">
+                                <input class="hb-login-check" name="rememberme"
+                                       type="checkbox" id="rememberme" value="forever"/>
+                                <span><?php esc_html_e('Remember me', 'woocommerce'); ?></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-left">
+                                <?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
+                                <button type="submit" class="btn-hb-login text-uppercase" name="login"
+                                        value="<?php esc_attr_e('Log in', 'woocommerce'); ?>"><?php esc_html_e('Log in', 'woocommerce'); ?></button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col text-center">
+                            <p class="hb-dont-register">¿Aun no tienes una cuenta?
+                                <br><a class="hb-create-from-login" href="#">Crear cuenta</a>
+                            </p>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 hb-login-col-right img-hb-login">
+            </div>
+        </div>
+    </div>
+</article>
+<!--<div class="container register">-->
+<!--    <div class="row justify-content-center align-self-center">-->
+<!--        <div class="col-5 hb-login-col-left">-->
+<!--            <div class="container-fluid hb-access">-->
+<!--                <form class="woocommerce-form woocommerce-form-login" method="post">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col text-right">-->
+<!--                            <h2 class="hb-login-title">Acceso</h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col text-left">-->
+<!--                            <label class="hb-login-label" for="username">Email</label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col text-left">-->
+<!--                            <input type="text" class="input-text hb-input-login-text" name="username"-->
+<!--                                   id="username" autocomplete="username"-->
+<!--                                   value="--><?php //echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?><!--"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col text-left">-->
+<!--                            <label class="hb-login-label" for="password">--><?php //esc_html_e('Password', 'woocommerce'); ?><!--</label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col text-left">-->
+<!--                            <input class="hb-input-login-text input-text" type="password" name="password"-->
+<!--                                   id="password" autocomplete="current-password"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col text-right">-->
+<!--                            --><?php //do_action('woocommerce_login_form'); ?>
+<!--                            <a class="hb-lost-pass" href="--><?php //echo esc_url(wp_lostpassword_url()); ?><!--">--><?php //esc_html_e('Lost your password?', 'woocommerce'); ?><!--</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col text-left">-->
+<!--                            <input class="hb-login-check" name="rememberme"-->
+<!--                                   type="checkbox" id="rememberme" value="forever"/>-->
+<!--                            <span>--><?php //esc_html_e('Remember me', 'woocommerce'); ?><!--</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col text-left">-->
+<!--                            --><?php //wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
+<!--                            <button type="submit" class="btn-hb-login text-uppercase" name="login"-->
+<!--                                    value="--><?php //esc_attr_e('Log in', 'woocommerce'); ?><!--">--><?php //esc_html_e('Log in', 'woocommerce'); ?><!--</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--                <div class="row">-->
+<!--                    <div class="col text-center">-->
+<!--                        <p class="hb-dont-register">¿Aun no tienes una cuenta?-->
+<!--                            <br><a class="hb-create-from-login" href="#">Crear cuenta</a>-->
+<!--                        </p>-->
+<!---->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-6 hb-login-col-right img-hb-login">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
 
-<div class="u-columns col2-set" id="customer_login">
-
-	<div class="u-column1 col-1">
-
-<?php endif; ?>
-
-		<h2><?php esc_html_e( 'Login', 'woocommerce' ); ?></h2>
-
-		<form class="woocommerce-form woocommerce-form-login login" method="post">
-
-			<?php do_action( 'woocommerce_login_form_start' ); ?>
-
-			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<label for="username"><?php esc_html_e( 'Username or email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
-				<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
-			</p>
-			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<label for="password"><?php esc_html_e( 'Password', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
-				<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password" />
-			</p>
-
-			<?php do_action( 'woocommerce_login_form' ); ?>
-
-			<p class="form-row">
-				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
-					<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php esc_html_e( 'Remember me', 'woocommerce' ); ?></span>
-				</label>
-				<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-				<button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><?php esc_html_e( 'Log in', 'woocommerce' ); ?></button>
-			</p>
-			<p class="woocommerce-LostPassword lost_password">
-				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php esc_html_e( 'Lost your password?', 'woocommerce' ); ?></a>
-			</p>
-
-			<?php do_action( 'woocommerce_login_form_end' ); ?>
-
-		</form>
-
-<?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
-
-	</div>
-
-	<div class="u-column2 col-2">
+	<div class="u-column2 col-12">
 
 		<h2><?php esc_html_e( 'Register', 'woocommerce' ); ?></h2>
 

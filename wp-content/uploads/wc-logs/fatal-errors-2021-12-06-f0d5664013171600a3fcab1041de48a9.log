@@ -1,0 +1,2 @@
+2021-12-06T07:59:32+00:00 CRITICAL require_once(): Failed opening required 'C:\Users\Isabel\PhpstormProjects\wc_hocicosbox/wp-content/themes/hocicosbox/inc/woocommerce/cart/cart.php' (include_path='.;C:/laragon/etc/php/pear') en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\page-carrito.php en la línea 4
+

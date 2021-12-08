@@ -1,0 +1,120 @@
+.img-hb-login{
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../../images/user/user-login-background.jpg");
+}
+
+.hb-login-col-left{
+    border-radius: 29px 0px 0px 29px;
+    border-left: solid 1px #979797;
+    border-top: solid 1px #979797;
+    border-bottom: solid 1px #979797;
+}
+
+.hb-login-col-right{
+    border-radius: 0px 29px 29px 0px;
+    border-right: solid 1px #979797;
+    border-top: solid 1px #979797;
+    border-bottom: solid 1px #979797;
+}
+.hb-access{
+    padding: 34px 56px 56px 34px;
+}
+.hb-article-login{
+    margin-top: 50px;
+}
+.hb-login-title{
+    font-family: Vintage;
+    font-size: 25px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+    color: #8064bc;
+    margin-bottom: 28px;
+}
+
+.hb-login-label{
+    font-family: HelveticaNeue;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.88;
+    letter-spacing: 0.2px;
+    color: #00a4a0;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+.hb-input-login-text{
+    width: 100%;
+    height: 52px;
+    border-radius: 8px;
+    border: solid 1px #979797;
+    background-color: #fff;
+    padding: 0 20px 0 20px;
+}
+
+.hb-lost-pass, .hb-lost-pass:visited{
+    font-family: HelveticaNeue;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.18px;
+    text-align: right;
+    color: #9b9b9b;
+    margin-top: 16px;
+}
+.hb-lost-pass:active, .hb-lost-pass:hover{
+    color: #2c2c2c;
+    text-decoration: none;
+}
+.hb-login-check, .hb-login-check:after, .hb-login-check:active, .hb-login-check:hover, .hb-login-check:checked{
+    width: 22px;
+    height: 22px;
+    border-radius: 3px!important;
+    border: solid 1px #9b9b9b!important;
+    color: #2c2c2c!important;
+}
+
+.btn-hb-login{
+    width: 100%;
+    border-radius: 10px;
+    background-color: #492f82!important;
+    font-family: HelveticaNeue;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    text-align: center;
+    color: #fff;
+    padding: 19px 0 19px 0;
+    margin-top: 19px;
+}
+
+.hb-dont-register, .hb-create-from-login{
+    font-family: HelveticaNeue;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    text-align: center;
+}
+.hb-dont-register{
+    margin-top: 36px;
+    color: #9b9b9b;
+}
+
+.hb-create-from-login:link, .hb-create-from-login:hover, .hb-create-from-login:active, .hb-create-from-login:visited{
+    color: #08c0bc;
+}

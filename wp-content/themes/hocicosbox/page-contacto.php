@@ -16,4 +16,4 @@ require_once($first_contact_section);
 $instagram_section = get_template_directory() . '/inc/sections/hb-contact/instagram-section.php';
 require_once($instagram_section);
 ?>
-<?php get_footer() ?><?php
+<?php get_footer() ?>
