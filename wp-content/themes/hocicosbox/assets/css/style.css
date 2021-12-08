@@ -11,6 +11,7 @@
 @import "pages/hocicosbox.css";
 /*SECTION USER*/
 @import "user/login.css";
+@import "user/orders.css";
 
 
 @import "home/afiliados.css";

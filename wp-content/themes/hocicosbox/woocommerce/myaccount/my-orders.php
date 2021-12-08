@@ -33,9 +33,19 @@ $customer_orders = get_posts(
 );
 
 if ( $customer_orders ) : ?>
-
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                my-orders
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Table
+            </div>
+        </div>
+    </div>
 	<h2><?php echo apply_filters( 'woocommerce_my_account_my_orders_title', esc_html__( 'Recent orders', 'woocommerce' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
-
 	<table class="shop_table shop_table_responsive my_account_orders">
 
 		<thead>

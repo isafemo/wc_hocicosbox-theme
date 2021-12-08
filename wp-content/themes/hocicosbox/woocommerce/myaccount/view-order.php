@@ -19,38 +19,70 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$notes = $order->get_customer_order_notes();
 ?>
-<p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="hb-user-int-orders-title">Tu pedido</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p><span class="hb-mo-order-number">#<?= $order->get_order_number() ?></span></p>
+            <p class="hb-mo-info-start">Pedido realizado el <?= wc_format_datetime($order->get_date_created()) ?>.
+                Estado <span class="hb-mo-order-state"><?= wc_get_order_status_name($order->get_status()) ?></span></p>
+            <hr class="hb-mo-hr">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col hb-mo-title-col">DETALLES DEL PEDIDO</div>
+        <div class="col hb-mo-title-col">PRECIO UNITARIO</div>
+        <div class="col hb-mo-title-col">SUBTOTAL</div>
+    </div>
+    <?php foreach ($order->get_items() as $item) { ?>
+        <div class="row">
+            <div class="col hb-mo-item-col"><a href="producto/<?= $item->get_product()->slug ?>"> <?= $item->get_product()->name ?> </a></div>
+            <div class="col hb-mo-price-col"><?= $item->get_product()->price ?>€ <span>x <?= $item->get_quantity() < 10 ? '0'.$item->get_quantity() : $item->get_quantity() ?></span></div>
+            <div class="col hb-mo-price-col"><?= $item->get_subtotal().'€' ?></div>
+        </div>
+    <?php } ?>
+    <hr class="hb-mo-hr">
+    <div class="row">
+        <div class="col">
+            <div class="container-fluid hb-mo-total">
+                <div class="row">
+                    <div class="col">Enviado a</div>
+                </div>
+                <div class="row">
+                    <div class="col">Dirección</div>
+                </div>
+                <div class="row">
+                    <div class="col">Pagado mediante: <?= $order->get_order_item_totals()['payment_method']['value'] ?></div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="container-fluid hb-mo-total">
+                <div class="row">
+                    <div class="col">Envío</div>
+                    <div class="col">€</div>
+                </div>
+                <div class="row">
+                    <div class="col">Impuestos</div>
+                    <div class="col"><?= $order->get_total_tax() ?>€</div>
+                </div>
+                <div class="row">
+                    <div class="col">Descuento <span>codename</span></div>
+                    <div class="col">€</div>
+                </div>
+                <div class="row hb-mo-total-row">
+                    <div class="col">Total</div>
+                    <div class="col"><?= $order->get_total() ?>€</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--######################################################-->
 <?php
-printf(
-	/* translators: 1: order number 2: order date 3: order status */
-	esc_html__( 'Order #%1$s was placed on %2$s and is currently %3$s.', 'woocommerce' ),
-	'<mark class="order-number">' . $order->get_order_number() . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	'<mark class="order-date">' . wc_format_datetime( $order->get_date_created() ) . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	'<mark class="order-status">' . wc_get_order_status_name( $order->get_status() ) . '</mark>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-);
-?>
-</p>
-
-<?php if ( $notes ) : ?>
-	<h2><?php esc_html_e( 'Order updates', 'woocommerce' ); ?></h2>
-	<ol class="woocommerce-OrderUpdates commentlist notes">
-		<?php foreach ( $notes as $note ) : ?>
-		<li class="woocommerce-OrderUpdate comment note">
-			<div class="woocommerce-OrderUpdate-inner comment_container">
-				<div class="woocommerce-OrderUpdate-text comment-text">
-					<p class="woocommerce-OrderUpdate-meta meta"><?php echo date_i18n( esc_html__( 'l jS \o\f F Y, h:ia', 'woocommerce' ), strtotime( $note->comment_date ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-					<div class="woocommerce-OrderUpdate-description description">
-						<?php echo wpautop( wptexturize( $note->comment_content ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</li>
-		<?php endforeach; ?>
-	</ol>
-<?php endif; ?>
-
-<?php do_action( 'woocommerce_view_order', $order_id ); ?>
+//do_action( 'woocommerce_view_order', $order_id ); ?>

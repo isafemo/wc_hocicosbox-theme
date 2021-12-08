@@ -1,0 +1,36 @@
+2021-12-08T09:05:42+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_url() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php:54
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php(151): wc_get_template('myaccount/view-...', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3196): WC_Shortcode_My_Account::view_order(462)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(303): woocommerce_account_view_order('462')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\plugin.php(470): WP_Hook->do_action(Ar en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php en la línea 54
+
+2021-12-08T09:05:54+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order_Item_Product::get_url() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php:54
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php(151): wc_get_template('myaccount/view-...', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3196): WC_Shortcode_My_Account::view_order(462)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(303): woocommerce_account_view_order('462')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\plugin.php(470): WP_Hook->do_actio en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php en la línea 54
+
+2021-12-08T09:13:05+00:00 CRITICAL Uncaught Error: Call to undefined method Automattic\WooCommerce\Admin\Overrides\Order::get_subtotal_tax() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php:54
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php(151): wc_get_template('myaccount/view-...', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3196): WC_Shortcode_My_Account::view_order(462)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(303): woocommerce_account_view_order('462')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\pl en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php en la línea 54
+
+2021-12-08T09:15:30+00:00 CRITICAL Uncaught Error: Call to undefined method Automattic\WooCommerce\Admin\Overrides\Order::get_product() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php:66
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php(151): wc_get_template('myaccount/view-...', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3196): WC_Shortcode_My_Account::view_order(462)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(303): woocommerce_account_view_order('462')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\plugin. en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php en la línea 66
+

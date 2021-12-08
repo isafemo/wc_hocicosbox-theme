@@ -79,12 +79,18 @@ $cart_page_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : $wooco
                                         <i class="fa fa-user-o"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right list-data-hb" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="/mi-cuenta/pedidos/">Historial de pedidos</a>
-                                        <a class="dropdown-item" href="/mi-cuenta/editar-cuenta/">Mi cuenta</a>
-                                        <a class="dropdown-item" href="#">Afiliados</a>
+                                    <?php
+                                    $arrayMenu = [];
+                                    foreach (wc_get_account_menu_items() as $endpoint => $label) :
+                                        $arrayMenu[$endpoint] = ['title' => esc_html($label), 'url' => esc_url(wc_get_account_endpoint_url($endpoint))];
+                                    endforeach;
+                                    ?>
+                                        <a class="dropdown-item" href="<?= $arrayMenu['orders']['url'] ?>"><?= $arrayMenu['orders']['title'] ?></a>
+                                        <a class="dropdown-item" href="<?= $arrayMenu['dashboard']['url'] ?>"><?= $arrayMenu['dashboard']['title'] ?></a>
+<!--                                        <a class="dropdown-item" href="#">Afiliados</a>-->
                                         <a class="dropdown-item" href="#">Suscripción</a>
                                         <!--                                TODO: LOGOUT USUARIO ACTIVO-->
-                                        <a class="dropdown-item" href="/mi-cuenta/customer-logout">Cerrar sesión</a>
+                                        <a class="dropdown-item" href="<?= $arrayMenu['customer-logout']['url'] ?>"><?= $arrayMenu['customer-logout']['title'] ?></a>
                                     </div>
                                 </div>
                             <?php } else { ?>
