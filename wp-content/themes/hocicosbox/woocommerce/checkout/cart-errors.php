@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-
+CART-ERRORS.php
 <p><?php esc_html_e( 'There are some issues with the items in your cart. Please go back to the cart page and resolve these issues before checking out.', 'woocommerce' ); ?></p>
 
 <?php do_action( 'woocommerce_cart_has_errors' ); ?>

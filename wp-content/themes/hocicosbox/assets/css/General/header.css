@@ -223,7 +223,7 @@ and (min-width: 1824px) {
 }
 
 .hb-hello-user{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: unset;
     font-weight: normal;
     font-stretch: normal;
@@ -246,7 +246,7 @@ and (min-width: 1824px) {
 }
 
 .hb-btn-ms .dropdown-item{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -272,7 +272,7 @@ and (min-width: 1824px) {
     border-top: solid 1px #e3e3e9;;
 }
 .father-hb-menu a, .father-hb-menu a:hover, .father-hb-menu a:active{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -295,7 +295,7 @@ and (min-width: 1824px) {
     color: #f18e15!important;
 }
 .children-hb-menu:link, .children-hb-menu:visited, .children-hb-menu:hover, .children-hb-menu:active{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
@@ -306,7 +306,7 @@ and (min-width: 1824px) {
     text-decoration: none;
 }
 .baby-hb-menu:link, .baby-hb-menu:visited{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 14px;
     font-weight: normal;
     font-stretch: normal;

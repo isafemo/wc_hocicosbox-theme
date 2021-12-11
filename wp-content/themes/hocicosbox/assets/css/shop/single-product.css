@@ -1,5 +1,5 @@
 .single-product-hb-title{
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 30px;
     font-weight: normal;
     font-stretch: normal;
@@ -10,7 +10,7 @@
 }
 
 .single-product-hb-price{
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 30px;
     font-weight: normal;
     font-stretch: normal;
@@ -21,7 +21,7 @@
 }
 
 .single-product-hb-short-desc{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;

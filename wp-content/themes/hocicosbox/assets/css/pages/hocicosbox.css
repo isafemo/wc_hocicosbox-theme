@@ -483,7 +483,7 @@ and (min-width: 1824px) {
 }
 
 .wis-title {
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -493,7 +493,7 @@ and (min-width: 1824px) {
 }
 
 .wis-subtitle {
-    font-family: Vintage;
+    font-family: "VIntage";
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -506,7 +506,7 @@ and (min-width: 1824px) {
     background-color: white;
     border: 0px;
     margin-top: 20px;
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -527,7 +527,7 @@ and (min-width: 1824px) {
 }
 
 .wis-what {
-    font-family: Vintage;
+    font-family: "VIntage";
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -538,7 +538,7 @@ and (min-width: 1824px) {
 }
 
 .wis-desc {
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -561,7 +561,7 @@ and (min-width: 1824px) {
 }
 
 .wis-title-box {
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -573,7 +573,7 @@ and (min-width: 1824px) {
 }
 
 .wis-desc-box {
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -589,7 +589,7 @@ and (min-width: 1824px) {
 }
 
 .hbox-title {
-    font-family: Vintage;
+    font-family: "VIntage";
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -600,7 +600,7 @@ and (min-width: 1824px) {
 }
 
 .hbox-subtitle {
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -624,7 +624,7 @@ and (min-width: 1824px) {
 .hbox-btn-dca {
     border-radius: 10px;
     background-color: #f3f4f9;
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
@@ -637,7 +637,7 @@ and (min-width: 1824px) {
 }
 
 .hbox-btn-sub {
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
@@ -658,7 +658,7 @@ and (min-width: 1824px) {
 /**/
 /**/
 .hbox-om-title {
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 34px;
     font-weight: normal;
     font-stretch: normal;

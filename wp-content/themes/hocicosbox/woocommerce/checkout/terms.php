@@ -12,6 +12,7 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
 	do_action( 'woocommerce_checkout_before_terms_and_conditions' );
 
 	?>
+    TERMS.php
 	<div class="woocommerce-terms-and-conditions-wrapper">
 		<?php
 		/**

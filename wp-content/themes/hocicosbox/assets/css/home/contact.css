@@ -56,7 +56,7 @@
     background-image: linear-gradient(to bottom, #a89dd4, #a99eda 32%, #958acb 87%, #8a7ec0);
 }
 .contact-background h1{
-    font-family: VIntage;
+    font-family: "VIntage";
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -66,7 +66,7 @@
 }
 
 .contact-background .purple-layer{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -77,7 +77,7 @@
     margin-top: 25px;
 }
 .contact-background .white-layer{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -88,7 +88,7 @@
 }
 
 .contact-background .white-layer-icon{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -113,7 +113,7 @@
 }
 .float-container input {
     border: none;
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -123,7 +123,7 @@
     outline: 0;
 }
 .float-container label {
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -150,7 +150,7 @@ textarea:focus, input:focus{
 
 .ig-time h1{
     margin-top: 58px;
-    font-family: VIntage;
+    font-family: "VIntage";
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -161,7 +161,7 @@ textarea:focus, input:focus{
 }
 
 .ig-time h2{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -214,7 +214,7 @@ textarea:focus, input:focus{
     padding: 22px 126px !important;
     border-radius: 10px !important;
     background-color: #08c0bc !important;
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
@@ -229,7 +229,7 @@ textarea:focus, input:focus{
 }
 
 .accept{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -240,7 +240,7 @@ textarea:focus, input:focus{
 }
 
 .terms{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;

@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-
+THANKYOU.php
 <div class="woocommerce-order">
 
 	<?php

@@ -18,6 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
+FORM-BILLING.php
 <div class="woocommerce-billing-fields">
 	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
 

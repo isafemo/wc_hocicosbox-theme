@@ -12,7 +12,8 @@
 /*SECTION USER*/
 @import "user/login.css";
 @import "user/orders.css";
-
+@import "user/dashboard.css";
+@import "user/my-account.css";
 
 @import "home/afiliados.css";
 @import "pages/blog.css";
@@ -83,7 +84,7 @@ body::-webkit-scrollbar {
     height: 6.188rem;
     padding: 1.25rem 0 1.188rem 0;
     background-color: #f0edfa;
-    /*font-family: HelveticaNeue;*/
+    /*font-family: "HelveticaNeue";*/
     font-family: "VIntage", Arial;
     font-size: 2.875rem;
     font-weight: normal;

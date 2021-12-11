@@ -72,7 +72,7 @@ $cart_page_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : $wooco
                     <div class="row align-items-center">
                         <div class="col header-hb-icons">
                             <?php if ($current_user->user_login) { ?>
-                                <p class="hb-hello-user">¡Hola <?= $current_user->user_login; ?>!</p>
+                                <p class="hb-hello-user">¡Hola <?= $current_user->display_name; ?>!</p>
                                 <div class="dropdown hb-btn-ms">
                                     <a type="text" id="dropdownMenuButton" data-toggle="dropdown"
                                        aria-haspopup="true" aria-expanded="false">

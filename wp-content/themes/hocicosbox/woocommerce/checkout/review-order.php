@@ -17,6 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
+REVIEW-ORDER.php
 <table class="shop_table woocommerce-checkout-review-order-table">
 	<thead>
 		<tr>

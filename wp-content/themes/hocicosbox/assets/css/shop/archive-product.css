@@ -4,7 +4,7 @@
 .filters-shop-hb .form-control{
     border-radius: 31.5px;
     border: solid 1px #9b9b9b;
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 18px;
     font-weight: 500;
     font-stretch: normal;
@@ -15,7 +15,7 @@
 }
 
 .filters-shop-hb-restore{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -39,7 +39,7 @@
     border: solid 2px #9b9b9b;
     border-radius: 10px;
     padding: 7px 13px 6px 17px;
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 22px;
     font-weight: bold;
     font-stretch: normal;
@@ -56,7 +56,7 @@
     height: 39px;
     border-radius: 10px;
     padding: 7px 13px 6px 17px;
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 22px;
     font-weight: bold;
     font-stretch: normal;
@@ -80,7 +80,7 @@
 }
 
 .woocommerce-loop-product__title{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 18px;
     font-weight: 500;
     font-stretch: normal;
@@ -92,7 +92,7 @@
 }
 
 .price{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;

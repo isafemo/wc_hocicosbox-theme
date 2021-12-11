@@ -75,8 +75,8 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                                             foreach ($actions as $key => $action) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
                                                 //TODO: ACCIONES VER, REPETIR, FACTURA
                                                 echo '<a href="' . esc_url($action['url']) . '" class="btn btn-outline-primary">' . esc_html($action['name']) . '</a>';
-                                                echo '<a href="' . esc_url($action['url']) . '" class="btn btn-outline-primary">' . esc_html($action['name']) . '</a>';
-                                                echo '<a href="' . esc_url($action['url']) . '" class="btn btn-outline-primary">' . esc_html($action['name']) . '</a>';
+//                                                echo '<a href="' . esc_url($action['url']) . '" class="btn btn-outline-primary">' . esc_html($action['name']) . '</a>';
+//                                                echo '<a href="' . esc_url($action['url']) . '" class="btn btn-outline-primary">' . esc_html($action['name']) . '</a>';
                                             }
                                         }
                                         ?>

@@ -1,5 +1,5 @@
 .hb-user-int-orders-title{
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 34px;
     font-weight: normal;
     font-stretch: normal;
@@ -16,7 +16,7 @@
 /*    border-top: 0px!important;*/
 /*}*/
 .hb-user-int-orders-table thead th{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue", sans-serif;
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -29,7 +29,7 @@
 }
 
 .hb-user-int-orders-table tbody a{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -42,7 +42,7 @@
 }
 
 .hb-user-int-orders-table tbody td{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -57,7 +57,8 @@
 .hb-user-int-orders-table .btn-outline-primary{
     padding: 10px 30px 10px 31px;
     border: solid 1px #08c0bc;
-    font-family: HelveticaNeue;
+    border-radius: 0px;
+    font-family: "HelveticaNeue";
     font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
@@ -68,9 +69,14 @@
     color: #08c0bc;
     margin: 5px;
 }
+.hb-user-int-orders-table .btn-outline-primary:hover{
+    border: solid 1px #08c0bc;
+    background-color: #08c0bc;
+    color: #fff;
+}
 /*MY ORDER*/
 .hb-mo-order-number{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -81,7 +87,7 @@
 }
 
 .hb-mo-info-start{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -92,7 +98,7 @@
 }
 
 .hb-mo-order-state{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -107,7 +113,7 @@
 }
 
 .hb-mo-title-col{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -118,7 +124,7 @@
 }
 
 .hb-mo-item-col a:link, .hb-mo-item-col a:visited{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -129,7 +135,7 @@
 }
 
 .hb-mo-item-col a:hover, .hb-mo-item-col a:active{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
@@ -141,7 +147,7 @@
 }
 
 .hb-mo-price-col{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -152,7 +158,7 @@
 }
 
 .hb-mo-price-col span{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -163,7 +169,7 @@
 }
 
 .hb-mo-total{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -173,7 +179,7 @@
     color: #2c2c2c;
 }
 .hb-mo-total span{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -184,7 +190,7 @@
 }
 
 .hb-mo-total-row{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
@@ -195,4 +201,14 @@
     padding: 32px 44px 31px 38px;
     border-radius: 8px;
     background-color: #c7efed;
+}
+
+.hb-mo-th-orders{
+    margin-bottom: 32px;
+    margin-top: 21px;
+}
+
+.hb-mo-row-total{
+    padding-bottom: 20px;
+    text-align: right;
 }

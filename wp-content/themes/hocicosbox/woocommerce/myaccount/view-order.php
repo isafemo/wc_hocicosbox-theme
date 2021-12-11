@@ -18,7 +18,13 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-
+$user_id = get_post_meta( $order->get_order_number(), '_customer_user', true );
+$customer = new WC_Customer( $user_id );
+$first_name   = $customer->get_first_name();
+$last_name    = $customer->get_last_name();
+$address = $customer->get_shipping_address();
+$country = $customer->get_shipping_city();
+$cp = $customer->get_shipping_postcode();
 ?>
 <div class="container">
     <div class="row">
@@ -34,55 +40,56 @@ defined( 'ABSPATH' ) || exit;
             <hr class="hb-mo-hr">
         </div>
     </div>
-    <div class="row">
-        <div class="col hb-mo-title-col">DETALLES DEL PEDIDO</div>
-        <div class="col hb-mo-title-col">PRECIO UNITARIO</div>
-        <div class="col hb-mo-title-col">SUBTOTAL</div>
+    <div class="row hb-mo-th-orders">
+        <div class="col-4 hb-mo-title-col text-left">DETALLES DEL PEDIDO</div>
+        <div class="col-4 hb-mo-title-col text-center">PRECIO UNITARIO</div>
+        <div class="col-4 hb-mo-title-col text-right">SUBTOTAL</div>
     </div>
     <?php foreach ($order->get_items() as $item) { ?>
-        <div class="row">
-            <div class="col hb-mo-item-col"><a href="producto/<?= $item->get_product()->slug ?>"> <?= $item->get_product()->name ?> </a></div>
-            <div class="col hb-mo-price-col"><?= $item->get_product()->price ?>€ <span>x <?= $item->get_quantity() < 10 ? '0'.$item->get_quantity() : $item->get_quantity() ?></span></div>
-            <div class="col hb-mo-price-col"><?= $item->get_subtotal().'€' ?></div>
+        <div class="row hb-mo-item-general">
+            <?php $_product = wc_get_product( $item['variation_id'] ? $item['variation_id'] : $item['product_id'] ); ?>
+            <div class="col col-4 hb-mo-item-col text-left"><a href="<?= get_permalink( $_product->get_id() ) ?>"> <?= $item->get_product()->name ?> </a></div>
+            <div class="col col-4 hb-mo-price-col text-center"><?= ($item->get_subtotal()/$item->get_quantity()) ?>€ <span>x <?= $item->get_quantity() < 10 ? '0'.$item->get_quantity() : $item->get_quantity() ?></span></div>
+            <div class="col col-4 hb-mo-price-col text-right"><?= $item->get_subtotal().'€' ?></div>
         </div>
     <?php } ?>
     <hr class="hb-mo-hr">
     <div class="row">
-        <div class="col">
-            <div class="container-fluid hb-mo-total">
+        <div class="col text-left hb-mo-total">
                 <div class="row">
-                    <div class="col">Enviado a</div>
+                    <div class="col">Enviado a <?= $first_name ?> <?= $last_name ?></div>
+                </div>
+                <div class="row hb-mo-row-total text-left">
+                    <div class="col"><?= $address.', '.$cp.', '.$country ?></div>
                 </div>
                 <div class="row">
-                    <div class="col">Dirección</div>
+                    <div class="col">Pago mediante: <?= $order->get_payment_method_title() ?></div>
                 </div>
-                <div class="row">
-                    <div class="col">Pagado mediante: <?= $order->get_order_item_totals()['payment_method']['value'] ?></div>
-                </div>
-            </div>
         </div>
-        <div class="col">
-            <div class="container-fluid hb-mo-total">
-                <div class="row">
+        <div class="col-4 hb-mo-total">
+                <div class="row hb-mo-row-total">
                     <div class="col">Envío</div>
-                    <div class="col">€</div>
+                    <div class="col"><?= $order->get_shipping_total() ?>€</div>
                 </div>
-                <div class="row">
+                <div class="row hb-mo-row-total">
                     <div class="col">Impuestos</div>
-                    <div class="col"><?= $order->get_total_tax() ?>€</div>
+                    <div class="col"><?= $order->get_shipping_tax() ?>€</div>
                 </div>
-                <div class="row">
-                    <div class="col">Descuento <span>codename</span></div>
-                    <div class="col">€</div>
+                <div class="row hb-mo-row-total">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">Descuento</div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><span><?php foreach ($order->get_coupon_codes() as $key=>$coupon){if($key == 0){ echo $coupon; } else { echo '/'.$coupon; }}?></span></div>
+                        </div>
+                    </div>
+                    <div class="col">-<?= $order->get_discount_to_display() ?></div>
                 </div>
-                <div class="row hb-mo-total-row">
+                <div class="row hb-mo-total-row text-center">
                     <div class="col">Total</div>
                     <div class="col"><?= $order->get_total() ?>€</div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
-<!--######################################################-->
-<?php
-//do_action( 'woocommerce_view_order', $order_id ); ?>

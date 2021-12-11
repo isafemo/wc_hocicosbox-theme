@@ -26,7 +26,7 @@
     margin-top: 50px;
 }
 .hb-login-title{
-    font-family: Vintage;
+    font-family: "VIntage";
     font-size: 25px;
     font-weight: normal;
     font-stretch: normal;
@@ -38,7 +38,7 @@
 }
 
 .hb-login-label{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
@@ -60,7 +60,7 @@
 }
 
 .hb-lost-pass, .hb-lost-pass:visited{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 14px;
     font-weight: normal;
     font-stretch: normal;
@@ -87,7 +87,7 @@
     width: 100%;
     border-radius: 10px;
     background-color: #492f82!important;
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
@@ -101,7 +101,7 @@
 }
 
 .hb-dont-register, .hb-create-from-login{
-    font-family: HelveticaNeue;
+    font-family: "HelveticaNeue";
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;

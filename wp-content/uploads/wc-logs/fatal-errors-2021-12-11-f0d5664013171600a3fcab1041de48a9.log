@@ -1,0 +1,19 @@
+2021-12-11T07:09:55+00:00 CRITICAL Uncaught Error: Call to undefined method Automattic\WooCommerce\Admin\Overrides\Order::get_code() in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php:35
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php(151): wc_get_template('myaccount/view-...', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3196): WC_Shortcode_My_Account::view_order(527)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(303): woocommerce_account_view_order('527')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\plugin.php en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php en la línea 35
+
+2021-12-11T07:10:57+00:00 CRITICAL Uncaught Error: Function name must be a string in C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php:35
+Stack trace:
+#0 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-my-account.php(151): wc_get_template('myaccount/view-...', Array)
+#2 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3196): WC_Shortcode_My_Account::view_order(527)
+#3 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(303): woocommerce_account_view_order('527')
+#4 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#5 C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#6 C:\Users\Isabel en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\woocommerce\myaccount\view-order.php en la línea 35
+
