@@ -91,23 +91,28 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col text-center">
+                <nav class="hb-mo-pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="<?= $current_page == 1 ? 'disabled' : ''?>" disabled="disabled">
+                            <a class="page-link" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page - 1 ) ); ?>" tabindex="-1"><</a>
+                        </li>
+                    <?php
+                    $num_pages = $customer_orders->max_num_pages;
+                    for ($i = 0; $i < $num_pages && $i <= 5; $i++){ ?>
+                        <li class="<?= ($i+1) == $current_page ? 'active' : '' ?>">
+                            <a class="page-link" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $i+1 ) ); ?>"><?= ($i+1) ?></a>
+                        </li>
+                    <?php } ?>
+                        <li class="<?= $current_page == $num_pages ? 'disabled' : ''?>">
+                            <a class="page-link" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?>">></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
-
-
-
-	<?php do_action( 'woocommerce_before_account_orders_pagination' ); ?>
-
-	<?php if ( 1 < $customer_orders->max_num_pages ) : ?>
-		<div class="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination">
-			<?php if ( 1 !== $current_page ) : ?>
-				<a class="woocommerce-button woocommerce-button--previous woocommerce-Button woocommerce-Button--previous button" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page - 1 ) ); ?>"><?php esc_html_e( 'Previous', 'woocommerce' ); ?></a>
-			<?php endif; ?>
-
-			<?php if ( intval( $customer_orders->max_num_pages ) !== $current_page ) : ?>
-				<a class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?>"><?php esc_html_e( 'Next', 'woocommerce' ); ?></a>
-			<?php endif; ?>
-		</div>
-	<?php endif; ?>
 
 <?php else : ?>
 	<div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">

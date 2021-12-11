@@ -84,7 +84,7 @@ $cp = $customer->get_shipping_postcode();
                             <div class="col"><span><?php foreach ($order->get_coupon_codes() as $key=>$coupon){if($key == 0){ echo $coupon; } else { echo '/'.$coupon; }}?></span></div>
                         </div>
                     </div>
-                    <div class="col">-<?= $order->get_discount_to_display() ?></div>
+                    <div class="col"><?= $order->get_discount_to_display() == 0 ? '0€' : '-'.$order->get_discount_to_display() ?></div>
                 </div>
                 <div class="row hb-mo-total-row text-center">
                     <div class="col">Total</div>

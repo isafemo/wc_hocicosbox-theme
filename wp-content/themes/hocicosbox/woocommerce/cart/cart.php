@@ -19,7 +19,149 @@ defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_cart' );
 ?>
-CART
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Tu carrito (Con Log-in)</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <div class="row">
+                <div class="col">
+                    <table class="table hb-user-int-orders-table">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase" colspan="3" scope="col">PRODUCTO</th>
+                                <th class="text-uppercase" scope="col">PRECIO</th>
+                                <th class="text-uppercase" scope="col">CANTIDAD</th>
+                                <th class="text-uppercase" scope="col">SUBTOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+                        $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+                        $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+
+                        if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+                        $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+                        ?>
+                            <tr>
+                                <td>X</td>
+                                <td>
+                                    <?php
+                                    $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+
+                                    if ( ! $product_permalink ) {
+                                        echo $thumbnail; // PHPCS: XSS ok.
+                                    } else {
+                                        printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
+                                    }
+                                    ?>
+                                </td>
+                                <td><?= $_product->get_name() ?></td>
+                                <td>PRECIO</td>
+                                <td>CANTIDAD</td>
+                                <td>SUBTOTAL</td>
+                            </tr>
+                        <?php } } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">CUPON</div>
+                <div class="col">ACTUALIZAR</div>
+            </div>
+            <div class="row">
+                <div class="col">DIRECCION ENVIO</div>
+                <div class="col">EDITAR</div>
+            </div>
+            <div class="row">
+                <div class="col">DIRECCION</div>
+                <div class="col">EMAIL Y TELEFONO</div>
+            </div>
+            <div class="row">
+                <div class="col">COMENTARIOS</div>
+            </div>
+            <div class="row">
+                <div class="col">TEXTAREA</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        Tu pedido
+                    </div>
+                </div>
+                <div class="row">
+                    <?php
+                    foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+                    $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+                    $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+
+                    if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+                    $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+                    ?>
+                    <div class="col-9">
+                        <?= $_product->get_name() ?>
+                    </div>
+                    <div class="col">
+                        €
+                    </div>
+                    <div class="col">
+                        x2
+                    </div>
+                    <?php } } ?>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Envio
+                    </div>
+                    <div class="col">
+                        dineros
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Impuestos
+                    </div>
+                    <div class="col">
+                        dineros
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">Descuento:</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">codename</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        dineros
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Total
+                    </div>
+                    <div class="col">
+                        dineros
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        FINALIZAR COMPRA
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">

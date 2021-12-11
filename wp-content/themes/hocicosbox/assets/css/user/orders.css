@@ -7,14 +7,18 @@
     line-height: normal;
     letter-spacing: 0.68px;
     color: #00a4a0;
+    margin-bottom: 36px;
+    margin-top: 50px;
 }
-
-.hb-user-int-orders-table{
-
+.hb-user-int-orders-table th{
+    border-bottom: solid 1px #2c2c2c!important;
+    border-top: 0px !important;
+    vertical-align: middle;
 }
-/*.hb-user-int-orders-table thead{*/
-/*    border-top: 0px!important;*/
-/*}*/
+.hb-user-int-orders-table td{
+    border-bottom: solid 1px #9b9b9b;
+    vertical-align: middle;
+}
 .hb-user-int-orders-table thead th{
     font-family: "HelveticaNeue", sans-serif;
     font-size: 16px;
@@ -211,4 +215,39 @@
 .hb-mo-row-total{
     padding-bottom: 20px;
     text-align: right;
+}
+
+.hb-mo-pagination li a{
+    background-color: transparent;
+    border-radius: 10px 10px 10px 10px;
+    border: solid 2px #08c0bc;
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.63px;
+    text-align: center;
+    color: #08c0bc;
+    margin: 10px;
+}
+
+.hb-mo-pagination .active a{
+    background-color: #08c0bc;
+    color: #fff;
+    pointer-events: none;
+}
+
+.hb-mo-pagination a:hover{
+    color: #08c0bc;
+    background-color: #e7f8f8;
+    border: solid 2px #08c0bc;
+}
+
+.hb-mo-pagination .disabled a{
+    border: solid 2px #9b9b9b;
+    color: #9b9b9b;
+    /*cursor: not-allowed;*/
+    pointer-events: none;
 }

@@ -1,3 +1,24 @@
+.hb-empty-cart{
+    margin-top: 50px;
+    font-family: "VIntage";
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    text-align: center;
+    color: #00a4a0;
+}
+
+.hb-empty-cart a{
+    color: #fff!important;
+    background-color: #00a4a0!important;
+}
+
+.hb-empty-cart p{
+    margin-bottom: 50px;
+}
 .schb-title{
     font-family: "VIntage";
     font-size: 34px;
