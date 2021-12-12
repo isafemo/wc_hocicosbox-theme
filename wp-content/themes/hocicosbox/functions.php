@@ -22,6 +22,7 @@ function hocicosbox_scripts()
     wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css', array(), '4.6.0', 'all');
     wp_enqueue_script('jquery-js', get_template_directory_uri() . '/assets/js/jquery-3.6.0.min.js', array('jquery'), '3.6.0', true);
     wp_enqueue_script('header-js', get_template_directory_uri() . '/assets/js/header.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('cart-js', get_template_directory_uri() . '/assets/js/hb-cart-scripts.js', array('jquery'), '1.0', true);
     wp_enqueue_style('hocicosbox-style-css', get_template_directory_uri() . '/assets/css/style.css', array(), '1.1', 'all');
     wp_enqueue_style('hocicosbox-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/style.css'), 'all');
     wp_enqueue_style('hocicosbox-style-rs-css', get_template_directory_uri() . '/assets/css/rincon-solidario.css', array(), '1.1', 'all');
@@ -77,6 +78,17 @@ function hocicosbox_config()
 
 add_action('after_setup_theme', 'hocicosbox_config', 0);
 
+function cart_scripts()
+{
+    wp_enqueue_script('cart-js', get_template_directory_uri() . '/assets/js/hb-cart-scripts.js', array('jquery'), '1.0', true);
+}
+//RELOAD SCRIPT CART
+function reload_script_cart_hb() {
+    add_action('wp_enqueue_scripts', 'cart_scripts');
+    exit;
+}
+
+add_action( 'woocommerce_customer_save_address', 'action_woocommerce_customer_save_address', 99, 2 );
 //EDIT ADDRESS
 function action_woocommerce_customer_save_address( $user_id, $load_address ) {
     wp_safe_redirect(wc_get_page_permalink('myaccount'));

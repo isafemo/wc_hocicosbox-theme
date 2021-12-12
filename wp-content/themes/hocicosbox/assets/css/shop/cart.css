@@ -1,3 +1,4 @@
+/*EMPTY CART*/
 .hb-empty-cart{
     margin-top: 50px;
     font-family: "VIntage";
@@ -19,6 +20,259 @@
 .hb-empty-cart p{
     margin-bottom: 50px;
 }
+/*CART GENERAL*/
+.hb-user-int-cart-table{
+    border:0px!important;
+}
+.hb-user-int-cart-table th{
+    border-bottom: solid 1px #2c2c2c!important;
+    border-top: 0px !important;
+    vertical-align: middle;
+}
+.hb-user-int-cart-table td{
+    border-bottom: solid 1px #9b9b9b;
+    vertical-align: middle;
+}
+.hb-user-int-cart-table thead th{
+    font-family: "HelveticaNeue", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #9b9b9b;
+    /*padding-left: 50px;*/
+    /*padding-right: 50px;*/
+}
+
+.hb-user-int-cart-table tbody a{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #2c2c2c;
+    /*padding-left: 50px;*/
+    /*padding-right: 50px;*/
+}
+
+.hb-user-int-cart-table tbody a:hover{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.hb-user-int-cart-table tbody td{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #2c2c2c;
+    /*padding-left: 50px;*/
+    /*padding-right: 50px;*/
+}
+
+.hb-c-f-c h1{
+    font-family: "VIntage";
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    color: #00a4a0;
+}
+.hb-c-wd-c{
+    /*padding: 23px 14px 14px 15px;*/
+    padding: 36px;
+    border-radius: 8px;
+    border: solid 1px #00a4a0;
+}
+
+.hb-c-wd-c h2{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #2c2c2c;
+    padding-bottom: 22px;
+    border-bottom: solid 1px #8fd3d0;
+}
+
+.hb-c-wd-c p{
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.18px;
+    color: #2c2c2c;
+}
+
+.hb-c-wd-c .hb-c-wd-price{
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.18px;
+    color: #9b9b9b;
+}
+
+.hb-c-wd-c .span{
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.18px;
+    color: #e6dcdc;
+}
+
+.hb-c-wd-c .hb-c-wd-items{
+    margin: 23px 0 22px 0px;
+    border-bottom: solid 1px #8fd3d0;
+}
+
+.hb-c-wd-c .hb-c-wd-totals p{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #9b9b9b;
+}
+.hb-c-wd-c .hb-c-wd-totals span{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    text-align: right;
+    color: #2c2c2c;
+}
+.hb-c-wd-c .hb-c-wd-totals{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #9b9b9b;
+}
+
+.hb-c-wd-c .hb-c-wd-total-row{
+    padding: 32px 33px 31px 38px;
+    border-radius: 8px;
+    background-color: #c7efed;
+    font-family: "HelveticaNeue";
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: 0.23px;
+    color: #2c2c2c;
+}
+
+.hb-c-wd-c .btn-primary{
+    border-radius: 10px;
+    background-color: #492f82;
+    font-family: "HelveticaNeue";
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    text-align: center;
+    color: #fff;
+    border: 0px;
+    width: 100%;
+    padding: 14px 0px 14px 0px;
+}
+
+#hc-remove{
+    color: #9b9b9b!important;
+}
+#hc-remove:hover{
+    color: #2c2c2c!important;
+    background-color: transparent!important;
+}
+/* Chrome, Safari, Edge, Opera */
+.hb-c-f-ig input::-webkit-outer-spin-button,
+.hb-c-f-ig input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.hb-c-f-ig input[type=number] {
+    -moz-appearance: textfield;
+    border-radius: 2px;
+    background-color: #f6f6f6;
+    border: 0px;
+    width: 35px;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px!important;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+.hb-c-f-ig button{
+    color: #08c0bc;
+    border-radius: 50px;
+    border: solid 2px #08c0bc;
+}
+.hb-c-f-ig .col{
+    padding: 0px!important;
+}
+/*button[name='update_cart'] {*/
+/*    display: none !important;*/
+/*}*/
+
+.hb-c-cc input{
+    width: 171px!important;
+    color: #BABDC1!important;
+    background-color: #FCFCFC!important;
+}
+
+.hb-c-cc button{
+    color: #fff!important;
+    background-color: #08c0bc!important;
+    padding-left: 35px!important;
+    padding-right: 35px!important;
+    border-radius: 0px!important;
+}
+.hb-uc{
+    border: 0px!important;
+    padding-top: 36px!important;
+}
+.hb-uc button{
+    background-color: transparent!important;
+}
+/*CART LOGIN*/
 .schb-title{
     font-family: "VIntage";
     font-size: 34px;
