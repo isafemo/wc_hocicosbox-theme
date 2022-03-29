@@ -1,0 +1,295 @@
+/*Pantallas pequeñas (móviles en vertical)*/
+@media (max-width: 576px) {
+    /*SOLIDARY HOME*/
+    .solidary-side{
+        padding: 30px;
+    }
+
+    .title-home-solidary{
+        font-size: 20px;
+    }
+
+    .btn-home-solidary{
+        padding: 15px 35px;
+        font-size: 14px;
+    }
+
+    /*SOLIDARY PAGE*/
+    .rs-title h2{
+        font-size: 20px;
+    }
+
+    .rs-desc{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .rs-tarjeta{
+        padding: 20px !important;
+    }
+    .rs-tarjeta h2{
+        font-size: 14px;
+    }
+
+    .rs-tarjeta p{
+        font-size: 10px;
+    }
+    .btn-rs{
+        font-size: 12px;
+    }
+}
+
+/*Pantallas pequeñas (móviles en landscape de más de 576px)*/
+@media (min-width: 576px) {
+    /*SOLIDARY HOME*/
+    .solidary-side{
+        padding: 30px;
+    }
+    .title-home-solidary{
+        font-size: 24px;
+    }
+
+    .btn-home-solidary{
+        padding: 22px 48px;
+        font-size: 18px;
+    }
+
+    /*SOLIDARY PAGE*/
+    .rs-title h2{
+        font-size: 20px;
+    }
+
+    .rs-desc{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .rs-tarjeta{
+        padding: 50px !important;
+    }
+    .rs-tarjeta h2{
+        font-size: 14px;
+    }
+
+    .rs-tarjeta p{
+        font-size: 10px;
+    }
+    .btn-rs{
+        font-size: 12px;
+    }
+}
+/*Pantallas medianas (tablets de más de 768px)*/
+@media (min-width: 768px) {
+    /*SOLIDARY HOME*/
+    .solidary-side{
+        padding: 50px;
+    }
+    .title-home-solidary{
+        font-size: 28px;
+    }
+
+    .btn-home-solidary{
+        padding: 22px 48px;
+        font-size: 18px;
+    }
+    /*SOLIDARY PAGE*/
+    .rs-title h2{
+        font-size: 30px;
+    }
+    .rs-desc{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .rs-tarjeta{
+        padding: 80px;
+    }
+    .rs-tarjeta h2{
+        font-size: 18px;
+    }
+
+    .rs-tarjeta p{
+        font-size: 16px;
+    }
+    .btn-rs{
+        font-size: 14px;
+    }
+}
+
+/*Pantallas grandes (desktops de más de 992px)*/
+@media (min-width: 1200px) {
+    /*SOLIDARY HOME*/
+    .solidary-side{
+        padding: 120px;
+    }
+    .title-home-solidary{
+        font-size: 36px;
+    }
+
+    .btn-home-solidary{
+        padding: 22px 48px;
+        font-size: 18px;
+    }
+    /*SOLIDARY PAGE*/
+    .rs-title h2{
+        font-size: 46px;
+    }
+    .rs-desc{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .rs-tarjeta{
+        padding: 120px;
+    }
+    .rs-tarjeta h2{
+        font-size: 34px;
+    }
+
+    .rs-tarjeta p{
+        font-size: 20px;
+    }
+    .btn-rs{
+        font-size: 18px;
+    }
+}
+
+/*Pantallas muy grandes (desktops de más de 1200px)*/
+@media (min-width: 1200px) {
+    /*SOLIDARY HOME*/
+    .solidary-side{
+        padding: 120px;
+    }
+    .title-home-solidary{
+        font-size: 36px;
+    }
+
+    .btn-home-solidary{
+        padding: 22px 48px;
+        font-size: 18px;
+    }
+    /*SOLIDARY PAGE*/
+    .rs-title h2{
+        font-size: 46px;
+    }
+    .rs-desc{
+        font-size: 22px;
+        font-weight: 500;
+    }
+
+    .rs-tarjeta{
+        padding: 120px;
+    }
+    .rs-tarjeta h2{
+        font-size: 34px;
+    }
+
+    .rs-tarjeta p{
+        font-size: 20px;
+    }
+    .btn-rs{
+        font-size: 18px;
+    }
+}
+
+/*SOLIDARY HOME*/
+.home-solidary-section{
+    margin-top: 130px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.title-home-solidary{
+    font-family: "VIntage";
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.description-home-solidary{
+    font-family: "HelveticaNeue";
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    color: #ffffff;
+}
+
+.btn-home-solidary{
+    border-radius: 10px;
+    background-color: #08c0bc;
+    font-family: "HelveticaNeue";
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    color: #ffffff;
+}
+/*SOLIDARY PAGE*/
+.rs-title{
+    text-align: center;
+    font-family: "VIntage", Arial;
+    padding: 21px;
+    background-color: #f0edfa;
+    /*box-shadow: -2px -2px 10px -1px rgba(0, 0, 0, 0.2);*/
+    box-shadow: inset 0px 8px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.rs-title h2{
+    color: #492f82 !important;
+}
+
+.rs-desc{
+    padding-top: 36px;
+    font-family: "HelveticaNeue";
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    text-align: center;
+    color: black;
+}
+
+.rs-tarjeta{
+    margin: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.rs-tarjeta h2{
+    font-family: "VIntage", Arial;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    color: #fff;
+}
+
+.rs-tarjeta p{
+    font-family: "HelveticaNeue";
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.25px;
+    color: #fff;
+}
+
+.btn-rs{
+    font-family: "HelveticaNeue";
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    color: #fff;
+    border: 0px !important;
+    background-color: #492f82 !important;
+    padding: 10px 30px 10px 30px !important;
+}

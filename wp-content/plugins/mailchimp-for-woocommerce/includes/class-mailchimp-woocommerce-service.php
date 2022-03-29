@@ -62,7 +62,8 @@ class MailChimp_Service extends MailChimp_WooCommerce_Options
      */
     protected function cookie($key, $default = null)
     {
-        if ($this->is_admin) {
+        // if we're not allowed to use cookies, just return the default
+        if ($this->is_admin || !mailchimp_allowed_to_use_cookie($key)) {
             return $default;
         }
 
@@ -478,6 +479,10 @@ class MailChimp_Service extends MailChimp_WooCommerce_Options
      */
     public function handleCampaignTracking()
     {
+        if (!mailchimp_allowed_to_use_cookie('mailchimp_user_email')) {
+            return null;
+        }
+
         // set the landing site cookie if we don't have one.
         $this->setLandingSiteCookie();
 
@@ -600,6 +605,11 @@ class MailChimp_Service extends MailChimp_WooCommerce_Options
      */
     public function setLandingSiteCookie()
     {
+        // if we're not allowed to use this cookie, just return
+        if (!mailchimp_allowed_to_use_cookie('mailchimp_landing_site')) {
+            return $this;
+        }
+
         if (isset($_GET['expire_landing_site'])) $this->expireLandingSiteCookie();
 
         // if we already have a cookie here, we need to skip it.
@@ -631,6 +641,9 @@ class MailChimp_Service extends MailChimp_WooCommerce_Options
      */
     public function getReferer()
     {
+        if (function_exists('wp_get_referer')) {
+            return wp_get_referer();
+        }
         if (!empty($_REQUEST['_wp_http_referer'])) {
             return wp_unslash($_REQUEST['_wp_http_referer']);
         } elseif (!empty($_SERVER['HTTP_REFERER'])) {
@@ -644,6 +657,10 @@ class MailChimp_Service extends MailChimp_WooCommerce_Options
      */
     public function expireLandingSiteCookie()
     {
+        if (!mailchimp_allowed_to_use_cookie('mailchimp_landing_site')) {
+            return $this;
+        }
+
         mailchimp_set_cookie('mailchimp_landing_site', false, $this->getCookieDuration(), '/' );
         $this->setWooSession('mailchimp_landing_site', false);
 
@@ -745,6 +762,10 @@ class MailChimp_Service extends MailChimp_WooCommerce_Options
     {
         if ($this->is_admin) {
             $this->respondJSON(array('success' => false));
+        }
+
+        if (!mailchimp_allowed_to_use_cookie('mailchimp_user_email')) {
+            $this->respondJSON(array('success' => false, 'email' => false));
         }
 
         if ($this->doingAjax() && isset($_GET['email'])) {
@@ -856,6 +877,17 @@ class MailChimp_Service extends MailChimp_WooCommerce_Options
     {
         if (!$this->validated_cart_db) return false;
 
+        $hash = md5(strtolower($email));
+        $transient_key = "mailchimp-woocommerce-cart-{$hash}";
+
+        // let's set a transient here to block dup inserts
+        if (get_site_transient($transient_key)) {
+            return false;
+        }
+
+        // insert the transient
+        set_site_transient($transient_key, true, 5);
+
         global $wpdb;
 
         $table = "{$wpdb->prefix}mailchimp_carts";
@@ -870,6 +902,7 @@ class MailChimp_Service extends MailChimp_WooCommerce_Options
             $sql = $wpdb->prepare($statement, array(maybe_serialize($this->cart), $email, $user_id, $uid));
             try {
                 $wpdb->query($sql);
+                delete_site_transient($transient_key);
             } catch (\Exception $e) {
                 return false;
             }
@@ -882,6 +915,7 @@ class MailChimp_Service extends MailChimp_WooCommerce_Options
                     'cart'  => maybe_serialize($this->cart),
                     'created_at'   => gmdate('Y-m-d H:i:s', time()),
                 ));
+                delete_site_transient($transient_key);
             } catch (\Exception $e) {
                 return false;
             }

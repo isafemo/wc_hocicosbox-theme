@@ -1,0 +1,253 @@
+.hb-user-int-orders-title{
+    font-family: "VIntage";
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    color: #00a4a0;
+    margin-bottom: 36px;
+    margin-top: 50px;
+}
+.hb-user-int-orders-table th{
+    border-bottom: solid 1px #2c2c2c!important;
+    border-top: 0px !important;
+    vertical-align: middle;
+}
+.hb-user-int-orders-table td{
+    border-bottom: solid 1px #9b9b9b;
+    vertical-align: middle;
+}
+.hb-user-int-orders-table thead th{
+    font-family: "HelveticaNeue", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #9b9b9b;
+    /*padding-left: 50px;*/
+    /*padding-right: 50px;*/
+}
+
+.hb-user-int-orders-table tbody a{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #00a4a0;
+    /*padding-left: 50px;*/
+    /*padding-right: 50px;*/
+}
+
+.hb-user-int-orders-table tbody td{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #2c2c2c;
+    /*padding-left: 50px;*/
+    /*padding-right: 50px;*/
+}
+
+.hb-user-int-orders-table .btn-outline-primary{
+    padding: 10px 30px 10px 31px;
+    border: solid 1px #08c0bc;
+    border-radius: 0px;
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #08c0bc;
+    margin: 5px;
+}
+.hb-user-int-orders-table .btn-outline-primary:hover{
+    border: solid 1px #08c0bc;
+    background-color: #08c0bc;
+    color: #fff;
+}
+/*MY ORDER*/
+.hb-mo-order-number{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #00a4a0;
+}
+
+.hb-mo-info-start{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #2c2c2c;
+}
+
+.hb-mo-order-state{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #08c0bc;
+}
+
+.hb-mo-hr{
+    border: solid 1px #2c2c2c;
+}
+
+.hb-mo-title-col{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #9b9b9b;
+}
+
+.hb-mo-item-col a:link, .hb-mo-item-col a:visited{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    color: #2c2c2c;
+}
+
+.hb-mo-item-col a:hover, .hb-mo-item-col a:active{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    color: #2c2c2c;
+}
+
+.hb-mo-price-col{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color:#9b9b9b;
+}
+
+.hb-mo-price-col span{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #e6dcdc;
+}
+
+.hb-mo-total{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #2c2c2c;
+}
+.hb-mo-total span{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #2c2c2c;
+}
+
+.hb-mo-total-row{
+    font-family: "HelveticaNeue";
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: 0.23px;
+    text-align: right;
+    padding: 32px 44px 31px 38px;
+    border-radius: 8px;
+    background-color: #c7efed;
+}
+
+.hb-mo-th-orders{
+    margin-bottom: 32px;
+    margin-top: 21px;
+}
+
+.hb-mo-row-total{
+    padding-bottom: 20px;
+    text-align: right;
+}
+
+.hb-mo-pagination li a{
+    background-color: transparent;
+    border-radius: 10px 10px 10px 10px;
+    border: solid 2px #08c0bc;
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.63px;
+    text-align: center;
+    color: #08c0bc;
+    margin: 10px;
+}
+
+.hb-mo-pagination .active a{
+    background-color: #08c0bc;
+    color: #fff;
+    pointer-events: none;
+}
+
+.hb-mo-pagination a:hover{
+    color: #08c0bc;
+    background-color: #e7f8f8;
+    border: solid 2px #08c0bc;
+}
+
+.hb-mo-pagination .disabled a{
+    border: solid 2px #9b9b9b;
+    color: #9b9b9b;
+    /*cursor: not-allowed;*/
+    pointer-events: none;
+}

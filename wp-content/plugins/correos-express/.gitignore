@@ -1,0 +1,7 @@
+/target/ 
+/bin/ 
+/.settings/ 
+/acceptance-test/target/ 
+.classpath 
+.project 
+Jenkinsfile 

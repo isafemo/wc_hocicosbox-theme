@@ -15,25 +15,26 @@
  */
 
 get_header() ?>
-    <div class="content-area">
-        <div class="container">
-            <div class="row">
+<!--    <div class="content-area">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
         <?php
         if ( have_posts() ):
 
             while ( have_posts() ): the_post();
         ?>
-                <article>
-                    <h2><?= the_title() ?></h2>
-                    <div><?=  the_content() ?></div>
-                </article>
+<!--                <article>-->
+<!--                    <div>-->
+                        <?=  the_content() ?>
+<!--                </div>-->
+<!--                </article>-->
             <?php
         endwhile;
         else:
         ?>
         <p>Nothing to display</p>
         <?php endif; ?>
-            </div>
-        </div>
-    </div>
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 <?php get_footer() ?>

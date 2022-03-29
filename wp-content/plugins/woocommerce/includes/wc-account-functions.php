@@ -299,6 +299,17 @@ function wc_get_account_orders_actions( $order ) {
 		unset( $actions['cancel'] );
 	}
 
+    if ( $order->has_status( 'completed' ) ) {
+        $actions['order-again'] = array(
+            'url'  => wp_nonce_url( add_query_arg( 'order_again', $order->get_id() ) , 'woocommerce-order_again' ),
+            'name' => __( 'Repetir', 'woocommerce' )
+        );
+        $actions['facture'] = array(
+            'url'  => wp_nonce_url( add_query_arg( 'order_again', $order->get_id() ) , 'woocommerce-order_again' ),
+            'name' => __( 'Factura*', 'woocommerce' )
+        );
+    }
+
 	return apply_filters( 'woocommerce_my_account_my_orders_actions', $actions, $order );
 }
 

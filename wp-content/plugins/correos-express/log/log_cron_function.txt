@@ -1,0 +1,2 @@
+Comenzamos ejecucion Cron -> 28-03-2022 16:43:05
+	 LA EJECUCIÓN DEL CRON HA ACABADO

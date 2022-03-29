@@ -1,0 +1,68 @@
+.hb-my-account h1{
+    font-family: "VIntage";
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.68px;
+    color: #00a4a0;
+}
+.hb-my-account h3{
+    font-family: "HelveticaNeue";
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.28px;
+    color: #492f82;
+}
+.hb-my-account hr{
+    border: solid 1px #6c3fc3;
+}
+
+.hb-my-account label{
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.88;
+    letter-spacing: 0.2px;
+    color: #00a4a0;
+}
+
+.hb-my-account input{
+    border-radius: 8px;
+    border: solid 1px #9b9b9b;
+    background-color: #fff;
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.88;
+    letter-spacing: 0.2px;
+    color: #9b9b9b;
+    padding: 12px 0px 10px 19px;
+}
+
+.hb-my-account .col-12, .hb-my-account .col-md-6{
+    margin-bottom: 21px;
+}
+
+.hb-my-account button{
+    padding: 10px 54px 10px 53px;
+    background-color: #08c0bc!important;
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff!important;
+    border-radius: 0px;
+}

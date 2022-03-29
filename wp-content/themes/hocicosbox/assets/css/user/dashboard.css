@@ -1,0 +1,19 @@
+.btn-hb-dashboard{
+    border-radius: 10px;
+    background-color: #08c0bc;
+    font-family: "HelveticaNeue";
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.83px;
+    color: #ffffff;
+    width: 100%;
+    padding: 50px;
+    margin-bottom: 20px;
+    border: 0px;
+}
+
+.hb-mo-item-general .col{
+    margin-bottom: 16px;
+}
