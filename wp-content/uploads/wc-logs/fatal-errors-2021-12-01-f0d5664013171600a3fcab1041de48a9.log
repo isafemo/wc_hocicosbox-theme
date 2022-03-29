@@ -1,8 +1,0 @@
-2021-12-01T17:44:52+00:00 CRITICAL require_once(): Failed opening required 'C:\Users\Isabel\PhpstormProjects\wc_hocicosbox/wp-content/themes/hocicosbox/inc/customizer/basic-complete-simple-custom.php' (include_path='.;C:/laragon/etc/php/pear') en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\inc\customizer\customizer.php en la línea 10
-
-2021-12-01T17:44:53+00:00 CRITICAL require_once(): Failed opening required 'C:\Users\Isabel\PhpstormProjects\wc_hocicosbox/wp-content/themes/hocicosbox/inc/customizer/basic-complete-simple-custom.php' (include_path='.;C:/laragon/etc/php/pear') en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\inc\customizer\customizer.php en la línea 10
-
-2021-12-01T17:47:36+00:00 CRITICAL require_once(): Failed opening required 'C:\Users\Isabel\PhpstormProjects\wc_hocicosbox/wp-content/themes/hocicosbox/inc/customizer/customizer-pages/customizer-hocicosbox-page.php' (include_path='.;C:/laragon/etc/php/pear') en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\inc\customizer\customizer.php en la línea 19
-
-2021-12-01T17:47:37+00:00 CRITICAL require_once(): Failed opening required 'C:\Users\Isabel\PhpstormProjects\wc_hocicosbox/wp-content/themes/hocicosbox/inc/customizer/customizer-pages/customizer-hocicosbox-page.php' (include_path='.;C:/laragon/etc/php/pear') en C:\Users\Isabel\PhpstormProjects\wc_hocicosbox\wp-content\themes\hocicosbox\inc\customizer\customizer.php en la línea 19
-

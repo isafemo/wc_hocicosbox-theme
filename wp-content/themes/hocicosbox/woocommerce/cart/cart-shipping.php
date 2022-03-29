@@ -24,7 +24,75 @@ $has_calculated_shipping  = ! empty( $has_calculated_shipping );
 $show_shipping_calculator = ! empty( $show_shipping_calculator );
 $calculator_text          = '';
 ?>
-CART-SHIPPING
+<div class="container-fluid hb-c-wd-c">
+    <div class="row">
+        <div class="col">
+            <h2>Tu pedido</h2>
+        </div>
+    </div>
+    <div class="row hb-c-wd-items">
+        <?php
+        foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+            $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+            $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
+
+            if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) {
+                $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
+                ?>
+                <div class="col-8">
+                    <p><?= $_product->get_name() ?></p>
+                </div>
+                <div class="col">
+                    <p class="hb-c-wd-price"><?= WC()->cart->get_product_price($_product) ?>
+                        <span> x <?= $cart_item['quantity'] ?></span></p>
+                </div>
+            <?php }
+        } ?>
+    </div>
+    <div class="row hb-c-wd-totals">
+        <div class="col">
+            <p>Envio</p>
+        </div>
+        <div class="col">
+            <span>dineros</span>
+        </div>
+    </div>
+    <div class="row hb-c-wd-totals">
+        <div class="col">
+            <p>Impuestos</p>
+        </div>
+        <div class="col">
+            <span>dineros</span>
+        </div>
+    </div>
+    <div class="row hb-c-wd-totals">
+        <div class="col">
+            <div class="row">
+                <div class="col"><p>Descuento:</p></div>
+            </div>
+            <div class="row">
+                <div class="col">codename</div>
+            </div>
+        </div>
+        <div class="col">
+            <span>dineros</span>
+        </div>
+    </div>
+    <div class="row hb-c-wd-total-row">
+        <div class="col">
+            Total
+        </div>
+        <div class="col">
+            dineros
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary">FINALIZAR COMPRA</a>
+        </div>
+    </div>
+</div>
+cart-shipping.php
 <tr class="woocommerce-shipping-totals shipping">
 	<th><?php echo wp_kses_post( $package_name ); ?></th>
 	<td data-title="<?php echo esc_attr( $package_name ); ?>">
